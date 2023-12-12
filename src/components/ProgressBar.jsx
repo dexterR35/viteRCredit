@@ -10,11 +10,11 @@ export const Progress = ({ currentStep, totalSteps }) => {
 
     // Set different colors for each step based on its order
     if (isCurrentStep) {
-      barColorClass = "bg-blue-500"; // Current step is blue
+      barColorClass = "bg-green-600"; // Current step is blue
     } else if (step < currentStep) {
-      barColorClass = "bg-green-500"; // Completed steps are green
+      barColorClass = "bg-green-600"; // Completed steps are green
     } else {
-      barColorClass = "bg-gray-300"; // Upcoming steps are gray
+      barColorClass = "bg-white"; // Upcoming steps are gray
     }
 
     stepBars.push(
@@ -27,7 +27,7 @@ export const Progress = ({ currentStep, totalSteps }) => {
   }
 
   return (
-    <div className="w-screen bg-red-700">
+    <div className="w-full">
       <div className="flex">{stepBars}</div>
     </div>
   );

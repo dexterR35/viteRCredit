@@ -1,3 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  label {
+    @apply block leading-6 text-gray-700 text-sm mb-2;
+  }
+  input,
+  select {
+    @apply shadow appearance-none border rounded w-full h-[3.2em] py-2 px-3 text-gray-700 leading-tight outline-0;
+  }
+
+  .btn-sm {
+    @apply bg-green-600 py-3 px-4 font-bold rounded-sm text-white;
+  }
+  .p-custom {
+    @apply text-[1.05rem] leading-5 w-full p-4 bg-gray-200 rounded-md;
+  }
+}
+
+@layer base {
+  h2 {
+    @apply text-2xl;
+  }
+}

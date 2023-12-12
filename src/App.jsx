@@ -13,12 +13,14 @@ const Quiz = () => {
   };
 
   return (
-    <div>
+    <div className="sm:w-1/4 w-full h-screen bg-gray-100">
       <Progress currentStep={step} totalSteps={4} />
-      {step === 1 && <Step1 handleStepChange={handleStepChange} />}
-      {step === 2 && <Step2 handleStepChange={handleStepChange} />}
-      {step === 3 && <Step3 handleStepChange={handleStepChange} />}
-      {step === 4 && <Step4 handleStepChange={handleStepChange} />}
+      <div className="p-2 px-4 border-2">
+        {step === 1 && <Step1 handleStepChange={handleStepChange} />}
+        {step === 2 && <Step2 handleStepChange={handleStepChange} />}
+        {step === 3 && <Step3 handleStepChange={handleStepChange} />}
+        {step === 4 && <Step4 handleStepChange={handleStepChange} />}
+      </div>
     </div>
   );
 };
