@@ -17,7 +17,7 @@ const Step1 = ({ handleStepChange }) => {
   };
 
   const handleContinue = () => {
-    handleStepChange(2); // Go to Step2 when "Continue" is pressed
+    handleStepChange(2); // Go tosss Step2 when "Continue" is pressed
   };
 
   const isContinueDisabled =
