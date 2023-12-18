@@ -6,22 +6,22 @@ const Step4 = () => {
   const images = {
     banks: [
       { src: "../assets/logo/bcr.png", dataAtr: "Bcr" },
-      { src: "../assets/logo/raiff.png", dataAtr: "Raiffeisen Bank" },
+      { src: "../assets/logo/raiff.png", dataAtr: "Raiffeisen-Bank" },
       { src: "../assets/logo/unicredit.png", dataAtr: "Unicredit" },
-      { src: "../assets/logo/otp.png", dataAtr: "Otp Bank" },
-      { src: "../assets/logo/ing.png", dataAtr: "Ing Bank" },
-      { src: "../assets/logo/brd.png", dataAtr: "Brd Bank" },
-      { src: "../assets/logo/tbi-bank.png", dataAtr: "Tbi Bank" },
+      { src: "../assets/logo/otp.png", dataAtr: "Otp-Bank" },
+      { src: "../assets/logo/ing.png", dataAtr: "Ing-Bank" },
+      { src: "../assets/logo/brd.png", dataAtr: "Brd-Bank" },
+      { src: "../assets/logo/tbi-bank.png", dataAtr: "Tbi-Bank" },
       { src: "../assets/logo/cetelem.png", dataAtr: "Cetelem" },
-      { src: "../assets/logo/alpha.png", dataAtr: "Alpha Bank" },
-      { src: "../assets/logo/cec.png", dataAtr: "Cec Bank" },
-      { src: "../assets/logo/Libra_Bank.webp", dataAtr: "Libra Bank" },
-      { src: "../assets/logo/first_banks.png", dataAtr: "First Bank" },
-      { src: "../assets/logo/garanti.png", dataAtr: "Garanti Bank" },
+      { src: "../assets/logo/alpha.png", dataAtr: "Alpha-Bank" },
+      { src: "../assets/logo/cec.png", dataAtr: "Cec-Bank" },
+      { src: "../assets/logo/Libra_Bank.webp", dataAtr: "Libra-Bank" },
+      { src: "../assets/logo/first_banks.png", dataAtr: "First-Bank" },
+      { src: "../assets/logo/garanti.png", dataAtr: "Garanti-Bank" },
       { src: "../assets/logo/bt.png", dataAtr: "BT" },
       {
         src: "../assets/logo/banca_romaneasca.png",
-        dataAtr: "Banca Romaneasca",
+        dataAtr: "Banca-Romaneasca",
       },
     ],
     ifn: [
@@ -29,11 +29,11 @@ const Step4 = () => {
       { src: "../assets/logo/icredit.png", dataAtr: "iCredit" },
       {
         src: "../assets/logo/horacredit.png",
-        dataAtr: "Hora Credit",
+        dataAtr: "Hora-Credit",
       },
       { src: "../assets/logo/icredit.png", dataAtr: "Icredit" },
-      { src: "../assets/logo/vivacredit.png", dataAtr: "vivacredit" },
-      { src: "../assets/logo/brdfinance.png", dataAtr: "Brd Finance" },
+      { src: "../assets/logo/vivacredit.png", dataAtr: "Viva-credit" },
+      { src: "../assets/logo/brdfinance.png", dataAtr: "Brd-Finance" },
     ],
   };
   const handleDivClick = (divName) => {
@@ -59,7 +59,7 @@ const Step4 = () => {
         {images.banks.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent  ${
+            className={`img-parrent pointer ${
               selectedDivNames.includes(image.dataAtr)
                 ? "selected bg-green-200"
                 : ""
@@ -70,7 +70,7 @@ const Step4 = () => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className="w-[100%] h-[100%] object-contain"
+              className={`w-[80%] h-[80%] object-contain ${image.dataAtr}`}
             />
           </div>
         ))}
@@ -85,7 +85,7 @@ const Step4 = () => {
         {images.ifn.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent ${
+            className={`img-parrent pointer ${
               selectedDivNames.includes(image.dataAtr) ? "selected" : ""
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
@@ -94,7 +94,7 @@ const Step4 = () => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className="w-[100%] h-[100%] object-contain"
+              className={`w-[80%] h-[80%] object-contain  ${image.dataAtr}`}
             />
           </div>
         ))}

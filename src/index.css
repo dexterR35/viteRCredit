@@ -39,3 +39,12 @@
     @apply text-2xl;
   }
 }
+
+.BT,
+.Banca-Romaneasca,
+.Alpha-Bank,
+.Hora-Credit,
+.Brd-Finance {
+  width: 130%;
+  height: 130%;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Form = ({ handleStepChange }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const Form = ({ handleStepChange }) => {
   };
 
   const handleContinue = () => {
-    handleStepChange(2); // Go tosss Step2 when "Continue" is pressed
+    handleStepChange(2); // Go tos Step2 when "Continue" is pressed
   };
 
   const isContinueDisabled =
@@ -25,7 +25,7 @@ const Form = ({ handleStepChange }) => {
 
   return (
     <div className="w-full bg-gray-100 ">
-      <h2 className="pt-6 font-bold sm:mt-2 sm:text-2xl sm:w-[90%] text-3xl">
+      <h2 className="pt-6 font-bold sm:mt-2 sm:text-3xl sm:w-[90%] text-3xl">
         Soluții de creditare personalizate
       </h2>
       <h5 className="my-3 text-[14px] leading-5 text-gray-500">
@@ -37,13 +37,14 @@ const Form = ({ handleStepChange }) => {
           Error, succes
         </h5>
         <form className="flex flex-col justify-evenly px-0 py-4">
-          <label className="mb-3">
-            Name:
+          <label className="mb-3 ">
+            Nume:
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
+              required
             />
           </label>
           <label className="mb-3">
