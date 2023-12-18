@@ -21,6 +21,9 @@ module.exports = {
           300: "#dfdfdf",
         },
       },
+      gridTemplateRows: {
+        7: "repeat(7, 60px)",
+      },
     },
   },
   plugins: [],

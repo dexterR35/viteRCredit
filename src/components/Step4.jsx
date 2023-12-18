@@ -50,10 +50,7 @@ const Step4 = ({ handleStepChange }) => {
   };
 
   const handleFinal = () => {
-    const isDaSelected = selectedDivNames.includes("Da"); // Assuming "Da" is the value for the "da" option
-    console.log(isDaSelected, "safa");
-    setSelectedOption(isDaSelected ? "da" : "nu");
-    handleStepChange(6, { isDaSelected });
+    handleStepChange(6);
   };
 
   return (
@@ -62,7 +59,7 @@ const Step4 = ({ handleStepChange }) => {
       <p className="p-custom text-center">
         Selecteaza Bancile la care detii raport negativ.
       </p>
-      <div className="image-grid">
+      <div className="image-grid grid-rows-7">
         {images.banks.map((image, index) => (
           <div
             key={index}
@@ -70,6 +67,8 @@ const Step4 = ({ handleStepChange }) => {
               selectedDivNames.includes(image.dataAtr)
                 ? "selected bg-secondary"
                 : ""
+            } ${
+              index >= images.banks.length - 2 ? "col-span-3" : "col-span-1"
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
             data-name={image.dataAtr}
@@ -77,7 +76,9 @@ const Step4 = ({ handleStepChange }) => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}`}
+              className={`w-[90%] object-contain ${image.dataAtr} ${
+                index >= images.banks.length - 3 ? "h-[50%]" : "h-[90%]"
+              } `}
             />
           </div>
         ))}
