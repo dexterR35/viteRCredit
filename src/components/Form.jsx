@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Step1 = ({ handleStepChange }) => {
+const Form = ({ handleStepChange }) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,19 +25,19 @@ const Step1 = ({ handleStepChange }) => {
 
   return (
     <div className="w-full bg-gray-100 ">
-      <h2 className="mt-5 pt-5 font-bold uppercase my-2 sm:pt-2 sm:mt-2 sm:text-2xl">
+      <h2 className="pt-6 font-bold sm:mt-2 sm:text-2xl sm:w-[90%] text-3xl">
         Soluții de creditare personalizate
       </h2>
-      <h5 className="my-2 mb-3 text-md">
+      <h5 className="my-3 text-[14px] leading-5 text-gray-500">
         Află cum poți obține cele mai bune oferte de credite prin intermediul
         experților.
       </h5>
-      <div className="h-full rounded pt-2 pb-8 mb-4">
+      <div className="h-full rounded my-4">
         <h5 className="bg-green-600 text-white text-center text-sm py-1 rounded-sm">
           Error, succes
         </h5>
         <form className="flex flex-col justify-evenly px-0 py-4">
-          <label>
+          <label className="mb-3">
             Name:
             <input
               type="text"
@@ -46,7 +46,7 @@ const Step1 = ({ handleStepChange }) => {
               onChange={handleInputChange}
             />
           </label>
-          <label>
+          <label className="mb-3">
             Telefon:
             <input
               type="number"
@@ -55,7 +55,7 @@ const Step1 = ({ handleStepChange }) => {
               onChange={handleInputChange}
             />
           </label>
-          <label>
+          <label className="mb-3">
             Email:
             <input
               type="email"
@@ -64,7 +64,7 @@ const Step1 = ({ handleStepChange }) => {
               onChange={handleInputChange}
             />
           </label>
-          <label>
+          <label className="mb-3">
             Cum ati auzit de noi?
             <select
               name="selection"
@@ -100,4 +100,4 @@ const Step1 = ({ handleStepChange }) => {
   );
 };
 
-export default Step1;
+export default Form;

@@ -1,20 +1,118 @@
-import React from "react";
+import { useState } from "react";
 
 const Step4 = () => {
+  const [selectedDivNames, setSelectedDivNames] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const images = {
+    banks: [
+      { src: "../assets/logo/bcr.png", dataAtr: "Bcr" },
+      { src: "../assets/logo/raiff.png", dataAtr: "Raiffeisen Bank" },
+      { src: "../assets/logo/unicredit.png", dataAtr: "Unicredit" },
+      { src: "../assets/logo/otp.png", dataAtr: "Otp Bank" },
+      { src: "../assets/logo/ing.png", dataAtr: "Ing Bank" },
+      { src: "../assets/logo/brd.png", dataAtr: "Brd Bank" },
+      { src: "../assets/logo/tbi-bank.png", dataAtr: "Tbi Bank" },
+      { src: "../assets/logo/cetelem.png", dataAtr: "Cetelem" },
+      { src: "../assets/logo/alpha.png", dataAtr: "Alpha Bank" },
+      { src: "../assets/logo/cec.png", dataAtr: "Cec Bank" },
+      { src: "../assets/logo/Libra_Bank.webp", dataAtr: "Libra Bank" },
+      { src: "../assets/logo/first_banks.png", dataAtr: "First Bank" },
+      { src: "../assets/logo/garanti.png", dataAtr: "Garanti Bank" },
+      { src: "../assets/logo/bt.png", dataAtr: "BT" },
+      {
+        src: "../assets/logo/banca_romaneasca.png",
+        dataAtr: "Banca Romaneasca",
+      },
+    ],
+    ifn: [
+      { src: "../assets/logo/providet.png", dataAtr: "Provident" },
+      { src: "../assets/logo/icredit.png", dataAtr: "iCredit" },
+      {
+        src: "../assets/logo/horacredit.png",
+        dataAtr: "Hora Credit",
+      },
+      { src: "../assets/logo/icredit.png", dataAtr: "Icredit" },
+      { src: "../assets/logo/vivacredit.png", dataAtr: "vivacredit" },
+      { src: "../assets/logo/brdfinance.png", dataAtr: "Brd Finance" },
+    ],
+  };
+  const handleDivClick = (divName) => {
+    if (selectedDivNames.includes(divName)) {
+      setSelectedDivNames(selectedDivNames.filter((name) => name !== divName));
+    } else {
+      setSelectedDivNames([...selectedDivNames, divName]);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   return (
-    <div className="pt-6 mb-6">
-      <h2 className="text-black font-bold text-center leading-6 mb-5">
-        Step 3
-      </h2>
+    <div className="py-8">
+      <p className="p-title ">Selectie Banci</p>
       <p className="p-custom">
-        O vechime mai mare la locul de muncă poate spori șansele de a fi aprobat
-        pentru un credit bancar, deoarece băncile consideră angajații cu o
-        astfel de experiență mai stabili și mai puțin riscați, și pot oferi rate
-        mai bune și condiții mai favorabile.
+        Selecteaza Bancile la care detii raport negativ.
       </p>
-      <p>Dacă nu reții exact, poți să aproximezi data la care te ai angajat?</p>
-      <div>
-        <button className="btn-sm w-full">Continua</button>
+
+      <div className="image-grid">
+        {images.banks.map((image, index) => (
+          <div
+            key={index}
+            className={`img-parrent  ${
+              selectedDivNames.includes(image.dataAtr)
+                ? "selected bg-green-200"
+                : ""
+            }`}
+            onClick={() => handleDivClick(image.dataAtr)}
+            data-name={image.dataAtr}
+          >
+            <img
+              src={image.src}
+              alt={image.dataAtr}
+              className="w-[100%] h-[100%] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+
+      <p className="p-title mt-6">Selectie IFN-uri</p>
+      <p className="p-custom">
+        Selecteaza IFN-urile la care detii raport negativ.
+      </p>
+
+      <div className="image-grid">
+        {images.ifn.map((image, index) => (
+          <div
+            key={index}
+            className={`img-parrent ${
+              selectedDivNames.includes(image.dataAtr) ? "selected" : ""
+            }`}
+            onClick={() => handleDivClick(image.dataAtr)}
+            data-name={image.dataAtr}
+          >
+            <img
+              src={image.src}
+              alt={image.dataAtr}
+              className="w-[100%] h-[100%] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+      <label>
+        Altele:
+        <input type="text" onChange={handleInputChange} />
+      </label>
+      <div className="my-4 flex flex-wrap gap-2 w-full">
+        {selectedDivNames.map((name, index) => (
+          <p className="bg-green-200 w-fill p-2 rounded-md" key={index}>
+            {name}
+          </p>
+        ))}
+        {inputValue && <p>{`, ${inputValue}`}</p>}
+      </div>
+      <div className="btn-parent">
+        <button className="btn-sm w-full">Finalizare</button>
       </div>
     </div>
   );

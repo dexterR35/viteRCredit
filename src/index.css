@@ -13,13 +13,27 @@
   }
 
   .btn-sm {
-    @apply bg-green-600 py-3 px-4 font-bold rounded-sm text-white;
+    @apply bg-green-600 py-3 px-4 font-bold rounded-md text-white;
   }
   .p-custom {
-    @apply text-[1.05rem] leading-5 w-full p-4 bg-gray-200 rounded-md;
+    @apply text-[0.96rem] leading-5 w-full p-3 bg-gray-200 rounded-md font-normal text-start;
+  }
+  .p-title {
+    @apply text-black font-bold text-center leading-6 mb-6 text-[23px];
+  }
+  .p-question {
+    @apply text-center font-bold text-[1.1rem] leading-6 mt-6;
+  }
+  .btn-parent {
+    @apply flex items-center w-full justify-center space-x-6 mt-6;
+  }
+  .img-parrent {
+    @apply flex items-center justify-center rounded-md p-2 px-3 border-[1px] border-gray-300;
+  }
+  .image-grid {
+    @apply grid grid-cols-3 place-content-center gap-2 my-4  py-2 rounded-md;
   }
 }
-
 @layer base {
   h2 {
     @apply text-2xl;
