@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const Step4 = () => {
+const Step4 = ({ handleStepChange }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
   const images = {
     banks: [
       { src: "../assets/logo/bcr.png", dataAtr: "Bcr" },
@@ -48,20 +49,26 @@ const Step4 = () => {
     setInputValue(e.target.value);
   };
 
+  const handleFinal = () => {
+    const isDaSelected = selectedDivNames.includes("Da"); // Assuming "Da" is the value for the "da" option
+    console.log(isDaSelected, "safa");
+    setSelectedOption(isDaSelected ? "da" : "nu");
+    handleStepChange(6, { isDaSelected });
+  };
+
   return (
     <div className="py-8">
-      <p className="p-title ">Selectie Banci</p>
-      <p className="p-custom">
+      <p className="p-title mb-2">Banci</p>
+      <p className="p-custom text-center">
         Selecteaza Bancile la care detii raport negativ.
       </p>
-
       <div className="image-grid">
         {images.banks.map((image, index) => (
           <div
             key={index}
             className={`img-parrent pointer ${
               selectedDivNames.includes(image.dataAtr)
-                ? "selected bg-green-200"
+                ? "selected bg-secondary"
                 : ""
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
@@ -70,14 +77,14 @@ const Step4 = () => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[80%] h-[80%] object-contain ${image.dataAtr}`}
+              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}`}
             />
           </div>
         ))}
       </div>
 
-      <p className="p-title mt-6">Selectie IFN-uri</p>
-      <p className="p-custom">
+      <p className="p-title mt-6 mb-2">IFN-uri</p>
+      <p className="p-custom text-center">
         Selecteaza IFN-urile la care detii raport negativ.
       </p>
 
@@ -94,25 +101,28 @@ const Step4 = () => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[80%] h-[80%] object-contain  ${image.dataAtr}`}
+              className={`w-[80%] h-[80%] object-contain ${image.dataAtr}`}
             />
           </div>
         ))}
       </div>
+
       <label>
         Altele:
         <input type="text" onChange={handleInputChange} />
       </label>
       <div className="my-4 flex flex-wrap gap-2 w-full">
         {selectedDivNames.map((name, index) => (
-          <p className="bg-green-200 w-fill p-2 rounded-md" key={index}>
+          <p className="bg-secondary w-fill p-2 rounded-md" key={index}>
             {name}
           </p>
         ))}
         {inputValue && <p>{`, ${inputValue}`}</p>}
       </div>
       <div className="btn-parent">
-        <button className="btn-sm w-full">Finalizare</button>
+        <button className="btn-sm w-full" onClick={handleFinal}>
+          Finalizare
+        </button>
       </div>
     </div>
   );

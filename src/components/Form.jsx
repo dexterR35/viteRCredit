@@ -24,7 +24,7 @@ const Form = ({ handleStepChange }) => {
     !formData.name || !formData.email || !formData.selection || !formData.phone;
 
   return (
-    <div className="w-full bg-gray-100 ">
+    <div className="w-full">
       <h2 className="pt-6 font-bold sm:mt-2 sm:text-3xl sm:w-[90%] text-3xl">
         Soluții de creditare personalizate
       </h2>
@@ -33,7 +33,7 @@ const Form = ({ handleStepChange }) => {
         experților.
       </h5>
       <div className="h-full rounded my-4">
-        <h5 className="bg-green-600 text-white text-center text-sm py-1 rounded-sm">
+        <h5 className="bg-primary text-white text-center text-sm py-1 rounded-sm">
           Error, succes
         </h5>
         <form className="flex flex-col justify-evenly px-0 py-4">
@@ -45,6 +45,7 @@ const Form = ({ handleStepChange }) => {
               value={formData.name}
               onChange={handleInputChange}
               required
+              placeholder=""
             />
           </label>
           <label className="mb-3">
@@ -54,6 +55,7 @@ const Form = ({ handleStepChange }) => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
+              placeholder=""
             />
           </label>
           <label className="mb-3">
@@ -63,6 +65,7 @@ const Form = ({ handleStepChange }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              placeholder=""
             />
           </label>
           <label className="mb-3">
@@ -83,7 +86,7 @@ const Form = ({ handleStepChange }) => {
           <br />
           <button
             className={`btn-sm w-full ${
-              isContinueDisabled ? "bg-gray-300" : "bg-green-600"
+              isContinueDisabled ? "bg-gray-200" : "bg-red"
             }`}
             onClick={handleContinue}
             disabled={isContinueDisabled}

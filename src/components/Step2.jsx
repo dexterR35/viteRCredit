@@ -27,10 +27,10 @@ const Step2 = ({ handleStepChange }) => {
         Ești raportat negativ <br /> in Biroul de credit?
       </p>
       <div className="btn-parent">
-        <button className="btn-sm w-[50%]" onClick={handleYes}>
+        <button className="btn-sm w-[35%]" onClick={handleYes}>
           Da
         </button>
-        <button className="btn-sm w-[50%]" onClick={handleNo}>
+        <button className="btn-sm w-[35%]" onClick={handleNo}>
           Nu
         </button>
       </div>

@@ -5,24 +5,24 @@
 
 @layer components {
   label {
-    @apply block leading-6 text-gray-700 text-sm mb-2;
+    @apply block leading-6 text-gray-500 text-sm mb-2;
   }
   input,
   select {
-    @apply shadow appearance-none border rounded w-full h-[3.2em] py-2 px-3 text-gray-700 leading-tight outline-0;
+    @apply bg-white shadow-sm appearance-none border rounded w-full h-[3.2em] py-2 px-3 text-gray-700 leading-tight outline-0;
   }
 
   .btn-sm {
-    @apply bg-green-600 py-3 px-4 font-bold rounded-md text-white;
+    @apply bg-primary py-3 px-4 font-semibold rounded-md text-white;
   }
   .p-custom {
     @apply text-[0.96rem] leading-5 w-full p-3 bg-gray-200 rounded-md font-normal text-start;
   }
   .p-title {
-    @apply text-black font-bold text-center leading-6 mb-6 text-[23px];
+    @apply text-black font-semibold text-center leading-6 mb-6 text-[23px];
   }
   .p-question {
-    @apply text-center font-bold text-[1.1rem] leading-6 mt-6;
+    @apply text-center font-semibold text-[1.1rem] leading-6 mt-6;
   }
   .btn-parent {
     @apply flex items-center w-full justify-center space-x-6 mt-6;
@@ -31,7 +31,7 @@
     @apply flex items-center justify-center rounded-md p-2 px-3 border-[1px] border-gray-300;
   }
   .image-grid {
-    @apply grid grid-cols-3 place-content-center gap-2 my-4  py-2 rounded-md;
+    @apply grid grid-cols-3 place-content-center gap-2 my-4 py-2 rounded-md;
   }
 }
 @layer base {

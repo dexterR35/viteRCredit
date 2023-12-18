@@ -4,6 +4,7 @@ import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
 import Step4 from "./components/Step4";
 import Step5 from "./components/Step5";
+import FinalStep from "./components/FinalStep";
 import { Progress } from "./components/ProgressBar";
 import { LoadingScreen } from "./components/LoadingScreen";
 
@@ -16,16 +17,16 @@ const Quiz = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setStep(newStep);
-    }, 400);
+    }, 550);
+    setStep(newStep);
   };
   return (
     <>
-      <div className="sm:w-[480px] w-full h-screen bg-gray-100 relative border-[1px]">
+      <div className="sm:w-[480px] w-full h-full bg-white relative">
         <Progress currentStep={step} totalSteps={6} />
         <div className="p-2 px-4">
           {isLoading ? (
-            <LoadingScreen /> // Show loading screen
+            <LoadingScreen />
           ) : (
             <>
               {step === 1 && <Form handleStepChange={handleStepChange} />}
@@ -33,14 +34,14 @@ const Quiz = () => {
               {step === 3 && <Step3 handleStepChange={handleStepChange} />}
               {step === 4 && <Step4 handleStepChange={handleStepChange} />}
               {step === 5 && <Step5 handleStepChange={handleStepChange} />}
-
-              <footer className="flex items-center justify-center text-[12px] absolute bottom-0 left-0 bg-red-200 w-full h-[40px] text-center">
-                ObtineCredit.ro
-              </footer>
+              {step === 6 && <FinalStep handleStepChange={handleStepChange} />}
             </>
           )}
         </div>
       </div>
+      <footer className="flex items-center justify-center text-[12px] relative bottom-0 left-0 w-full h-[40px] text-center">
+        ObtineCredit.ro
+      </footer>
     </>
   );
 };
