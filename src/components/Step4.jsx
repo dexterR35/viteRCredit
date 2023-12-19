@@ -68,7 +68,9 @@ const Step4 = ({ handleStepChange }) => {
                 ? "selected bg-secondary"
                 : ""
             } ${
-              index >= images.banks.length - 2 ? "col-span-3" : "col-span-1"
+              index >= images.banks.length - 2 ? "col-span-2" : "col-span-1"
+            } ${
+              index >= images.banks.length - 1 ? "col-span-3" : "col-span-1"
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
             data-name={image.dataAtr}
@@ -76,8 +78,8 @@ const Step4 = ({ handleStepChange }) => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[90%] object-contain ${image.dataAtr} ${
-                index >= images.banks.length - 3 ? "h-[50%]" : "h-[90%]"
+              className={`w-[100%] object-contain ${image.dataAtr} ${
+                index >= images.banks.length - 2 ? "h-[50%]" : "h-[60%]"
               } `}
             />
           </div>

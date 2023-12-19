@@ -86,7 +86,7 @@ const Form = ({ handleStepChange }) => {
           <br />
           <button
             className={`btn-sm w-full ${
-              isContinueDisabled ? "bg-gray-200" : "bg-red"
+              isContinueDisabled ? "bg-gray-300" : "bg-red"
             }`}
             onClick={handleContinue}
             disabled={isContinueDisabled}
