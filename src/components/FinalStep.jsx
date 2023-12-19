@@ -1,7 +1,7 @@
 import React from "react";
 
 const FinalStep = () => {
-  return <div></div>;
+  return <div>final step</div>;
 };
 
 export default FinalStep;

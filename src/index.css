@@ -9,7 +9,7 @@
   }
   input,
   select {
-    @apply bg-white shadow-sm appearance-none border rounded w-full h-[3.2em] py-2 px-3 text-gray-700 leading-tight outline-0;
+    @apply bg-white appearance-none border border-gray-300 rounded w-full h-[3.2em] py-2 px-3 text-gray-700 leading-tight outline-0;
   }
 
   .btn-sm {

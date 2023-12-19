@@ -6,6 +6,7 @@ const Step3 = ({ handleStepChange }) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+
   const months = [
     "Ianuarie",
     "Februarie",
@@ -20,9 +21,9 @@ const Step3 = ({ handleStepChange }) => {
     "Noiembrie",
     "Decembrie",
   ];
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
+  // useEffect(() => {
+  //   // setYear(new Date().getFullYear());
+  // }, []);
 
   const generateDayOptions = () => {
     let options = [];
@@ -39,7 +40,7 @@ const Step3 = ({ handleStepChange }) => {
   const generateYearOptions = () => {
     let options = [];
     let currentYear = new Date().getFullYear();
-    for (let i = currentYear; i >= 1980; i--) {
+    for (let i = currentYear + 1; i >= 1999; i--) {
       options.push(
         <option key={i} value={i}>
           {i}
@@ -101,19 +102,17 @@ const Step3 = ({ handleStepChange }) => {
       </div>{" "}
       {isDateSelected && (
         <div className="text-center text-md mb-2 mt-2 rounded-md border-[1px]">
-          <p
-            id="selectedDate"
-            style={{
-              border: "1px solid var(--border-input)",
-              padding: "0.4em 0",
-            }}
-          >
+          <p id="selectedDate" className="border border-gray-300 py-3">
             Ai ales: {day} / {month} / {year}
           </p>
         </div>
       )}
       <div className="btn-parent">
-        <button className="btn-sm w-full" onClick={continueS}>
+        <button
+          className={`btn-sm w-full ${!isDateSelected ? "bg-gray-300" : ""}`}
+          onClick={continueS}
+          disabled={!isDateSelected}
+        >
           Continua
         </button>
       </div>
