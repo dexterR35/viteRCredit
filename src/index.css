@@ -16,7 +16,7 @@
     @apply bg-primary py-3 px-4 font-semibold rounded-md text-white;
   }
   .p-custom {
-    @apply text-[0.96rem] leading-5 w-full p-3 bg-gray-200 rounded-md font-normal text-start;
+    @apply text-[0.96rem] leading-5 w-full p-4 bg-gray-200 rounded-md font-normal text-start;
   }
   .p-title {
     @apply text-black font-semibold text-center leading-6 mb-6 text-[23px];

@@ -1,5 +1,13 @@
 // import Check from "../components/Check";
 import { useState } from "react";
+import { CiCircleInfo } from "react-icons/ci";
+import { IoMdCheckmark } from "react-icons/io";
+
+const optionBox = [
+  { label: "Detin istoric bancar", value: true },
+  { label: "Nu detin istoric bancar", value: false },
+];
+
 const Step5 = ({ handleStepChange }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -17,40 +25,42 @@ const Step5 = ({ handleStepChange }) => {
   };
   return (
     <div className="py-8">
-      <p className="p-title">Stiati ca !?</p>
-      <p className="p-custom">
+      <p className="p-title mb-10">Istoric Bancar</p>
+      <div className="p-custom text-start">
+        <div className="text-lg font-semibold mb-2">
+          Stiati ca !?
+          <CiCircleInfo className="float-right h-5 w-5" />
+        </div>
         Creditele bancare au apărut încă din antichitate, când bancherii
         furnizau finanțare pentru comerț și afaceri. În Evul Mediu, băncile au
         oferit împrumuturi pentru a finanța construcția de clădiri și alte
         proiecte.
-      </p>
-      <p className="p-question mt-6 w-[90%] mx-auto">
+      </div>
+      <p className="p-question w-[90%] mx-auto mt-8 mb-8">
         Detine-ți istoric bancar sau credite in prezent?
       </p>
       <div className="flex gap-4 w-full mt-6">
-        <label className="flex p-3 w-full justify-between bg-white border border-gray-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
-          <span className="text-sm text-gray-500">
-            Detin istoric <br /> bancar
-          </span>
-          <input
-            type="checkbox"
-            checked={isChecked === true}
-            onChange={() => handleCheckboxChange(true)}
-            className="p-0 mt-0.5 border-gray-400 rounded focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  checked:bg-primary checked:border-primary w-8 h-8"
-          />
-        </label>
-
-        <label className="flex p-3 w-full justify-between bg-white border border-gray-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500">
-          <span className="text-sm text-gray-500 ">
-            Nu detin istoric <br /> bancar
-          </span>
-          <input
-            type="checkbox"
-            checked={isChecked === false}
-            onChange={() => handleCheckboxChange(false)}
-            className="p-0 mt-0.5 border-gray-400 rounded focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  checked:bg-primary checked:border-primary w-8 h-8"
-          />
-        </label>
+        {optionBox.map((option) => (
+          <label
+            key={option.label}
+            className="flex p-3 w-full justify-between bg-white border border-gray-300 rounded-lg text-sm"
+          >
+            <span className="text-sm text-gray-500 w-2/3">{option.label}</span>
+            <span className="relative">
+              <input
+                type="checkbox"
+                checked={isChecked === option.value}
+                onChange={() => handleCheckboxChange(option.value)}
+                className="p-0 mt-0.5 border-gray-400 rounded disabled:opacity-50 disabled:pointer-events-none checked:bg-primary checked:border-primary w-6 h-6"
+              />
+              {isChecked === option.value && (
+                <div className="absolute top-[-6px] left-0 w-full h-full flex items-center justify-center">
+                  <IoMdCheckmark className="text-white font-fold w-5 h-5" />
+                </div>
+              )}
+            </span>
+          </label>
+        ))}
       </div>
       <div className="btn-parent">
         <button
