@@ -23,7 +23,7 @@ const Quiz = () => {
   return (
     <>
       <div className="wrapper sm:w-[480px] w-full bg-white border-gray-300 border">
-        <div className=" w-full h-screen relative">
+        <div className=" w-full relative">
           <Progress currentStep={step} totalSteps={6} />
           <div className="p-2 px-4">
             {isLoading ? (

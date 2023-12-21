@@ -7,7 +7,7 @@ const FinalStep = () => {
       <div className="w-full text-center py-2 mb-8 text-sm rounded-md">
         <p className="p-custom text-md">
           <div className="text-lg font-semibold mb-2">
-            Cererea a fost depusa !?
+            Cererea a fost depusa
             <FaRegCircleCheck className="float-right h-6 w-6 text-primary" />
           </div>
           Situația dvs va fi examinată cu atenție și un reprezentant va reveni
@@ -16,7 +16,7 @@ const FinalStep = () => {
       </div>
       <p className="p-custom my-4">
         <div className="text-lg font-semibold mb-2">
-          Info !?
+          Info
           <CiCircleInfo className="float-right h-6 w-6" />
         </div>
         Suntem conștienți că fără un istoric bancar, accesul la unele servici

@@ -3,7 +3,7 @@ import { useState } from "react";
 const Step4 = ({ handleStepChange }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
+  // const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
   const images = {
     banks: [
       { src: "../assets/logo/bcr.png", dataAtr: "Bcr" },
@@ -59,18 +59,14 @@ const Step4 = ({ handleStepChange }) => {
       <p className="p-custom text-center">
         Selecteaza Bancile la care detii raport negativ.
       </p>
-      <div className="image-grid grid-rows-7">
+      <div className="image-grid grid-col-3 h-[50%]">
         {images.banks.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent pointer ${
+            className={`img-parrent pointer py-4 px-3 relative ${
               selectedDivNames.includes(image.dataAtr)
                 ? "selected bg-secondary"
                 : ""
-            } ${
-              index >= images.banks.length - 2 ? "col-span-2" : "col-span-1"
-            } ${
-              index >= images.banks.length - 1 ? "col-span-3" : "col-span-1"
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
             data-name={image.dataAtr}
@@ -78,25 +74,32 @@ const Step4 = ({ handleStepChange }) => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[100%] object-contain ${image.dataAtr} ${
-                index >= images.banks.length - 2 ? "h-[50%]" : "h-[60%]"
-              } `}
+              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}`}
             />
+            <p
+              className={`absolute top-[5px] right-[5px] w-[12px] h-[12px] rounded-[100%] border border-gray-400 ${
+                selectedDivNames.includes(image.dataAtr)
+                  ? "selected bg-primary border-0"
+                  : ""
+              }`}
+            ></p>
           </div>
         ))}
       </div>
 
-      <p className="p-title mt-6 mb-2">IFN-uri</p>
+      <p className="p-title mb-2">IFN-uri</p>
       <p className="p-custom text-center">
         Selecteaza IFN-urile la care detii raport negativ.
       </p>
 
-      <div className="image-grid">
+      <div className="image-grid grid-col-3 h-[50%]">
         {images.ifn.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent pointer ${
-              selectedDivNames.includes(image.dataAtr) ? "selected" : ""
+            className={`img-parrent pointer relative py-4 px-3 ${
+              !selectedDivNames.includes(image.dataAtr)
+                ? "selected"
+                : "bg-secondary"
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
             data-name={image.dataAtr}
@@ -104,8 +107,16 @@ const Step4 = ({ handleStepChange }) => {
             <img
               src={image.src}
               alt={image.dataAtr}
-              className={`w-[80%] h-[80%] object-contain ${image.dataAtr}`}
+              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}"
+              } `}
             />
+            <p
+              className={`absolute top-[5px] right-[5px] w-[12px] h-[12px] rounded-[100%] border border-gray-400 ${
+                selectedDivNames.includes(image.dataAtr)
+                  ? "selected bg-primary border-0"
+                  : ""
+              }`}
+            ></p>
           </div>
         ))}
       </div>

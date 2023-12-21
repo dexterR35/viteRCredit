@@ -1,7 +1,6 @@
 // import Check from "../components/Check";
 import { useState } from "react";
-import { CiCircleInfo } from "react-icons/ci";
-import { IoMdCheckmark } from "react-icons/io";
+import { IoHelpCircleOutline, IoCheckmarkSharp } from "react-icons/io5";
 
 const optionBox = [
   { label: "Detin istoric bancar", value: true },
@@ -29,7 +28,7 @@ const Step5 = ({ handleStepChange }) => {
       <div className="p-custom text-start">
         <div className="text-lg font-semibold mb-2">
           Stiati ca !?
-          <CiCircleInfo className="float-right h-5 w-5" />
+          <IoHelpCircleOutline className="float-right h-6 w-6 text-gray-600" />
         </div>
         Creditele bancare au apărut încă din antichitate, când bancherii
         furnizau finanțare pentru comerț și afaceri. În Evul Mediu, băncile au
@@ -55,7 +54,7 @@ const Step5 = ({ handleStepChange }) => {
               />
               {isChecked === option.value && (
                 <div className="absolute top-[-6px] left-0 w-full h-full flex items-center justify-center">
-                  <IoMdCheckmark className="text-white font-fold w-5 h-5" />
+                  <IoCheckmarkSharp className="text-white font-fold w-5 h-5" />
                 </div>
               )}
             </span>

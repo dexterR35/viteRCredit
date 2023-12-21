@@ -51,14 +51,13 @@ const Step3 = ({ handleStepChange }) => {
 
   const selectedDate = new Date(`${year}-${month}-${day}`);
   const currentDate = new Date();
+  // console.log((currentDate.getMonth() + 1) / 2, ":sa");
   const drop1Year = selectedDate.getFullYear() < currentDate.getFullYear();
-  const isDateBeforeSixMonths =
-    selectedDate >
-    new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() - 6,
-      currentDate.getDate()
-    );
+  const currentDateNew = currentDate.getMonth() + 1;
+
+  const isDateBeforeSixMonths = currentDateNew < currentDateNew / 2;
+  console.log(isDateBeforeSixMonths, ":sa");
+  console.log("isDateBeforeSixMonths", currentDateNew);
   const continueS = () => {
     handleStepChange(5);
   };
@@ -119,7 +118,11 @@ const Step3 = ({ handleStepChange }) => {
             </p>
           )}
           {isDateBeforeSixMonths && (
-            <p className="text-red-500">
+            <p
+              className={`${
+                isDateBeforeSixMonths ? "text-blue-500" : "text-blue-400"
+              }`}
+            >
               Data este mai mică de 6 luni față de data curentă.
             </p>
           )}
