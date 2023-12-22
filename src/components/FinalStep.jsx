@@ -27,7 +27,9 @@ const FinalStep = () => {
       </p>
 
       <div className="btn-parent mt-10">
-        <button className="btn-sm w-full">Afla mai multe</button>
+        <a href="https://obtinecredit.ro" className="btn-sm w-full text-center">
+          <button className="">Afla mai multe</button>
+        </a>
       </div>
     </>
   );

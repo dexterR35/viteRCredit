@@ -63,9 +63,9 @@ const Step4 = ({ handleStepChange }) => {
         {images.banks.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent pointer py-4 px-3 relative ${
+            className={`img-parrent pointer p-3 relative ${
               selectedDivNames.includes(image.dataAtr)
-                ? "selected bg-secondary"
+                ? "selected bg-gray-200"
                 : ""
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
@@ -77,7 +77,7 @@ const Step4 = ({ handleStepChange }) => {
               className={`w-[90%] h-[90%] object-contain ${image.dataAtr}`}
             />
             <p
-              className={`absolute top-[5px] right-[5px] w-[12px] h-[12px] rounded-[100%] border border-gray-400 ${
+              className={`absolute top-[5px] right-[5px] w-[10px] h-[10px] rounded-[100%] border border-gray-400 ${
                 selectedDivNames.includes(image.dataAtr)
                   ? "selected bg-primary border-0"
                   : ""
@@ -96,10 +96,10 @@ const Step4 = ({ handleStepChange }) => {
         {images.ifn.map((image, index) => (
           <div
             key={index}
-            className={`img-parrent pointer relative py-4 px-3 ${
+            className={`img-parrent pointer relative p-3 ${
               !selectedDivNames.includes(image.dataAtr)
                 ? "selected"
-                : "bg-secondary"
+                : "bg-gray-200"
             }`}
             onClick={() => handleDivClick(image.dataAtr)}
             data-name={image.dataAtr}
@@ -111,7 +111,7 @@ const Step4 = ({ handleStepChange }) => {
               } `}
             />
             <p
-              className={`absolute top-[5px] right-[5px] w-[12px] h-[12px] rounded-[100%] border border-gray-400 ${
+              className={`absolute top-[5px] right-[5px] w-[10px] h-[10px] rounded-[100%] border border-gray-400 ${
                 selectedDivNames.includes(image.dataAtr)
                   ? "selected bg-primary border-0"
                   : ""
@@ -127,7 +127,10 @@ const Step4 = ({ handleStepChange }) => {
       </label>
       <div className="my-4 flex flex-wrap gap-2 w-full">
         {selectedDivNames.map((name, index) => (
-          <p className="bg-secondary w-fill p-2 rounded-md" key={index}>
+          <p
+            className="bg-gray-200 w-fill text-gray-800 p-2 rounded-md"
+            key={index}
+          >
             {name}
           </p>
         ))}

@@ -1,10 +1,12 @@
-export const LoadingScreen = () => {
+export const LoadingScreen = ({ bgColor }) => {
   return (
-    <div className="text-center flex flex-col  items-center justify-center h-screen">
+    <div
+      className={`text-center flex flex-col  items-center justify-center fixed h-full top-0 left-0 w-full  ${bgColor}`}
+    >
       <div role="status">
         <svg
           aria-hidden="true"
-          className="inline w-12 h-10 text-gray-800 animate-spin ease-in-out dark:text-gray-300 fill-primary"
+          className="inline w-12 h-10 text-white animate-spin ease-in-out dark:text-gray-300 fill-primary"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +20,10 @@ export const LoadingScreen = () => {
             fill="currentFill"
           />
         </svg>
-        <p className="mt-2 text-gray-600">Obtine Credit</p>
+
+        <p className="mt-2 text-white text-lg font-medium uppercase">
+          Obtine Credit
+        </p>
       </div>
     </div>
   );

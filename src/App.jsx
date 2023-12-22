@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "./components/Form";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
@@ -10,8 +10,15 @@ import { LoadingScreen } from "./components/LoadingScreen";
 
 const Quiz = () => {
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Start with loading screen for 1 second
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleStepChange = (newStep) => {
     setIsLoading(true);
@@ -20,6 +27,11 @@ const Quiz = () => {
     }, 550);
     setStep(newStep);
   };
+
+  const changeBg = () => {
+    return step === 1 ? "bg-primary" : "bg-yellow-500";
+  };
+
   return (
     <>
       <div className="wrapper sm:w-[480px] w-full bg-white border-gray-300 border">
@@ -27,7 +39,7 @@ const Quiz = () => {
           <Progress currentStep={step} totalSteps={6} />
           <div className="p-2 px-4">
             {isLoading ? (
-              <LoadingScreen />
+              <LoadingScreen bgColor={changeBg()} />
             ) : (
               <>
                 {step === 1 && <Form handleStepChange={handleStepChange} />}
@@ -42,9 +54,6 @@ const Quiz = () => {
             )}
           </div>
         </div>
-        {/* <footer className="flex items-center justify-center text-[12px] relative bottom-0 left-0 w-full h-[40px] text-center">
-        ObtineCredit.ro
-      </footer> */}
       </div>
     </>
   );

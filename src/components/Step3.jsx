@@ -1,7 +1,7 @@
 // angajare data
 
 import { useState } from "react";
-
+import { IoHelpCircleOutline } from "react-icons/io5";
 const Step3 = ({ handleStepChange }) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
@@ -65,12 +65,16 @@ const Step3 = ({ handleStepChange }) => {
   return (
     <div className="py-8">
       <p className="p-title">Angajare</p>
-      <p className="p-custom">
+      <div className="p-custom">
+        <div className="text-lg font-semibold mb-2">
+          Info
+          <IoHelpCircleOutline className="float-right h-6 w-6 text-gray-600" />
+        </div>
         O vechime mai mare la locul de muncă poate spori șansele de a fi aprobat
         pentru un credit bancar, deoarece băncile consideră angajații cu o
         astfel de experiență mai stabili și mai puțin riscați, și pot oferi rate
         mai bune și condiții mai favorabile.
-      </p>
+      </div>
       <p className="p-question mt-6">
         Dacă nu reții exact, poți să aproximezi data la care te ai angajat?
       </p>
