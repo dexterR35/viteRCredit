@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { IoHelpCircleOutline } from "react-icons/io5";
+
 const Step3 = ({ handleStepChange }) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
@@ -48,16 +49,6 @@ const Step3 = ({ handleStepChange }) => {
   };
 
   const isDateSelected = day && month && year;
-
-  const selectedDate = new Date(`${year}-${month}-${day}`);
-  const currentDate = new Date();
-  // console.log((currentDate.getMonth() + 1) / 2, ":sa");
-  const drop1Year = selectedDate.getFullYear() < currentDate.getFullYear();
-  const currentDateNew = currentDate.getMonth() + 1;
-
-  const isDateBeforeSixMonths = currentDateNew < currentDateNew / 2;
-  console.log(isDateBeforeSixMonths, ":sa");
-  console.log("isDateBeforeSixMonths", currentDateNew);
   const continueS = () => {
     handleStepChange(5);
   };
@@ -116,20 +107,6 @@ const Step3 = ({ handleStepChange }) => {
           <p id="selectedDate" className="border border-gray-300 py-3">
             Ai ales: {day} / {month} / {year}
           </p>
-          {drop1Year && (
-            <p className=" p-custom text-center p-2 bg-green-200 text-gray-800">
-              Data este înainte de anul curent.ai peste un an
-            </p>
-          )}
-          {isDateBeforeSixMonths && (
-            <p
-              className={`${
-                isDateBeforeSixMonths ? "text-blue-500" : "text-blue-400"
-              }`}
-            >
-              Data este mai mică de 6 luni față de data curentă.
-            </p>
-          )}
         </div>
       )}
       <div className="btn-parent">

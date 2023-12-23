@@ -17,7 +17,7 @@ const Step5 = ({ handleStepChange }) => {
 
   const handleDecision = () => {
     if (isChecked === true) {
-      handleStepChange(4);
+      handleStepChange(6);
     } else if (isChecked === false) {
       handleStepChange(6);
     }

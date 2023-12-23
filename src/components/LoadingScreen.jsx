@@ -1,7 +1,7 @@
 export const LoadingScreen = ({ bgColor }) => {
   return (
     <div
-      className={`text-center flex flex-col  items-center justify-center fixed h-full top-0 left-0 w-full  ${bgColor}`}
+      className={`text-center flex flex-col  items-center justify-center absolute h-screen top-0 left-0 w-full  ${bgColor}`}
     >
       <div role="status">
         <svg
@@ -21,7 +21,7 @@ export const LoadingScreen = ({ bgColor }) => {
           />
         </svg>
 
-        <p className="mt-2 text-white text-lg font-medium uppercase">
+        <p className="mt-2 text-white text-sm font-medium uppercase">
           Obtine Credit
         </p>
       </div>

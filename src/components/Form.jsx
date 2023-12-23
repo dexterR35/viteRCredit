@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 const Form = ({ handleStepChange }) => {
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -10,6 +12,19 @@ const Form = ({ handleStepChange }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      setError("Adauga un numar validas");
+      const isValidPhone = /^\d{0,9}$/.test(value); // Allow up to 10 digits
+      if (!isValidPhone) {
+        setError("Adauga un numar valid");
+      } else if (value.length < 10) {
+        setError("Adaugă încă " + (10 - value.length) + " cifre");
+      } else {
+        setError("Număr introdus corect");
+      }
+    }
+
     setFormData({
       ...formData,
       [name]: value,
@@ -28,14 +43,18 @@ const Form = ({ handleStepChange }) => {
       <h2 className="pt-6 font-bold sm:mt-2 sm:text-3xl sm:w-[90%] text-3xl">
         Soluții de creditare personalizate
       </h2>
+
       <h5 className="my-3 text-[14px] leading-5 text-gray-500">
         Află cum poți obține cele mai bune oferte de credite prin intermediul
         experților.
       </h5>
+
       <div className="h-full rounded my-4">
-        <h5 className="bg-primary text-white text-center text-sm py-1 rounded-sm">
-          Error, succes
-        </h5>
+        {error && (
+          <h5 className="bg-primary text-white text-center text-sm py-1 rounded-sm">
+            {error}
+          </h5>
+        )}
         <form className="flex flex-col justify-evenly px-0 py-4">
           <label className="mb-3 ">
             Nume:
@@ -51,11 +70,12 @@ const Form = ({ handleStepChange }) => {
           <label className="mb-3">
             Telefon:
             <input
-              type="number"
+              type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
               placeholder=""
+              maxLength={10}
             />
           </label>
           <label className="mb-3">

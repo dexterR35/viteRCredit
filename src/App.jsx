@@ -29,7 +29,7 @@ const Quiz = () => {
   };
 
   const changeBg = () => {
-    return step === 1 ? "bg-primary" : "bg-yellow-500";
+    return step === 1 ? "bg-primary" : "bg-white";
   };
 
   return (
