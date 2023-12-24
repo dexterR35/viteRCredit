@@ -7,7 +7,7 @@ const optionBox = [
   { label: "Nu detin istoric bancar", value: false },
 ];
 
-const Step5 = ({ handleStepChange }) => {
+const Step5 = ({ stepChange }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const handleCheckboxChange = (value) => {
@@ -17,13 +17,13 @@ const Step5 = ({ handleStepChange }) => {
 
   const handleDecision = () => {
     if (isChecked === true) {
-      handleStepChange(6);
+      stepChange(7);
     } else if (isChecked === false) {
-      handleStepChange(6);
+      stepChange(8);
     }
   };
   return (
-    <div className="py-8">
+    <div className="py-8 h-screen">
       <p className="p-title mb-10">Istoric Bancar</p>
       <div className="p-custom text-start">
         <div className="text-lg font-semibold mb-2">

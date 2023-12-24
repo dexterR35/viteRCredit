@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = ({ handleStepChange }) => {
+const Form = ({ stepChange }) => {
   const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ const Form = ({ handleStepChange }) => {
   };
 
   const handleContinue = () => {
-    handleStepChange(2); // Go tos Step2 when "Continue" is pressed
+    stepChange(2); // Go tos Step2 when "Continue" is pressed
   };
 
   const isContinueDisabled =
@@ -52,7 +52,7 @@ const Form = ({ handleStepChange }) => {
     !/^\d{10}$/.test(formData.phone); // Check phone format (exactly 10 digits)
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       <h2 className="pt-6 font-bold sm:mt-2 sm:text-3xl sm:w-[90%] text-3xl">
         Soluții de creditare personalizate
       </h2>

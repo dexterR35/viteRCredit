@@ -5,7 +5,7 @@ const optionBox = [
   { label: "Nu detin raport negativ", value: false },
 ];
 
-const Step2 = ({ handleStepChange }) => {
+const Step2 = ({ stepChange }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
@@ -16,13 +16,13 @@ const Step2 = ({ handleStepChange }) => {
 
   const handleDecision = () => {
     if (isChecked === true) {
-      handleStepChange(4);
+      stepChange(4);
     } else if (isChecked === false) {
-      handleStepChange(3);
+      stepChange(3);
     }
   };
   return (
-    <div className="py-8">
+    <div className="py-8 h-screen">
       <p className="p-title">
         Buna ziua <br /> Marian
       </p>

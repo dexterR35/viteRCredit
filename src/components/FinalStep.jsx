@@ -1,6 +1,6 @@
 // import { CiCircleInfo } from "react-icons/ci";
 // import { FaRegCircleCheck } from "react-icons/fa6";
-// const FinalStep = () => {
+// const FinalstepCase = () => {
 //   return (
 //     <>
 //       <h2 className="p-title mt-8">Felicitari</h2>
@@ -35,20 +35,28 @@
 //   );
 // };
 
-// export default FinalStep;
-// import { CiCircleInfo } from "react-icons/ci";
-// import { FaRegCircleCheck } from "react-icons/fa6";
-
-const FinalStep = ({ step }) => {
+// export default FinalstepCase;
+import { CiCircleInfo } from "react-icons/ci";
+import { FaRegCircleCheck } from "react-icons/fa6";
+const FinalstepCase = ({ stepCase }) => {
   let content;
-
-  switch (step) {
+  console.log(stepCase, "stepCases");
+  switch (stepCase) {
     case 1:
       content = (
         <>
-          {/* Step 1 content */}
-          <h2 className="p-title mt-8">Content for Step 1</h2>
-          {/* ... other content for Step 1 */}
+          <div className="p-custom my-4">
+            <div className="text-lg font-semibold mb-2">
+              Info
+              <CiCircleInfo className="float-right h-6 w-6" />
+            </div>
+            Suntem conștienți că fără un istoric bancar, accesul la unele
+            servici financiare poate fi o provocare. Însă , echipa
+            ObtineCredit.ro te va ajuta sa depășești aceasta situație și sa îți
+            ofere soluțiile potrivite pentru nevoile tale financiare. Mulțumesc
+            că ai ales sa faci parte din comunitatea nostră și te asigurăm că
+            suntem aici pentru a te sprijini.
+          </div>
         </>
       );
       break;
@@ -56,9 +64,9 @@ const FinalStep = ({ step }) => {
     case 2:
       content = (
         <>
-          {/* Step 2 content */}
-          <h2 className="p-title mt-8">Content for Step 2</h2>
-          {/* ... other content for Step 2 */}
+          {/* stepCase 2 content */}
+          <h2 className="p-title mt-8">Content for stepCase 2</h2>
+          {/* ... other content for stepCase 2 */}
         </>
       );
       break;
@@ -66,9 +74,9 @@ const FinalStep = ({ step }) => {
     case 3:
       content = (
         <>
-          {/* Step 3 content */}
-          <h2 className="p-title mt-8">Content for Step 3</h2>
-          {/* ... other content for Step 3 */}
+          {/* stepCase 3 content */}
+          <h2 className="p-title mt-8">Content for stepCase 3</h2>
+          {/* ... other content for stepCase 3 */}
         </>
       );
       break;
@@ -80,12 +88,19 @@ const FinalStep = ({ step }) => {
 
   return (
     <>
-      {content}
-      {/* Common content for all steps */}
+      <h2 className="p-title mt-8">Felicitari</h2>
+
       <div className="w-full text-center py-2 mb-8 text-sm rounded-md">
-        {/* ... common content */}
+        <div className="p-custom text-md">
+          <div className="text-lg font-semibold mb-2">
+            Cererea a fost depusa
+            <FaRegCircleCheck className="float-right h-6 w-6 text-primary" />
+          </div>
+          Situația dvs va fi examinată cu atenție și un reprezentant va reveni
+          în cel mai scurt timp posibil cu o soluție rapidă si eficientă.
+        </div>
       </div>
-      {/* ... other common content */}
+      {content}
       <div className="btn-parent mt-10">
         <a href="https://obtinecredit.ro" className="btn-sm w-full text-center">
           <button className="">Afla mai multe</button>
@@ -95,4 +110,4 @@ const FinalStep = ({ step }) => {
   );
 };
 
-export default FinalStep;
+export default FinalstepCase;

@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const Step4 = ({ handleStepChange }) => {
+const Step4 = ({ stepChange }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
+
   // const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
   const images = {
     banks: [
@@ -50,11 +51,11 @@ const Step4 = ({ handleStepChange }) => {
   };
 
   const handleFinal = () => {
-    handleStepChange(6);
+    stepChange(6);
   };
 
   return (
-    <div className="py-8">
+    <div className="py-8 h-full">
       <p className="p-title mb-2">Banci</p>
       <p className="p-custom text-center">
         Selecteaza Bancile la care detii raport negativ.
@@ -137,7 +138,7 @@ const Step4 = ({ handleStepChange }) => {
         {inputValue && <p>{`, ${inputValue}`}</p>}
       </div>
       <div className="btn-parent">
-        <button className="btn-sm w-full" onClick={handleFinal} step={2}>
+        <button className="btn-sm w-full" onClick={handleFinal}>
           Finalizare
         </button>
       </div>

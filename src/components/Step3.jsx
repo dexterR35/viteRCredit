@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { IoHelpCircleOutline } from "react-icons/io5";
 
-const Step3 = ({ handleStepChange }) => {
+const Step3 = ({ stepChange }) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
@@ -50,11 +50,11 @@ const Step3 = ({ handleStepChange }) => {
 
   const isDateSelected = day && month && year;
   const continueS = () => {
-    handleStepChange(5);
+    stepChange(5);
   };
 
   return (
-    <div className="py-8">
+    <div className="py-8 h-screen">
       <p className="p-title">Angajare</p>
       <div className="p-custom">
         <div className="text-lg font-semibold mb-2">

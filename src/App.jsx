@@ -42,14 +42,14 @@ const Quiz = () => {
               <LoadingScreen bgColor={changeBg()} />
             ) : (
               <>
-                {step === 1 && <Form handleStepChange={handleStepChange} />}
-                {step === 2 && <Step2 handleStepChange={handleStepChange} />}
-                {step === 3 && <Step3 handleStepChange={handleStepChange} />}
-                {step === 4 && <Step4 handleStepChange={handleStepChange} />}
-                {step === 5 && <Step5 handleStepChange={handleStepChange} />}
-                {step === 6 && (
-                  <FinalStep handleStepChange={handleStepChange} />
-                )}
+                {step === 1 && <Form stepChange={handleStepChange} />}
+                {step === 2 && <Step2 stepChange={handleStepChange} />}
+                {step === 3 && <Step3 stepChange={handleStepChange} />}
+                {step === 4 && <Step4 stepChange={handleStepChange} />}
+                {step === 5 && <Step5 stepChange={handleStepChange} />}
+                {step === 6 && <FinalStep stepCase={1} />}
+                {step === 7 && <FinalStep stepCase={2} />}
+                {step === 8 && <FinalStep stepCase={3} />}
               </>
             )}
           </div>
