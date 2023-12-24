@@ -12,16 +12,26 @@ const Form = ({ handleStepChange }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const isValidPhone = /^\d{0,9}$/.test(value); // Allow up to 10 digits
 
+    setError("Adauga un numar valid");
     if (name === "phone") {
-      setError("Adauga un numar validas");
-      const isValidPhone = /^\d{0,9}$/.test(value); // Allow up to 10 digits
-      if (!isValidPhone) {
-        setError("Adauga un numar valid");
-      } else if (value.length < 10) {
+      if (isValidPhone) {
         setError("Adaugă încă " + (10 - value.length) + " cifre");
       } else {
         setError("Număr introdus corect");
+        setTimeout(() => {
+          setError("");
+        }, 700);
+      }
+    }
+    if (name === "email") {
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+      if (!isValidEmail) {
+        setError("Introduceti o adresă de email validă");
+      } else {
+        setError(""); // Clear the error when the email is correct
       }
     }
 
@@ -36,7 +46,10 @@ const Form = ({ handleStepChange }) => {
   };
 
   const isContinueDisabled =
-    !formData.name || !formData.email || !formData.selection || !formData.phone;
+    !formData.name ||
+    !formData.selection ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) || // Check email format
+    !/^\d{10}$/.test(formData.phone); // Check phone format (exactly 10 digits)
 
   return (
     <div className="w-full">

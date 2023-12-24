@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoCheckmarkSharp, IoHelpCircleOutline } from "react-icons/io5";
+import { IoCheckmarkSharp } from "react-icons/io5";
 const optionBox = [
   { label: "Detin raport negativ", value: true },
   { label: "Nu detin raport negativ", value: false },
@@ -8,6 +8,7 @@ const optionBox = [
 const Step2 = ({ handleStepChange }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
   const handleCheckboxChange = (value) => {
     setIsChecked(value);
     setIsCheckboxChecked(true);

@@ -137,7 +137,7 @@ const Step4 = ({ handleStepChange }) => {
         {inputValue && <p>{`, ${inputValue}`}</p>}
       </div>
       <div className="btn-parent">
-        <button className="btn-sm w-full" onClick={handleFinal}>
+        <button className="btn-sm w-full" onClick={handleFinal} step={2}>
           Finalizare
         </button>
       </div>
