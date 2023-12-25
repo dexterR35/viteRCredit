@@ -1,10 +1,9 @@
-import React, { useMemo } from "react";
-// import Image from "next/image";
-// import ButtonPrimary from "../misc/ButtonPrimary";
+import { useMemo } from "react";
+
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-
+import QuizButton from "../steps/Qbutton";
 const Hero = ({
   listUser = [
     {
@@ -45,19 +44,18 @@ const Hero = ({
               oferite de o echipa profesionista in domeniul bancar financiar si
               non-bancar.
             </p>
+            <QuizButton />
             {/* <ButtonPrimary addClass="hidden lg:block">
               Obtine Credit
             </ButtonPrimary> */}
           </div>
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
-              {/* <Image
+              <img
                 src="/assets/Illustration1.png"
                 alt="VPN Illustrasi"
-                quality={100}
-                width={612}
-                height={383}
-              /> */}
+                className="w-[612px] h-[383px]"
+              />
             </motion.div>
           </div>
         </motion.div>

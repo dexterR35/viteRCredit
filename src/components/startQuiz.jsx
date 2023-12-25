@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import Form from "./Form";
-import Step2 from "./Step2";
-import Step3 from "./Step3";
-import Step4 from "./Step4";
-import Step5 from "./Step5";
-import FinalStep from "./FinalStep";
-import { Progress } from "./ProgressBar";
-import { LoadingScreen } from "./LoadingScreen";
+import Form from "./steps/Form";
+import Step2 from "./steps/Step2";
+import Step3 from "./steps/Step3";
+import Step4 from "./steps/Step4";
+import Step5 from "./steps/Step5";
+import FinalStep from "./steps/FinalStep";
+import { Progress } from "./steps/ProgressBar";
+import { LoadingScreen } from "./steps/LoadingScreen";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Quiz = ({ onClose, isQuizVisible }) => {
@@ -35,16 +35,16 @@ const Quiz = ({ onClose, isQuizVisible }) => {
 
   return (
     <>
-      {isQuizVisible && (
-        <div className="wrapper sm:w-[480px] w-full bg-white border-gray-300 border">
-          <div className="  relative">
+      <div className="wrapper sm:w-[480px] w-full bg-white border-gray-300 border">
+        {isQuizVisible && (
+          <div className="relative">
             <button
               onClick={onClose}
               className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-0 top-0 z-20"
             >
               <IoCloseOutline />
             </button>
-            <div className=" w-full relative">
+            <div className="w-full relative">
               <Progress currentStep={step} totalSteps={6} />
 
               <div className="p-2 px-4">
@@ -65,8 +65,8 @@ const Quiz = ({ onClose, isQuizVisible }) => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

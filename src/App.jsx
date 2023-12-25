@@ -1,8 +1,10 @@
 import Hero from "./components/Pages/Hero";
+import About from "./components/Pages/About";
+import Services from "./components/Pages/Services";
 // import Header from "./Layout/Header";
 // import SeoHead from "../components/SeoHead";
 import Layout from "./components/Layout/Layout";
-import QuizButton from "./components/Qbutton";
+// import QuizButton from "./components/steps/Qbutton";
 
 // const App = () => {
 //   return (
@@ -24,7 +26,9 @@ export default function App() {
     <>
       <Layout>
         <Hero />
-        <QuizButton />
+        <About />
+        <Services />
+        {/* <QuizButton /> */}
         {/* <Hero />
         <Feature />
         <Services /> */}

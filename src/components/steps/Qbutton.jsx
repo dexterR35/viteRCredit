@@ -1,6 +1,6 @@
 // QuizButton.js
 import { useState } from "react";
-import Quiz from "./startQuiz";
+import Quiz from "../startQuiz";
 
 const QuizButton = () => {
   const [isQuizVisible, setIsQuizVisible] = useState(false);
@@ -15,8 +15,8 @@ const QuizButton = () => {
   };
   return (
     <>
-      <button onClick={showQuiz} className="btn-sm absolute right-0 z-20">
-        Open Quiz
+      <button onClick={showQuiz} className="btn-sm z-20">
+        Obtine Credit
       </button>
       {isQuizVisible && (
         <Quiz onClose={hideQuiz} isQuizVisible={isQuizVisible} />

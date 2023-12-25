@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import Image from "next/image";
+
 import Testimoni from "./Testimoni";
-import ButtonPrimary from "./misc/ButtonPrimary";
-import ButtonOutline from "./misc/ButtonOutline.";
-import Maps from "../public/assets/HugeGlobal.svg";
+// import ButtonPrimary from "./misc/ButtonPrimary";
+// import ButtonOutline from "./misc/ButtonOutline.";
+// import Maps from "../public/assets/HugeGlobal.svg";
 import { motion } from "framer-motion";
-import getScrollAnimation from "../utils/getScrollAnimation";
-import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
-import cardImg from "../public/assets/Free.png";
+import getScrollAnimation from "../../utils/getScrollAnimation";
+import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
+import cardImg from "../../assets/Free.png";
 const Services = () => {
   const dataCards = [
     {
@@ -96,12 +96,7 @@ const Services = () => {
                   }}
                 >
                   <div className="p-2 lg:p-0 my-2 flex flex-row items-center bg-gradient-to-b from-white-300 to-white-500 w-full justify-around rounded-md h-15">
-                    <Image
-                      src={card.img}
-                      width={50}
-                      height={50}
-                      alt="Free Plan"
-                    />
+                    <img src={card.img} alt="Free Plan" className="w-10 h-10" />
                     <p className="text-lg md:text-xl text-black-600 font-medium capitalize my-2 sm:my-2 bg-black-300 w-[60%]">
                       {card.title}
                     </p>
@@ -145,7 +140,7 @@ const Services = () => {
               variants={scrollAnimation}
             >
               {dataCards.map((src, index) => (
-                <Image
+                <img
                   key={index}
                   src={src}
                   className={`h-${
@@ -194,7 +189,7 @@ const Services = () => {
                     #Credite #ConsultanțăFinanciară #EducațieFinanciară
                   </p>
                 </div>
-                <ButtonPrimary>Intra online</ButtonPrimary>
+                {/* <ButtonPrimary>Intra online</ButtonPrimary> */}
               </div>
               <div
                 className="absolute bg-black-600 opacity-5 w-11/12 roudned-lg h-60 sm:h-56 top-0 mt-8 mx-auto left-0 right-0"
