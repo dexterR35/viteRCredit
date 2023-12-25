@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from "axios";
 const Form = ({ stepChange }) => {
   const [error, setError] = useState("");
 
@@ -41,8 +41,20 @@ const Form = ({ stepChange }) => {
     });
   };
 
-  const handleContinue = () => {
-    stepChange(2); // Go tos Step2 when "Continue" is pressed
+  const handleContinue = async () => {
+    try {
+      // Send the form data to the server
+      const response = await axios.post("../api/saveFormData", formData);
+
+      // Assuming the server responds with success and returns data
+      console.log("Form data saved successfully:", response.data);
+
+      // Move to Step 2
+      stepChange(2);
+    } catch (error) {
+      console.error("Error saving form data:", error.message);
+    }
+    // stepChange(2); // Go tos Step2 when "Continue" is pressed
   };
 
   const isContinueDisabled =
