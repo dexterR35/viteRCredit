@@ -100,7 +100,7 @@ const Header = () => {
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
             <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide  transition-all">
-              <QuizButton />
+              <QuizButton className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-orange-500 text-orange-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-orange-500 hover:text-white-500 transition-all hover:shadow-orange " />
             </div>
           </div>
         </nav>

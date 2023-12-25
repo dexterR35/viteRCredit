@@ -16,12 +16,20 @@ module.exports = {
         primary: "#03C988",
         secondary: "#BDD2B6",
         default: "#f6fffaad",
-        gray: {
-          200: "#F6F6F6",
-          300: "#dfdfdf",
-        },
+
         green: {
           500: "#2FAB73",
+        },
+        // white: {
+        //   300: "#F8F8F8",
+        //   500: "#fff",
+        // },
+        gray: {
+          100: "#EEEFF2",
+          200: "#F6F6F6",
+          300: "#dfdfdf",
+          400: "#AFB5C0",
+          500: "#DDDDDD",
         },
       },
       gridTemplateRows: {
