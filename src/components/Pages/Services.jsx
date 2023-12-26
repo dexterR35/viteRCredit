@@ -57,29 +57,22 @@ const Services = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div
-      className="bg-gradient-to-b from-white-300 to-white-500 w-full py-14"
-      id="services"
-    >
-      <div className="max-w-screen-2xl px-4 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
-        <div className="flex flex-col w-full">
+    <div className="w-full py-14" id="services">
+      <div className="max-w-screen-2xl px-4 mx-auto flex flex-col w-full text-center justify-center ">
+        <div className="flex flex-col w-full mt-14">
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed uppercase"
+              className="uppercase text-2xl lg:text-4xl font-semibold text-gray-800 mx-auto"
             >
               Gasim cele mai bune solutii pentru tine
             </motion.h3>
-            <motion.p
-              variants={scrollAnimation}
-              className="leading-normal w-10/12 sm:w-7/12 lg:w-6/12 mx-auto my-2 text-center"
-            >
+            <motion.p variants={scrollAnimation} className="mx-auto mb-10">
               Lets choose the package that is best for you and explore it
               happily and cheerfully.
             </motion.p>
           </ScrollAnimationWrapper>
-
-          <div className="sm:grid sm:grid-cols-3 flex flex-col sm:grid-flow-row gap-4 py-4 lg:py-10 sm:px-0 lg:px-6 bg-white">
+          <div className="sm:grid sm:grid-cols-3 flex flex-col sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-2">
             {dataCards.map((card, index) => (
               <ScrollAnimationWrapper
                 className="flex justify-center"
@@ -87,82 +80,49 @@ const Services = () => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="cursor-pointer flex flex-col justify-between items-center border-2 border-gray-500 rounded-xl py-4 px-4 lg:px-2 xl:px-5 w-[25rem] h-[100%] bg-white-500 "
+                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 lg:px-2 xl:px-5 w-[26rem] h-74"
                   whileHover={{
-                    scale: 1.03,
+                    scale: 1.02,
                     transition: {
                       duration: 0.2,
                     },
                   }}
                 >
-                  <div className="p-2 lg:p-0 my-2 flex flex-row items-center bg-gradient-to-b from-white-300 to-white-500 w-full justify-around rounded-md h-15">
-                    <img src={card.img} alt="Free Plan" className="w-10 h-10" />
-                    <p className="text-lg md:text-xl text-black-600 font-medium capitalize my-2 sm:my-2 bg-black-300 w-[60%]">
+                  <div className="p-2 bg-gray-200 lg:p-0 my-2 flex flex-row items-center w-full justify-around rounded-md h-20">
+                    <img
+                      src={card.img}
+                      alt="Free Plan"
+                      className="w-14 h-14 object-contain ml-3 mr-[-10px]"
+                    />
+                    <p className="text-lg md:text-xl text-gray-700 font-medium capitalize my-2 sm:my-2 flex-1 px-10">
                       {card.title}
                     </p>
                   </div>
-                  <div className="flex flex-col w-full flex-none">
-                    <p className="text-sm text-black-600 text-start">
+                  <div className="flex flex-col w-full flex-none h-32 mt-2">
+                    <p className="text-sm text-gray-700 text-start">
                       {card.description}
                     </p>
-                    {/* <ButtonPrimary className="h-[20px]">
-                      Afla mai multe
-                    </ButtonPrimary> */}
-                    <div className="px-5 mt-2 text-sm bg-green-500 rounded-md w-fit text-white-500 p-2 place-self-end">
-                      Afla mai multe
-                    </div>
+                  </div>
+                  <div className="px-5 mt-2 text-sm bg-gray-200 rounded-md w-fit text-white-500 p-2 place-self-end">
+                    Afla mai multe
                   </div>
                 </motion.div>
               </ScrollAnimationWrapper>
             ))}
           </div>
         </div>
-        <div className="flex flex-col w-full my-16">
-          <ScrollAnimationWrapper>
-            {/* <motion.h3
-              variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-4/12 mx-auto"
-            >
-              Huge Global Network of Fast VPN{" "}
-            </motion.h3> */}
-            <motion.p
-              className="leading-normal  mx-auto my-2 w-10/12 sm:w-7/12 lg:w-6/12"
-              variants={scrollAnimation}
-            >
-              See LaslesVPN everywhere to make it easier for you when you move
-              locations.
-            </motion.p>
-          </ScrollAnimationWrapper>
 
-          <ScrollAnimationWrapper>
-            <motion.div
-              className="w-full flex justify-evenly items-center mt-4 flex-wrap lg:flex-nowrap"
-              variants={scrollAnimation}
-            >
-              {dataCards.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  className={`h-${
-                    index % 2 === 0 ? 14 : 12
-                  } w-auto mt-4 lg:mt-0`}
-                  alt="img"
-                />
-              ))}
-            </motion.div>
-          </ScrollAnimationWrapper>
-        </div>
-        <div className="flex flex-col w-full " id="testimoni">
+        <div className="flex flex-col w-full my-10 mt-20" id="testimoni">
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal w-9/12 sm: lg:w-4/12 mx-auto"
+              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-700 leading-normal w-9/12 sm: lg:w-4/12 mx-auto "
             >
               Echipa Noastră: Consultanți Financiari{" "}
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
-              className="leading-normal mx-auto mb-2 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
+              className="leading-normal mx-auto mb-12 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
             >
               These are the stories of our customers who have joined us with
               great pleasure when using this crazy feature.
@@ -175,9 +135,9 @@ const Services = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="relative w-full">
             <motion.div variants={scrollAnimation} custom={{ duration: 3 }}>
-              <div className="relative top-[150px] rounded-xl py-8 sm:py-14 px-4 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
+              <div className="bg-white relative top-[150px] rounded-xl py-8 sm:py-14 px-4 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
                 <div className="flex flex-col text-left w-10/12 sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
-                  <h5 className="text-black-600 text-xl sm:text-2xl lg:text-4xl leading-relaxed font-medium mb-2">
+                  <h5 className="text-gray-700 text-xl sm:text-2xl lg:text-4xl leading-relaxed font-medium mb-2">
                     Descoperă secretele <br />
                     financiare
                   </h5>
@@ -189,6 +149,7 @@ const Services = () => {
                     #Credite #ConsultanțăFinanciară #EducațieFinanciară
                   </p>
                 </div>
+                <button className="btn-sm w-1/6">intra online</button>
                 {/* <ButtonPrimary>Intra online</ButtonPrimary> */}
               </div>
               <div

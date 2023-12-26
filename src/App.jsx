@@ -1,6 +1,7 @@
 import Hero from "./components/Pages/Hero";
 import About from "./components/Pages/About";
 import Services from "./components/Pages/Services";
+import Testimoni from "./components/Pages/Testimoni";
 // import Header from "./Layout/Header";
 // import SeoHead from "../components/SeoHead";
 import Layout from "./components/Layout/Layout";
@@ -23,17 +24,22 @@ import Layout from "./components/Layout/Layout";
 
 export default function App() {
   return (
-    <>
+    <div className="bg-gray-200">
       <Layout>
         <Hero />
-        <About />
-        <Services />
+        <div className="bg-white">
+          <About />
+        </div>
+        <div className="bg-gray-200">
+          <Services />
+        </div>
+
         {/* <QuizButton /> */}
         {/* <Hero />
         <Feature />
         <Services /> */}
       </Layout>
       {/* <MainForm /> */}
-    </>
+    </div>
   );
 }

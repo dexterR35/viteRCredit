@@ -28,7 +28,7 @@ const Hero = ({
   return (
     <div
       className="max-w-screen-xl sm:h-[100vh] h-[95vh] mt-24 px-4 sm:px-8 mx-auto flex flex-col justify-around"
-      id="about"
+      id="hero"
     >
       <ScrollAnimationWrapper>
         <motion.div
@@ -66,7 +66,7 @@ const Hero = ({
         </motion.div>
       </ScrollAnimationWrapper>
       <div className="relative w-full flex">
-        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row sm:grid sm:grid-flow-row sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 bg-white-500 z-10">
+        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row sm:grid sm:grid-flow-row sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 bg-white z-10">
           {listUser.map((listUsers, index) => (
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 px-2 sm:w-auto mx-auto sm:mx-0"
