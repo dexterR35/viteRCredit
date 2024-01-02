@@ -11,6 +11,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const Quiz = ({ onClose, isQuizVisible }) => {
   const [step, setStep] = useState(1);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

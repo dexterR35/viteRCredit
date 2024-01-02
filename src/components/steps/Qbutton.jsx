@@ -1,30 +1,14 @@
-// QuizButton.js
-import { useState } from "react";
-import Quiz from "../startQuiz";
+import React from "react";
+import { IoCloseOutline } from "react-icons/io5";
 
-const QuizButton = () => {
-  const [isQuizVisible, setIsQuizVisible] = useState(false);
-  const showQuiz = () => {
-    console.log("Showing Quiz");
-    setIsQuizVisible(true);
-  };
-
-  const hideQuiz = () => {
-    console.log("Hiding Quiz");
-    setIsQuizVisible(false);
-  };
+const QuizButton = ({ onClick }) => {
   return (
-    <>
-      <button
-        onClick={showQuiz}
-        className="py-3 lg:py-4 px-12 lg:px-16 text-white-500 font-semibold rounded-lg bg-orange-500 hover:shadow-orange-md transition-all outline-none"
-      >
-        Obtine Credit
-      </button>
-      {isQuizVisible && (
-        <Quiz onClose={hideQuiz} isQuizVisible={isQuizVisible} />
-      )}
-    </>
+    <button
+      onClick={onClick}
+      className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-0 top-0 z-20"
+    >
+      <IoCloseOutline />
+    </button>
   );
 };
 
