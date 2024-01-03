@@ -42,19 +42,7 @@ const Form = ({ stepChange }) => {
   };
 
   const handleContinue = async () => {
-    // try {
-    //   // Send the form data to the server
-    //   const response = await axios.post("../api/saveFormData", formData);
-
-    //   // Assuming the server responds with success and returns data
-    //   console.log("Form data saved successfully:", response.data);
-
-    //   // Move to Step 2
-    //   stepChange(2);
-    // } catch (error) {
-    //   console.error("Error saving form data:", error.message);
-    // }
-    stepChange(2); // Go tos Step2 when "Continue" is pressed
+    stepChange(2);
   };
 
   const isContinueDisabled =
@@ -69,7 +57,7 @@ const Form = ({ stepChange }) => {
         Soluții de creditare personalizate
       </h2>
 
-      <h5 className="my-3 text-[14px] leading-5 text-gray-500">
+      <h5 className="my-3 text-[14px] leading-5 text-gray-700">
         Află cum poți obține cele mai bune oferte de credite prin intermediul
         experților.
       </h5>
@@ -131,14 +119,14 @@ const Form = ({ stepChange }) => {
           <br />
           <button
             className={`btn-sm w-full ${
-              isContinueDisabled ? "bg-gray-300" : "bg-red"
+              isContinueDisabled ? "bg-gray-300" : ""
             }`}
             onClick={handleContinue}
             disabled={isContinueDisabled}
           >
             Pasul Urmator
           </button>
-          <p className="mt-4 text-[12px] text-gray-500">
+          <p className="mt-4 text-[12px] text-gray-700">
             Acesta este un chestionar interactiv care te va ajuta să obții
             informații despre opțiunile tale de creditare. Vom începe prin a
             afla câteva informații de bază despre tine.
