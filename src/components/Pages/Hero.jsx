@@ -22,17 +22,18 @@ const Hero = ({
       icon: "/assets/Icon/bx_bxs-server.svg",
     },
   ],
+  setIsModalOpen,
 }) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
     <div
-      className="max-w-screen-xl sm:h-[100vh] h-[95vh] mt-24 px-4 sm:px-8 mx-auto flex flex-col justify-around"
+      className="max-w-screen-xl h-[95vh] mt-20 px-4 sm:px-14 mx-auto flex flex-col justify-between"
       id="hero"
     >
       <ScrollAnimationWrapper>
         <motion.div
-          className="lg:grid grid-flow-row lg:grid-rows-1 lg:grid-cols-2 gap-8 py-6 sm:py-24 md:flex flex-col-reverse"
+          className="lg:grid grid-flow-row lg:grid-rows-1 lg:grid-cols-2 gap-8 py-6 sm:mt-10 sm:py-24 md:flex flex-col-reverse"
           variants={scrollAnimation}
         >
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 sm:w-[80%] lg:w-[100%]">
@@ -44,10 +45,7 @@ const Hero = ({
               oferite de o echipa profesionista in domeniul bancar financiar si
               non-bancar.
             </p>
-            <QuizButton />
-            {/* <ButtonPrimary addClass="hidden lg:block">
-              Obtine Credit
-            </ButtonPrimary> */}
+            <QuizButton onClick={() => setIsModalOpen(true)} />
           </div>
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>

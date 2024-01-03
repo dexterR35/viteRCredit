@@ -16,8 +16,11 @@ const Feature = () => {
 
   return (
     <div className="py-8 relative">
-      <div className="max-w-screen-xl mx-auto" id="About">
-        <div className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-2 my-12">
+      <div className="max-w-screen-xl mx-auto">
+        <div
+          className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-2 my-12"
+          id="about"
+        >
           <ScrollAnimationWrapper className="flex w-full justify-end">
             <motion.div
               className="h-full w-full p-4"

@@ -57,8 +57,8 @@ const Services = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="w-full py-14" id="services">
-      <div className="max-w-screen-2xl px-4 mx-auto flex flex-col w-full text-center justify-center ">
+    <div className="w-full py-4" id="services">
+      <div className="max-w-screen-2xl px-4 mx-auto flex flex-col w-full text-center justify-center">
         <div className="flex flex-col w-full mt-14">
           <ScrollAnimationWrapper>
             <motion.h3

@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { Link as LinkScroll } from "react-scroll";
 import LogoVPN from "../../assets/Logo.svg";
 import QuizButton from "../steps/Qbutton";
-const Header = () => {
+
+const Header = ({ setIsModalOpen }) => {
   const [activeLink, setActiveLink] = useState(null);
   const [scrollActive, setScrollActive] = useState(false);
   useEffect(() => {
@@ -16,8 +17,8 @@ const Header = () => {
     <>
       <header
         className={
-          "fixed top-0 w-full z-30 bg-gray-200 transition-all" +
-          (scrollActive ? " shadow-md pt-0" : " pt-4")
+          "fixed top-0 w-full z-30 bg-gray-200 transition-all " +
+          (scrollActive ? "shadow-md pt-0" : "pt-4")
         }
       >
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
@@ -32,11 +33,11 @@ const Header = () => {
               smooth={true}
               duration={800}
               onSetActive={() => {
-                setActiveLink("about");
+                setActiveLink("hero");
               }}
               className={
                 "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "about"
+                (activeLink === "hero"
                   ? " text-orange-500 animation-active "
                   : " text-black-500 hover:text-orange-500 a")
               }
@@ -50,16 +51,16 @@ const Header = () => {
               smooth={true}
               duration={800}
               onSetActive={() => {
-                setActiveLink("feature");
+                setActiveLink("about");
               }}
               className={
                 "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "feature"
+                (activeLink === "about"
                   ? " text-orange-500 animation-active "
                   : " text-black-500 hover:text-orange-500 ")
               }
             >
-              Detalii
+              Despre noi
             </LinkScroll>
             <LinkScroll
               activeClass="active"
@@ -100,7 +101,7 @@ const Header = () => {
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
             <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide  transition-all">
-              <QuizButton className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-orange-500 text-orange-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-orange-500 hover:text-white-500 transition-all hover:shadow-orange " />
+              <QuizButton onClick={() => setIsModalOpen(true)} />
             </div>
           </div>
         </nav>
@@ -117,11 +118,11 @@ const Header = () => {
               smooth={true}
               duration={800}
               onSetActive={() => {
-                setActiveLink("about");
+                setActiveLink("hero");
               }}
               className={
                 "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "about"
+                (activeLink === "hero"
                   ? "  border-orange-500 text-orange-500"
                   : " border-transparent")
               }
@@ -149,11 +150,11 @@ const Header = () => {
               smooth={true}
               duration={800}
               onSetActive={() => {
-                setActiveLink("feature");
+                setActiveLink("about");
               }}
               className={
                 "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "feature"
+                (activeLink === "about"
                   ? "  border-orange-500 text-orange-500"
                   : " border-transparent ")
               }

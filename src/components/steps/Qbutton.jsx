@@ -1,13 +1,10 @@
-import React from "react";
-import { IoCloseOutline } from "react-icons/io5";
-
 const QuizButton = ({ onClick }) => {
   return (
     <button
+      className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-green-400 text-gray-800 outline-none rounded-l-full rounded-r-full capitalize hover:bg-green-300 hover:text-gray-700 transition-all hover:shadow-green"
       onClick={onClick}
-      className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-0 top-0 z-20"
     >
-      <IoCloseOutline />
+      Cere Oferta
     </button>
   );
 };

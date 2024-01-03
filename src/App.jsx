@@ -1,45 +1,40 @@
+import { useState } from "react";
 import Hero from "./components/Pages/Hero";
 import About from "./components/Pages/About";
 import Services from "./components/Pages/Services";
-import Testimoni from "./components/Pages/Testimoni";
-// import Header from "./Layout/Header";
-// import SeoHead from "../components/SeoHead";
 import Layout from "./components/Layout/Layout";
-// import QuizButton from "./components/steps/Qbutton";
+import StartQuiz from "./components/startQuiz";
 
-// const App = () => {
-//   return (
-//     <>
-//       <Header />
-
-//       {/* <Hero />
-//         <Feature />
-//         <Services /> */}
-//       <QuizButton />
-//     </>
-//   );
-// };
-
-// export default App;
+const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="fixed top-0 bg-red-500 z-50 flex justify-center items-center">
+      <div className="bg-white p-4 rounded">
+        <button onClick={onClose}>Close</button>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="bg-gray-200">
-      <Layout>
-        <Hero />
+    <div>
+      <Layout isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        <div className="bg-gray-200">
+          <Hero setIsModalOpen={setIsModalOpen} />
+        </div>
         <div className="bg-white">
           <About />
         </div>
         <div className="bg-gray-200">
           <Services />
         </div>
-
-        {/* <QuizButton /> */}
-        {/* <Hero />
-        <Feature />
-        <Services /> */}
       </Layout>
-      {/* <MainForm /> */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <StartQuiz />
+      </Modal>
     </div>
   );
 }
