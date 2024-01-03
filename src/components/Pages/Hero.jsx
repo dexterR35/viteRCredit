@@ -45,7 +45,11 @@ const Hero = ({
               oferite de o echipa profesionista in domeniul bancar financiar si
               non-bancar.
             </p>
-            <QuizButton onClick={() => setIsModalOpen(true)} />
+            <QuizButton
+              onClick={() => setIsModalOpen(true)}
+              className="btn-sm w-1/3 text-lg"
+              text="Obtine Credit"
+            />
           </div>
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>

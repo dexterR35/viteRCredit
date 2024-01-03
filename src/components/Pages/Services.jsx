@@ -72,7 +72,7 @@ const Services = () => {
               happily and cheerfully.
             </motion.p>
           </ScrollAnimationWrapper>
-          <div className="sm:grid sm:grid-cols-3 flex flex-col sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-2">
+          <div className="sm:grid sm:grid-cols-3 flex flex-col sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20">
             {dataCards.map((card, index) => (
               <ScrollAnimationWrapper
                 className="flex justify-center"
@@ -80,7 +80,7 @@ const Services = () => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 lg:px-2 xl:px-5 w-[26rem] h-74"
+                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 lg:px-2 xl:px-5 w-[26rem] h-74 shadow-sm"
                   whileHover={{
                     scale: 1.02,
                     transition: {
@@ -103,9 +103,9 @@ const Services = () => {
                       {card.description}
                     </p>
                   </div>
-                  <div className="px-5 mt-2 text-sm bg-gray-200 rounded-md w-fit text-white-500 p-2 place-self-end">
-                    Afla mai multe
-                  </div>
+                  <button className="px-5 mt-2 text-sm font-medium bg-green-500 rounded-md w-fit text-white p-2 place-self-end">
+                    > Afla mai multe
+                  </button>
                 </motion.div>
               </ScrollAnimationWrapper>
             ))}
