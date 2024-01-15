@@ -4,22 +4,25 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import QuizButton from "../steps/Qbutton";
+import icon1 from "../../assets/Icon/heroicons_sm-user.svg";
+import icon2 from "../../assets/Icon/gridicons_location.svg";
+import icon3 from "../../assets/Icon/bx_bxs-server.svg";
 const Hero = ({
   listUser = [
     {
       name: "Aprobari",
       number: "2530+",
-      icon: "/assets/Icon/heroicons_sm-user.svg",
+      icon: icon1,
     },
     {
       name: "Eficienta",
       number: "100%",
-      icon: "/assets/Icon/gridicons_location.svg",
+      icon: icon2,
     },
     {
       name: "Rata 80%",
       number: "Radieri",
-      icon: "/assets/Icon/bx_bxs-server.svg",
+      icon: icon3,
     },
   ],
   setIsModalOpen,
@@ -28,12 +31,12 @@ const Hero = ({
 
   return (
     <div
-      className="max-w-screen-xl h-[95vh] mt-20 px-4 sm:px-14 mx-auto flex flex-col justify-between"
+      className="max-w-screen-xl md:h-[95vh] h-[100%] mt-20 px-4 sm:px-14 mx-auto flex flex-col justify-center sm:justify-between"
       id="hero"
     >
       <ScrollAnimationWrapper>
         <motion.div
-          className="lg:grid grid-flow-row lg:grid-rows-1 lg:grid-cols-2 gap-8 py-6 sm:mt-10 sm:py-24 md:flex flex-col-reverse"
+          className="lg:grid grid-flow-row lg:grid-rows-1 lg:grid-cols-2 gap-8 py-6 sm:mt-10 sm:py-24  flex flex-col"
           variants={scrollAnimation}
         >
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 sm:w-[80%] lg:w-[100%]">
@@ -47,19 +50,25 @@ const Hero = ({
             </p>
             <QuizButton
               onClick={() => setIsModalOpen(true)}
-              className="btn-sm w-1/3 text-lg"
+              className="btn-sm text-lg md:block hidden w-1/3"
               text="Obtine Credit"
             />
           </div>
+
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <img
                 src="/assets/Illustration1.png"
                 alt="VPN Illustrasi"
-                className="w-[612px] h-[383px]"
+                className="w-[612px] h-[auto]"
               />
             </motion.div>
           </div>
+          <QuizButton
+            onClick={() => setIsModalOpen(true)}
+            className="btn-sm text-lg md:hidden block"
+            text="Obtine Credit"
+          />
         </motion.div>
         <motion.div variants={scrollAnimation}>
           {/* <ButtonPrimary addClass="lg:hidden block relative mx-auto mt-4">
@@ -68,7 +77,7 @@ const Hero = ({
         </motion.div>
       </ScrollAnimationWrapper>
       <div className="relative w-full flex">
-        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row sm:grid sm:grid-flow-row sm:grid-cols-3 py-9 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-gray-100 bg-white z-10">
+        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-2 mb-4 md:py-9 md:divide-y-2 md:divide-y-0 md:divide-x-2 divide-gray-100 bg-white z-10">
           {listUser.map((listUsers, index) => (
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 px-2 sm:w-auto mx-auto sm:mx-0"
@@ -77,10 +86,10 @@ const Hero = ({
               variants={scrollAnimation}
             >
               <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 mx-auto sm:w-auto justify-start items-center sm:items-start sm:h-auto">
-                <div className="flex items-center justify-center bg-orange-100 w-12 h-12 mr-6 rounded-full">
-                  {/* <Image src={listUsers.icon} width={30} height={30} /> */}
+                <div className="flex items-center justify-center bg-orange-100 w-12 h-12 md:mr-6 rounded-full">
+                  <img src={listUsers.icon} />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col text-center">
                   <p className="sm:text-xl text-md text-black-600 font-bold">
                     {listUsers.number}
                   </p>

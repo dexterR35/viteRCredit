@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // Import react scroll
 import { Link as LinkScroll } from "react-scroll";
-import LogoVPN from "../../assets/Logo.svg";
+import LogoVPN from "../../assets/Icon/Logo.svg";
 import QuizButton from "../steps/Qbutton";
 
 const Header = ({ setIsModalOpen }) => {
@@ -23,7 +23,7 @@ const Header = ({ setIsModalOpen }) => {
       >
         <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
           <div className="col-start-1 col-end-2 flex items-center">
-            <img src={LogoVPN} alt="Your Alt Text Here" />
+            <img src={LogoVPN} alt="Your Alt logo Here" />
           </div>
           <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500 items-center justify-center">
             <LinkScroll
@@ -112,7 +112,7 @@ const Header = ({ setIsModalOpen }) => {
       </header>
       {/* Mobile Navigation */}
 
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t ">
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t bg-white">
         <div className="bg-white-500 sm:px-3">
           <ul className="flex w-full justify-between items-center text-black-500">
             <LinkScroll

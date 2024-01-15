@@ -15,10 +15,10 @@ const Feature = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="py-8 relative">
+    <div className="sm:py-8 py-0 relative">
       <div className="max-w-screen-xl mx-auto">
         <div
-          className="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-2 my-12"
+          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-1 md:grid-cols-2 my-12 flex flex-col-reverse"
           id="about"
         >
           <ScrollAnimationWrapper className="flex w-full justify-end">
@@ -35,7 +35,7 @@ const Feature = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <motion.div
-              className="flex flex-col items-end justify-center ml-auto w-full lg:w-9/12 leading-relaxed"
+              className="flex flex-col items-center md:items-end justify-center px-5 md:px-0 ml-auto w-full lg:w-9/12 leading-relaxed"
               variants={scrollAnimation}
             >
               <h3 className="text-3xl lg:text-5xl font-semibold text-black-600">
