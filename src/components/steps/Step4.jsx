@@ -1,5 +1,26 @@
 import { useState } from "react";
+import bcr from "../../assets/logo/bcr.png";
+import raiff from "../../assets/logo/raiff.png";
+import unicredit from "../../assets/logo/unicredit.png";
+import otp from "../../assets/logo/otp.png";
+import ing from "../../assets/logo/ing.png";
+import brd from "../../assets/logo/brd.png";
+import tbibank from "../../assets/logo/tbi-bank.png";
+import cetelem from "../../assets/logo/cetelem.png";
+import alpha from "../../assets/logo/alpha.png";
+import cec from "../../assets/logo/cec.png";
+import Libra_Bank from "../../assets/logo/Libra_Bank.webp";
+import first_banks from "../../assets/logo/first_banks.png";
+import garanti from "../../assets/logo/garanti.png";
+import bt from "../../assets/logo/bt.png";
+import bcrs from "../../assets/logo/banca_romaneasca.png";
 
+import providet from "../../assets/logo/providet.png";
+import icredit from "../../assets/logo/icredit.png";
+import horacredit from "../../assets/logo/horacredit.png";
+// import icredit from "../../assets/logo/icredit.png";
+import vivacredit from "../../assets/logo/vivacredit.png";
+import brdfinance from "../../assets/logo/brdfinance.png";
 const Step4 = ({ stepChange }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -7,35 +28,35 @@ const Step4 = ({ stepChange }) => {
   // const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
   const images = {
     banks: [
-      { src: "../assets/logo/bcr.png", dataAtr: "Bcr" },
-      { src: "../assets/logo/raiff.png", dataAtr: "Raiffeisen-Bank" },
-      { src: "../assets/logo/unicredit.png", dataAtr: "Unicredit" },
-      { src: "../assets/logo/otp.png", dataAtr: "Otp-Bank" },
-      { src: "../assets/logo/ing.png", dataAtr: "Ing-Bank" },
-      { src: "../assets/logo/brd.png", dataAtr: "Brd-Bank" },
-      { src: "../assets/logo/tbi-bank.png", dataAtr: "Tbi-Bank" },
-      { src: "../assets/logo/cetelem.png", dataAtr: "Cetelem" },
-      { src: "../assets/logo/alpha.png", dataAtr: "Alpha-Bank" },
-      { src: "../assets/logo/cec.png", dataAtr: "Cec-Bank" },
-      { src: "../assets/logo/Libra_Bank.webp", dataAtr: "Libra-Bank" },
-      { src: "../assets/logo/first_banks.png", dataAtr: "First-Bank" },
-      { src: "../assets/logo/garanti.png", dataAtr: "Garanti-Bank" },
-      { src: "../assets/logo/bt.png", dataAtr: "BT" },
+      { src: bcr, dataAtr: "Bcr" },
+      { src: raiff, dataAtr: "Raiffeisen-Bank" },
+      { src: unicredit, dataAtr: "Unicredit" },
+      { src: otp, dataAtr: "Otp-Bank" },
+      { src: ing, dataAtr: "Ing-Bank" },
+      { src: brd, dataAtr: "Brd-Bank" },
+      { src: tbibank, dataAtr: "Tbi-Bank" },
+      { src: cetelem, dataAtr: "Cetelem" },
+      { src: alpha, dataAtr: "Alpha-Bank" },
+      { src: cec, dataAtr: "Cec-Bank" },
+      { src: Libra_Bank, dataAtr: "Libra-Bank" },
+      { src: first_banks, dataAtr: "First-Bank" },
+      { src: garanti, dataAtr: "Garanti-Bank" },
+      { src: bt, dataAtr: "BT" },
       {
-        src: "../assets/logo/banca_romaneasca.png",
+        src: bcrs,
         dataAtr: "Banca-Romaneasca",
       },
     ],
     ifn: [
-      { src: "../assets/logo/providet.png", dataAtr: "Provident" },
-      { src: "../assets/logo/icredit.png", dataAtr: "iCredit" },
+      { src: providet, dataAtr: "Provident" },
+      { src: icredit, dataAtr: "iCredit" },
       {
-        src: "../assets/logo/horacredit.png",
+        src: horacredit,
         dataAtr: "Hora-Credit",
       },
-      { src: "../assets/logo/icredit.png", dataAtr: "Icredit" },
-      { src: "../assets/logo/vivacredit.png", dataAtr: "Viva-credit" },
-      { src: "../assets/logo/brdfinance.png", dataAtr: "Brd-Finance" },
+      { src: icredit, dataAtr: "Icredit" },
+      { src: vivacredit, dataAtr: "Viva-credit" },
+      { src: brdfinance, dataAtr: "Brd-Finance" },
     ],
   };
   const handleDivClick = (divName) => {
@@ -55,7 +76,7 @@ const Step4 = ({ stepChange }) => {
   };
 
   return (
-    <div className="py-8 h-full">
+    <div className="py-8">
       <p className="p-title mb-2">Banci</p>
       <p className="p-custom text-center">
         Selecteaza Bancile la care detii raport negativ.

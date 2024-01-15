@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-
+import illustration2 from "../../assets/Illustration2.png";
 const features = [
   "Ajutor rapid, credit dorit.",
   "Experti in asistenta financiara",
@@ -27,7 +27,7 @@ const Feature = () => {
               variants={scrollAnimation}
             >
               <img
-                src="/assets/Illustration2.png"
+                src={illustration2}
                 alt="test"
                 className="w-[520px] h-[420px] object-contain"
               />

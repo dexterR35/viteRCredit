@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import Stars from "../../assets/Icon/stars.svg";
 import ArrowBack from "../../assets/Icon/eva_arrow-back-fill.svg";
 import ArrowNext from "../../assets/Icon/eva_arrow-next-fill.svg";
-
 import people1 from "../../assets/people-1.png";
 
 const Testimoni = ({

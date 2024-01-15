@@ -7,6 +7,7 @@ import QuizButton from "../steps/Qbutton";
 import icon1 from "../../assets/Icon/heroicons_sm-user.svg";
 import icon2 from "../../assets/Icon/gridicons_location.svg";
 import icon3 from "../../assets/Icon/bx_bxs-server.svg";
+import illustration from "../../assets/Illustration1.png";
 const Hero = ({
   listUser = [
     {
@@ -58,8 +59,8 @@ const Hero = ({
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <img
-                src="/assets/Illustration1.png"
-                alt="VPN Illustrasi"
+                src={illustration}
+                alt="Illustrasi"
                 className="w-[612px] h-[auto]"
               />
             </motion.div>
@@ -77,7 +78,7 @@ const Hero = ({
         </motion.div>
       </ScrollAnimationWrapper>
       <div className="relative w-full flex">
-        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-2 mb-4 md:py-9 md:divide-y-2 md:divide-y-0 md:divide-x-2 divide-gray-100 bg-white z-10">
+        <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-2 mb-4 md:py-9 bg-white z-10">
           {listUser.map((listUsers, index) => (
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 px-2 sm:w-auto mx-auto sm:mx-0"
