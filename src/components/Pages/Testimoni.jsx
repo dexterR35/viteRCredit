@@ -3,35 +3,36 @@ import { useState } from "react";
 // import react slick
 import Slider from "react-slick";
 // import Image from "next/image";
-import Stars from "../../assets/Icon/stars.svg";
-import ArrowBack from "../../assets/Icon/eva_arrow-back-fill.svg";
-import ArrowNext from "../../assets/Icon/eva_arrow-next-fill.svg";
-import people1 from "../../assets/people-1.png";
-
+import Stars from "/Icon/stars.svg";
+import ArrowBack from "/Icon/eva_arrow-back-fill.svg";
+import ArrowNext from "/Icon/eva_arrow-next-fill.svg";
+import people1 from "/Icon/people-1.png";
+import people2 from "/Icon/people-2.png";
+import people3 from "/Icon/people-3.png";
 const Testimoni = ({
   listTestimoni = [
     {
-      name: "Florin Hodor",
+      name: "Matei Basarab",
       image: people1,
       jobTitle: "Consultant Financiar",
 
-      rating: "4.5",
+      rating: "4.2",
       testimoni:
         "Am recurs la serviciile oferite de Obtine Credit.ro după ce am întâmpinat eșecuri în încercările mele de a obține un credit de nevoi personale. Acum, după ce am parcurs întregul proces, nu sunt sigur dacă m-aș fi descurcat fără ajutorul lor",
     },
     {
-      name: "Florin Chelu",
-      image: people1,
+      name: "Florina Matache",
+      image: people2,
       jobTitle: "Magaziner",
 
-      rating: "4.5",
+      rating: "4.4",
       testimoni:
         "Nu mă așteptam să îndeplinesc criteriile pentru un credit ipotecar până când nu am descoperit sprijinul oferit de echipa Obtine Credit. Prin intermediul serviciilor lor de consultanță, am reușit să identific banca potrivită pentru situația mea",
     },
     {
-      name: "Hodor Gabriela",
-      image: people1,
-      jobTitle: "Consultant Financiar",
+      name: "Paraschiv Matei",
+      image: people3,
+      jobTitle: "CEO",
 
       rating: "4.5",
       testimoni:

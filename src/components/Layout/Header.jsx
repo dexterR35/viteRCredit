@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // Import react scroll
 import { Link as LinkScroll } from "react-scroll";
-import LogoVPN from "../../assets/Icon/Logo.svg";
+import LogoVPN from "/Icon/Logo.svg";
 import QuizButton from "../steps/Qbutton";
 
 const Header = ({ setIsModalOpen }) => {

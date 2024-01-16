@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import QuizButton from "../steps/Qbutton";
-import icon1 from "../../assets/Icon/heroicons_sm-user.svg";
-import icon2 from "../../assets/Icon/gridicons_location.svg";
-import icon3 from "../../assets/Icon/bx_bxs-server.svg";
-import illustration from "../../assets/Illustration1.png";
+import icon1 from "/Icon/heroicons_sm-user.svg";
+import icon2 from "/Icon/gridicons_location.svg";
+import icon3 from "/Icon/bx_bxs-server.svg";
+// import illustration from "./assets/Icon/Illustration1.png";
 const Hero = ({
   listUser = [
     {
@@ -59,9 +59,9 @@ const Hero = ({
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <img
-                src={illustration}
+                src={icon1}
                 alt="Illustrasi"
-                className="w-[612px] h-[auto]"
+                className="w-[612px] h-[auto] object-contain"
               />
             </motion.div>
           </div>

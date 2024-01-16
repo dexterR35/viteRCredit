@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import illustration2 from "../../assets/Illustration2.png";
+import illustration2 from "/Icon/Illustration2.png";
 const features = [
   "Ajutor rapid, credit dorit.",
   "Experti in asistenta financiara",

@@ -1,8 +1,8 @@
 // import LogoVPN from "../../assets/Icon/Logo.svg";
 
 import { FaFacebookF } from "react-icons/fa6";
-import Instagram from "../../assets/Icon/instagram.svg";
-import Whatsapp from "../../assets/Icon/instagram.svg";
+import Instagram from "/Icon/instagram.svg";
+import Whatsapp from "/Icon/instagram.svg";
 
 const Footer = () => {
   return (

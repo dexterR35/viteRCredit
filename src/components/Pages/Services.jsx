@@ -5,12 +5,12 @@ import Testimoni from "./Testimoni";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import cardImg from "../../assets/Icon/free.png";
-import cardImg2 from "../../assets/Icon/money.png";
-import cardImg3 from "../../assets/Icon/business-report.png";
-import cardImg4 from "../../assets/Icon/money-bag.png";
-import cardImg6 from "../../assets/Icon/goal.png";
-import cardImg7 from "../../assets/Icon/salary.png";
+import cardImg from "/Icon/free.png";
+import cardImg2 from "/Icon/money.png";
+import cardImg3 from "/Icon/business-report.png";
+import cardImg4 from "/Icon/money-bag.png";
+import cardImg6 from "/Icon/goal.png";
+import cardImg7 from "/Icon/salary.png";
 const Services = () => {
   const dataCards = [
     {
