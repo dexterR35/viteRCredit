@@ -4,26 +4,26 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import QuizButton from "../steps/Qbutton";
-import icon1 from "/Icon/heroicons_sm-user.svg";
-import icon2 from "/Icon/gridicons_location.svg";
-import icon3 from "/Icon/bx_bxs-server.svg";
-// import illustration from "./assets/Icon/Illustration1.png";
+import { IoPerson, IoBatteryFullSharp, IoLayersOutline } from "react-icons/io5";
+// import icon1 from "/Icon/heroicons_sm-user.svg";
+
+import illustration from "/Icon/illustration4.png";
 const Hero = ({
   listUser = [
     {
       name: "Aprobari",
       number: "2530+",
-      icon: icon1,
+      icon: IoPerson,
     },
     {
       name: "Eficienta",
       number: "100%",
-      icon: icon2,
+      icon: IoBatteryFullSharp,
     },
     {
       name: "Rata 80%",
       number: "Radieri",
-      icon: icon3,
+      icon: IoLayersOutline,
     },
   ],
   setIsModalOpen,
@@ -59,9 +59,9 @@ const Hero = ({
           <div className="flex w-full flex-col">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <img
-                src={icon1}
+                src={illustration}
                 alt="Illustrasi"
-                className="w-[612px] h-[auto] object-contain"
+                className="w-[auto] h-[400px] object-contain"
               />
             </motion.div>
           </div>
@@ -87,8 +87,8 @@ const Hero = ({
               variants={scrollAnimation}
             >
               <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 mx-auto sm:w-auto justify-start items-center sm:items-start sm:h-auto">
-                <div className="flex items-center justify-center bg-orange-100 w-12 h-12 md:mr-6 rounded-full">
-                  <img src={listUsers.icon} />
+                <div className="flex items-center justify-center bg-green-100 w-12 h-12 md:mr-6 rounded-full">
+                  <listUsers.icon className="text-green-800 w-[22px] h-[22px]" />
                 </div>
                 <div className="flex flex-col text-center">
                   <p className="sm:text-xl text-md text-black-600 font-bold">

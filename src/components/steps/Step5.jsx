@@ -42,9 +42,11 @@ const Step5 = ({ stepChange }) => {
         {optionBox.map((option) => (
           <label
             key={option.label}
-            className="flex p-3 w-full justify-between bg-white border border-gray-300 rounded-lg text-sm"
+            className="flex p-3 w-full justify-between border border-gray-500 rounded-lg text-sm"
           >
-            <span className="text-sm text-gray-500 w-2/3">{option.label}</span>
+            <span className="text-sm text-gray-700 w-[80%]">
+              {option.label}
+            </span>
             <span className="relative">
               <input
                 type="checkbox"
@@ -67,7 +69,7 @@ const Step5 = ({ stepChange }) => {
           onClick={handleDecision}
           disabled={!isCheckboxChecked}
         >
-          Continua
+          Continuă
         </button>
       </div>
     </div>

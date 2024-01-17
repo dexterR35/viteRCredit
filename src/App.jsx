@@ -9,8 +9,8 @@ import { IoCloseOutline } from "react-icons/io5";
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return (
-    <div className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start before">
-      <div className="relative">
+    <div className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white">
+      <div className="relative loading w-[480px] h-screen">
         <button
           onClick={onClose}
           className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-2 top-3 z-20"
@@ -30,7 +30,7 @@ export default function App() {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "scroll";
     }
   }, [isModalOpen]);
   return (

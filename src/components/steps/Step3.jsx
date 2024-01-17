@@ -69,7 +69,7 @@ const Step3 = ({ stepChange }) => {
       <p className="p-question mt-6">
         Dacă nu reții exact, poți să aproximezi data la care te ai angajat?
       </p>
-      <div className="flex justify-around my-4 gap-2">
+      <div className="flex justify-around my-4 gap-2 text-[0.9em]">
         <select
           id="jobDay"
           value={day}

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Progress = ({ currentStep, totalSteps }) => {
   const stepBars = [];
 
@@ -27,8 +25,8 @@ export const Progress = ({ currentStep, totalSteps }) => {
   }
 
   return (
-    <div className="w-full">
-      <div className="flex">{stepBars}</div>
+    <div className="w-full progr">
+      <div className="flex flex-row">{stepBars}</div>
     </div>
   );
 };

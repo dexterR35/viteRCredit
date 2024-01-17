@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 const optionBox = [
-  { label: "Detin raport negativ", value: true },
-  { label: "Nu detin raport negativ", value: false },
+  { label: "Dețin raport negativ", value: true },
+  { label: "Nu dețin raport negativ", value: false },
 ];
 
-const Step2 = ({ stepChange }) => {
+const Step2 = ({ stepChange, name }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
@@ -13,7 +13,10 @@ const Step2 = ({ stepChange }) => {
     setIsChecked(value);
     setIsCheckboxChecked(true);
   };
-
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    return hour < 18 ? "Bună ziua" : "Bună seara";
+  };
   const handleDecision = () => {
     if (isChecked === true) {
       stepChange(4);
@@ -22,9 +25,10 @@ const Step2 = ({ stepChange }) => {
     }
   };
   return (
-    <div className="py-8 h-screen">
-      <p className="p-title">
-        Buna ziua <br /> Marian
+    <div className="py-8">
+      <p className="p-title flex flex-col gap-1">
+        <span>{getGreeting()}</span>
+        <span className="capitalize">{name}</span>
       </p>
       <div className="p-custom text-start">
         Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6 ani
@@ -45,9 +49,11 @@ const Step2 = ({ stepChange }) => {
         {optionBox.map((option) => (
           <label
             key={option.label}
-            className="flex p-3 w-full justify-between bg-white border border-gray-300 rounded-lg text-sm"
+            className="flex p-3 w-full justify-between bg-white border border-gray-500 rounded-lg text-sm"
           >
-            <span className="text-sm text-gray-500 w-2/3">{option.label}</span>
+            <span className="text-sm text-gray-800 w-[80%]">
+              {option.label}
+            </span>
             <span className="relative">
               <input
                 type="checkbox"
@@ -67,11 +73,11 @@ const Step2 = ({ stepChange }) => {
 
       <div className="btn-parent">
         <button
-          className={`btn-sm w-full ${!isCheckboxChecked ? "bg-gray-200" : ""}`}
+          className={`btn-sm w-full ${!isCheckboxChecked ? "bg-gray-300" : ""}`}
           onClick={handleDecision}
           disabled={!isCheckboxChecked}
         >
-          Continua
+          Continuă
         </button>
       </div>
     </div>

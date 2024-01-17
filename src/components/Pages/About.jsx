@@ -3,12 +3,14 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import illustration2 from "/Icon/Illustration2.png";
-const features = [
+import illustration2 from "/Icon/illustration3.png";
+import { IoCheckmarkCircle } from "react-icons/io5";
+const texts = [
   "Ajutor rapid, credit dorit.",
-  "Experti in asistenta financiara",
-  "Supercharged VPN",
-  "No specific time limits.",
+  "Experți în asistența financiară",
+  "Soluții Eficiente, Succes Garantat.",
+  "Transformăm visele în realitate.",
+  "Claritate și Suport în Finanțe.",
 ];
 
 const Feature = () => {
@@ -39,23 +41,23 @@ const Feature = () => {
               variants={scrollAnimation}
             >
               <h3 className="text-3xl lg:text-5xl font-semibold text-black-600">
-                Servicii de Consultanta
+                Servicii de Consultantă
               </h3>
               <p className="my-2 text-black-500">
-                Daca te aflii in cautarea sprijinului necesar pentru a obtine
-                creditul dorit, echipa noastra de experti este aici pentru ati
-                oferi asistenta. Avand o vasta experienta de peste 9 ani in
-                acest domeniu, consultantii nostrii depun eforturi deosebite
-                pentru ate ghida in obtinerea rezultatelor dorite in cel mai
+                Dacă te aflii in căutarea sprijinului necesar pentru a obține
+                creditul dorit, echipa noastră de experți este aici pentru ați
+                oferi asistență. Având o vastă experientă de peste 9 ani in
+                acest domeniu, consultanții noștrii depun eforturi deosebite
+                pentru a te ghida în obținerea rezultatelor dorite în cel mai
                 eficient mod posibil.
               </p>
-              <ul className="text-black-500 self-start list-inside ml-8">
-                {features.map((feature, index) => (
+              <ul className="text-black-500 self-start list-inside flex flex-col gap-1 ml-3">
+                {texts.map((texts, index) => (
                   <motion.li
-                    className="relative circle-check custom-list"
+                    className="relative circle-check custom-list flex justify-start items-center gap-2 cursor-pointer"
                     custom={{ duration: 2 + index }}
                     variants={scrollAnimation}
-                    key={feature}
+                    key={texts}
                     whileHover={{
                       scale: 1.1,
                       transition: {
@@ -63,7 +65,8 @@ const Feature = () => {
                       },
                     }}
                   >
-                    {feature}
+                    <IoCheckmarkCircle className="w-[20px] h-[20px] text-green-500" />
+                    {texts}
                   </motion.li>
                 ))}
               </ul>

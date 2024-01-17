@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 const Form = ({ stepChange }) => {
   const [error, setError] = useState("");
 
@@ -42,7 +41,8 @@ const Form = ({ stepChange }) => {
   };
 
   const handleContinue = async () => {
-    stepChange(2);
+    stepChange(2, formData.name);
+    console.log(stepChange(2, formData.name));
   };
 
   const isContinueDisabled =
@@ -62,7 +62,7 @@ const Form = ({ stepChange }) => {
         experților.
       </h5>
 
-      <div className="h-full rounded my-4">
+      <div className="rounded my-4">
         {error && (
           <h5 className="bg-primary text-white text-center text-sm py-1 rounded-sm">
             {error}
