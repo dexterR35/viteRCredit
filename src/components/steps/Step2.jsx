@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 const optionBox = [
-  { label: "Dețin raport negativ", value: true },
-  { label: "Nu dețin raport negativ", value: false },
+  {
+    label: ["Dețin raport ", <br key="1" />, "negativ"],
+    value: true,
+  },
+  {
+    label: ["Nu dețin raport ", <br key="2" />, "negativ"],
+    value: false,
+  },
 ];
 
 const Step2 = ({ stepChange, name }) => {
@@ -46,12 +52,12 @@ const Step2 = ({ stepChange, name }) => {
       </p>
 
       <div className="flex gap-4 w-full mt-6">
-        {optionBox.map((option) => (
+        {optionBox.map((option, index) => (
           <label
-            key={option.label}
+            key={index}
             className="flex p-3 w-full justify-between bg-white border border-gray-500 rounded-lg text-sm"
           >
-            <span className="text-sm text-gray-800 w-[80%]">
+            <span className="text-sm text-gray-800 w-[100%]">
               {option.label}
             </span>
             <span className="relative">

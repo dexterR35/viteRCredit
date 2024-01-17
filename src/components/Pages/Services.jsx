@@ -71,7 +71,7 @@ const Services = () => {
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
-              className="mx-auto mb-6 mt-2 w-1/3 text-gray-700"
+              className="mx-auto mb-6 mt-2 w-[95%] md:w-1/3 text-gray-700"
             >
               Când planurile tale nu suportă amânare, echipa Obtine Credit te
               ajută să le pui în aplicare!

@@ -42,7 +42,7 @@ export default function Quiz() {
       ) : (
         <>
           <Progress currentStep={step} totalSteps={6} />
-          <div className="wrapper sm:w-[480px] w-full h-full overflow-scroll border-gray-200 border">
+          <div className="wrapper sm:w-[480px] w-full h-full overflow-scroll border-gray-200 border bg-white">
             <div className="p-2 px-4">
               {step === 1 && <Form stepChange={handleStepChange} />}
               {step === 2 && (
