@@ -6,11 +6,12 @@ const Form = ({ stepChange }) => {
     name: "",
     phone: "",
     email: "",
-    selection: "",
+    aboutUs: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, "gas");
     const isValidPhone = /^\d{0,9}$/.test(value); // Allow up to 10 digits
 
     setError("Adauga un numar valid");
@@ -41,13 +42,7 @@ const Form = ({ stepChange }) => {
   };
 
   const handleContinue = () => {
-    if (
-      formData.name &&
-      formData.selection &&
-      formData.email &&
-      formData.phone
-    ) {
-      // Only proceed to the next step if all fields are filled
+    if (formData.name && formData.aboutUs && formData.email && formData.phone) {
       stepChange(2, { name: formData.name, formData: formData });
     } else {
       setError("Completează toate câmpurile.");
@@ -55,7 +50,7 @@ const Form = ({ stepChange }) => {
   };
   const isContinueDisabled =
     !formData.name ||
-    !formData.selection ||
+    !formData.aboutUs ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) || // Check email format
     !/^\d{10}$/.test(formData.phone); // Check phone format (exactly 10 digits)
 
@@ -112,8 +107,8 @@ const Form = ({ stepChange }) => {
           <label className="mb-3">
             Cum ati auzit de noi?
             <select
-              name="selection"
-              value={formData.selection}
+              name="aboutUs"
+              value={formData.aboutUs}
               onChange={handleInputChange}
             >
               <option value="">Selecteaza</option>

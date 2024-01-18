@@ -12,8 +12,8 @@ export default function Quiz() {
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({});
-  const [raportNeg, setRaportNeg] = useState("");
-  const [Fname, setName] = useState(""); // State to store the name
+
+  const [fName, setName] = useState(""); // State to store the name
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -30,9 +30,8 @@ export default function Quiz() {
     if (newData && newData.formData) {
       setFormData(newData.formData);
     }
-
-    if (newData && newData.raportNeg !== undefined) {
-      setRaportNeg(newData.raportNeg);
+    if (newData && newData.selectedDate) {
+      setFormData({ ...formData, selectedDate: newData.selectedDate });
     }
 
     setIsLoading(true);
@@ -57,17 +56,21 @@ export default function Quiz() {
             <div className="p-2 px-4">
               {step === 1 && <Form stepChange={handleStepChange} />}
               {step === 2 && (
-                <Step2 stepChange={handleStepChange} name={Fname} />
+                <Step2 stepChange={handleStepChange} name={fName} />
               )}
               {step === 3 && <Step3 stepChange={handleStepChange} />}
               {step === 4 && (
-                <Step4
+                <Step4 stepChange={handleStepChange} formData={formData} />
+              )}
+              {step === 5 && (
+                <Step5
                   stepChange={handleStepChange}
-                  formData={formData}
-                  raportNeg={raportNeg}
+                  formData={{
+                    ...formData,
+                    selectedDate: formData.selectedDate,
+                  }}
                 />
               )}
-              {step === 5 && <Step5 stepChange={handleStepChange} />}
               {step === 6 && <FinalStep stepCase={1} />}
               {step === 7 && <FinalStep stepCase={2} />}
               {step === 8 && <FinalStep stepCase={3} />}

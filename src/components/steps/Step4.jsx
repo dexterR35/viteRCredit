@@ -24,7 +24,7 @@ import brdfinance from "/logo/brdfinance.png";
 
 import Firestore from "../Misc/Firestore";
 
-const Step4 = ({ stepChange, formData, raportNeg }) => {
+const Step4 = ({ stepChange, formData }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -99,16 +99,23 @@ const Step4 = ({ stepChange, formData, raportNeg }) => {
       .map((ifn) => ifn.dataAtr);
 
     const dataForFirestore = {
-      formData: formData,
-      negativ: {
-        raportNeg: raportNeg,
-        banks: selectedBanks,
-        ifn: selectedIfn,
-        others: [inputValue],
+      status: "new",
+      customer_data: {
+        customer_info: formData,
+        customer_files: "false",
+        dateJob: false,
       },
-      positive: false,
+      banking_status: {
+        negative: {
+          banks: selectedBanks,
+          ifn: selectedIfn,
+          others: [inputValue],
+        },
+        status: true,
+        bankHistory: false,
+      },
     };
-    // Replace "your-collection-name" with the name of the Firestore collection
+
     await Firestore.addData("test", dataForFirestore);
     stepChange(6);
   };

@@ -11,7 +11,7 @@ const optionBox = [
   },
 ];
 
-const Step2 = ({ stepChange, Fname }) => {
+const Step2 = ({ stepChange, fName }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [raportNeg, setRaportNeg] = useState("");
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -19,7 +19,7 @@ const Step2 = ({ stepChange, Fname }) => {
   const handleCheckboxChange = (value) => {
     setIsChecked(value);
     setIsCheckboxChecked(true);
-    setRaportNeg(value ? "negativ" : "positiv");
+    setRaportNeg(value ? "false" : "true");
   };
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -38,7 +38,7 @@ const Step2 = ({ stepChange, Fname }) => {
     <div className="py-8">
       <p className="p-title flex flex-col gap-1">
         <span>{getGreeting()}</span>
-        <span className="capitalize">{Fname}</span>
+        <span className="capitalize">{fName}</span>
       </p>
       <div className="p-custom text-start">
         Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6 ani

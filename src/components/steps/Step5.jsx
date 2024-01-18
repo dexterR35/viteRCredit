@@ -1,4 +1,4 @@
-// import Check from "../components/Check";
+import Firestore from "../Misc/Firestore";
 import { useState } from "react";
 import { IoHelpCircleOutline, IoCheckmarkSharp } from "react-icons/io5";
 
@@ -7,7 +7,7 @@ const optionBox = [
   { label: "Nu detin istoric bancar", value: false },
 ];
 
-const Step5 = ({ stepChange }) => {
+const Step5 = ({ stepChange, formData }) => {
   const [isChecked, setIsChecked] = useState(null);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const handleCheckboxChange = (value) => {
@@ -15,12 +15,33 @@ const Step5 = ({ stepChange }) => {
     setIsCheckboxChecked(true);
   };
 
-  const handleDecision = () => {
+  const handleDecision = async () => {
+    let bankHistoryValue = isChecked;
+
     if (isChecked === true) {
       stepChange(7);
     } else if (isChecked === false) {
       stepChange(8);
     }
+    const dataForFirestore = {
+      status: "new",
+      customer_data: {
+        customer_info: formData,
+        customer_files: "false",
+        dateJob: formData.selectedDate, //value of selected date
+      },
+      banking_status: {
+        negative: {
+          banks: "false",
+          ifn: "false",
+          others: "false",
+        },
+        status: bankHistoryValue,
+        bankHistory: bankHistoryValue,
+      },
+    };
+
+    await Firestore.addData("test", dataForFirestore);
   };
   return (
     <div className="py-8 h-screen">
