@@ -28,7 +28,7 @@ const Step5 = ({ stepChange, formData }) => {
       customer_data: {
         customer_info: formData,
         customer_files: "false",
-        dateJob: formData.selectedDate, //value of selected date
+        dateJob: formData.selectedDate,
       },
       banking_status: {
         negative: {

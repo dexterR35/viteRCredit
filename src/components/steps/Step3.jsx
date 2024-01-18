@@ -50,7 +50,7 @@ const Step3 = ({ stepChange }) => {
 
   const isDateSelected = day && month && year;
   const continueS = () => {
-    stepChange(5, { selectedDate: `${day} / ${month} / ${year}` });
+    stepChange(5, { selectedDate: `${day}.${month}.${year}` });
   };
 
   return (
