@@ -11,7 +11,9 @@ import { LoadingScreen } from "./steps/LoadingScreen";
 export default function Quiz() {
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const [name, setName] = useState(""); // State to store the name
+  const [formData, setFormData] = useState({});
+  const [raportNeg, setRaportNeg] = useState("");
+  const [Fname, setName] = useState(""); // State to store the name
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -20,10 +22,19 @@ export default function Quiz() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleStepChange = (newStep, newName) => {
-    if (newName !== undefined) {
-      setName(newName); // Set the name if provided
+  const handleStepChange = (newStep, newData) => {
+    if (newData && newData.name !== undefined) {
+      setName(newData.name);
     }
+
+    if (newData && newData.formData) {
+      setFormData(newData.formData);
+    }
+
+    if (newData && newData.raportNeg !== undefined) {
+      setRaportNeg(newData.raportNeg);
+    }
+
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -46,10 +57,16 @@ export default function Quiz() {
             <div className="p-2 px-4">
               {step === 1 && <Form stepChange={handleStepChange} />}
               {step === 2 && (
-                <Step2 stepChange={handleStepChange} name={name} />
+                <Step2 stepChange={handleStepChange} name={Fname} />
               )}
               {step === 3 && <Step3 stepChange={handleStepChange} />}
-              {step === 4 && <Step4 stepChange={handleStepChange} />}
+              {step === 4 && (
+                <Step4
+                  stepChange={handleStepChange}
+                  formData={formData}
+                  raportNeg={raportNeg}
+                />
+              )}
               {step === 5 && <Step5 stepChange={handleStepChange} />}
               {step === 6 && <FinalStep stepCase={1} />}
               {step === 7 && <FinalStep stepCase={2} />}

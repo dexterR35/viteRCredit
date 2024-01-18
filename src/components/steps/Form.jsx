@@ -40,11 +40,19 @@ const Form = ({ stepChange }) => {
     });
   };
 
-  const handleContinue = async () => {
-    stepChange(2, formData.name);
-    console.log(stepChange(2, formData.name));
+  const handleContinue = () => {
+    if (
+      formData.name &&
+      formData.selection &&
+      formData.email &&
+      formData.phone
+    ) {
+      // Only proceed to the next step if all fields are filled
+      stepChange(2, { name: formData.name, formData: formData });
+    } else {
+      setError("Completează toate câmpurile.");
+    }
   };
-
   const isContinueDisabled =
     !formData.name ||
     !formData.selection ||
@@ -109,11 +117,11 @@ const Form = ({ stepChange }) => {
               onChange={handleInputChange}
             >
               <option value="">Selecteaza</option>
-              <option value="option1">FaceBook</option>
-              <option value="option2">Pliant</option>
-              <option value="option3">Tik-Tok</option>
-              <option value="option4">Consultant</option>
-              <option value="option5">Recomandare</option>
+              <option value="FaceBook">FaceBook</option>
+              <option value="Pliant">Pliant</option>
+              <option value="TikTok">Tik-Tok</option>
+              <option value="Consultant">Consultant</option>
+              <option value="Recomandare">Recomandare</option>
             </select>
           </label>
           <br />

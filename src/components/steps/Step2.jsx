@@ -11,13 +11,15 @@ const optionBox = [
   },
 ];
 
-const Step2 = ({ stepChange, name }) => {
+const Step2 = ({ stepChange, Fname }) => {
   const [isChecked, setIsChecked] = useState(null);
+  const [raportNeg, setRaportNeg] = useState("");
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-
+  // console.log("raportNeg in Step21:", raportNeg);
   const handleCheckboxChange = (value) => {
     setIsChecked(value);
     setIsCheckboxChecked(true);
+    setRaportNeg(value ? "negativ" : "positiv");
   };
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -25,16 +27,18 @@ const Step2 = ({ stepChange, name }) => {
   };
   const handleDecision = () => {
     if (isChecked === true) {
-      stepChange(4);
+      console.log("raportNeg for Step4:", raportNeg);
+      stepChange(4, { raportNeg });
     } else if (isChecked === false) {
-      stepChange(3);
+      console.log("raportNeg for Step3:", raportNeg);
+      stepChange(3, { raportNeg });
     }
   };
   return (
     <div className="py-8">
       <p className="p-title flex flex-col gap-1">
         <span>{getGreeting()}</span>
-        <span className="capitalize">{name}</span>
+        <span className="capitalize">{Fname}</span>
       </p>
       <div className="p-custom text-start">
         Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6 ani

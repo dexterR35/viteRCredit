@@ -18,10 +18,13 @@ import bcrs from "/logo/banca_romaneasca.png";
 import providet from "/logo/providet.png";
 import icredit from "/logo/icredit.png";
 import horacredit from "/logo/horacredit.png";
-// import icredit from "../../assets/logo/icredit.png";
+
 import vivacredit from "/logo/vivacredit.png";
 import brdfinance from "/logo/brdfinance.png";
-const Step4 = ({ stepChange }) => {
+
+import Firestore from "../Misc/Firestore";
+
+const Step4 = ({ stepChange, formData, raportNeg }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -59,11 +62,21 @@ const Step4 = ({ stepChange }) => {
       { src: brdfinance, dataAtr: "Brd-Finance" },
     ],
   };
-  const handleDivClick = (divName) => {
-    if (selectedDivNames.includes(divName)) {
+  const handleDivClick = (divName, category) => {
+    const isAlreadySelected = selectedDivNames.includes(divName);
+
+    if (isAlreadySelected) {
       setSelectedDivNames(selectedDivNames.filter((name) => name !== divName));
     } else {
-      setSelectedDivNames([...selectedDivNames, divName]);
+      // Only add to selectedDivNames if the category matches the current selection
+      if (
+        (category === "banks" &&
+          images.banks.some((bank) => bank.dataAtr === divName)) ||
+        (category === "ifn" &&
+          images.ifn.some((ifn) => ifn.dataAtr === divName))
+      ) {
+        setSelectedDivNames([...selectedDivNames, divName]);
+      }
     }
   };
 
@@ -71,7 +84,32 @@ const Step4 = ({ stepChange }) => {
     setInputValue(e.target.value);
   };
 
-  const handleFinal = () => {
+  const handleFinal = async () => {
+    const updatedSelectedDivNames = [...selectedDivNames];
+
+    if (inputValue.trim() !== "") {
+      updatedSelectedDivNames.push(inputValue.trim());
+    }
+    const selectedBanks = images.banks
+      .filter((bank) => selectedDivNames.includes(bank.dataAtr))
+      .map((bank) => bank.dataAtr);
+
+    const selectedIfn = images.ifn
+      .filter((ifn) => selectedDivNames.includes(ifn.dataAtr))
+      .map((ifn) => ifn.dataAtr);
+
+    const dataForFirestore = {
+      formData: formData,
+      negativ: {
+        raportNeg: raportNeg,
+        banks: selectedBanks,
+        ifn: selectedIfn,
+        others: [inputValue],
+      },
+      positive: false,
+    };
+    // Replace "your-collection-name" with the name of the Firestore collection
+    await Firestore.addData("test", dataForFirestore);
     stepChange(6);
   };
 
@@ -90,7 +128,7 @@ const Step4 = ({ stepChange }) => {
                 ? "selected bg-gray-200"
                 : ""
             }`}
-            onClick={() => handleDivClick(image.dataAtr)}
+            onClick={() => handleDivClick(image.dataAtr, "banks")}
             data-name={image.dataAtr}
           >
             <img
@@ -123,7 +161,7 @@ const Step4 = ({ stepChange }) => {
                 ? "selected"
                 : "bg-gray-200"
             }`}
-            onClick={() => handleDivClick(image.dataAtr)}
+            onClick={() => handleDivClick(image.dataAtr, "ifn")}
             data-name={image.dataAtr}
           >
             <img
