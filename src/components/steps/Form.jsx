@@ -111,7 +111,7 @@ const Form = ({ stepChange }) => {
               value={formData.aboutUs}
               onChange={handleInputChange}
             >
-              <option value="">Selecteaza</option>
+              <option value="">Selectează</option>
               <option value="FaceBook">FaceBook</option>
               <option value="Pliant">Pliant</option>
               <option value="TikTok">Tik-Tok</option>

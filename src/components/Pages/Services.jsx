@@ -70,17 +70,17 @@ const Services = ({ setIsModalOpen }) => {
               variants={scrollAnimation}
               className="uppercase text-2xl lg:text-4xl font-semibold text-gray-800 mx-auto"
             >
-              Gasim cele mai bune solutii pentru tine
+              Găsim cele mai bune soluții pentru tine
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="mx-auto mb-6 mt-2 w-[95%] md:w-1/3 text-gray-700"
             >
-              Când planurile tale nu suportă amânare, echipa Obtine Credit te
+              Când planurile tale nu suportă amânare, echipa Obține Credit te
               ajută să le pui în aplicare!
             </motion.p>
           </ScrollAnimationWrapper>
-          <div className="sm:grid sm:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col-reverse">
+          <div className="sm:grid sm:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col">
             {dataCards.map((card, index) => (
               <ScrollAnimationWrapper
                 className="flex justify-center"
@@ -113,12 +113,9 @@ const Services = ({ setIsModalOpen }) => {
                   </div>
                   <QuizButton
                     onClick={() => setIsModalOpen(true)}
-                    className="btn-sm text-lg block"
+                    className="px-5 mt-2 font-medium bg-primary rounded-md text-white p-2 place-self-end w-48"
                     text={card.btnTitle}
                   />
-                  {/* <button className="px-5 mt-2 text-md font-medium bg-green-500 rounded-md w-fit text-white p-2 place-self-end">
-                    Afla mai multe
-                  </button> */}
                 </motion.div>
               </ScrollAnimationWrapper>
             ))}

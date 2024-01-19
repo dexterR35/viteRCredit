@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { IoCheckmarkSharp } from "react-icons/io5";
+import { IoCheckmarkSharp, IoHelpCircleOutline } from "react-icons/io5";
+
 const optionBox = [
   {
     label: ["Dețin raport ", <br key="1" />, "negativ"],
@@ -50,7 +51,6 @@ const Step2 = ({ stepChange, fName }) => {
         Însă, înainte de a a găsi o solutie, m-ar interesa să aflu câteva
         detalii esențiale de la dumneavoastă.
       </p>
-
       <p className="p-question">
         Ești raportat negativ <br /> in Biroul de credit?
       </p>

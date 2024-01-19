@@ -20,7 +20,7 @@ const Feature = () => {
     <div className="sm:py-8 py-0 relative">
       <div className="max-w-screen-xl mx-auto">
         <div
-          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-1 md:grid-cols-2 my-12 flex flex-col-reverse"
+          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-1 md:grid-cols-2 place-content-center md:items-center md:my-12 mt-12 mb-0 flex flex-col-reverse"
           id="about"
         >
           <ScrollAnimationWrapper className="flex w-full justify-end">
@@ -31,7 +31,7 @@ const Feature = () => {
               <img
                 src={illustration2}
                 alt="test"
-                className="w-[520px] h-[420px] object-contain"
+                className="w-[100%] h-[420px] object-contain md:px-0 px-8"
               />
             </motion.div>
           </ScrollAnimationWrapper>
@@ -51,7 +51,7 @@ const Feature = () => {
                 pentru a te ghida în obținerea rezultatelor dorite în cel mai
                 eficient mod posibil.
               </p>
-              <ul className="text-black-500 self-start list-inside flex flex-col gap-1 ml-3">
+              <ul className="text-black-500 self-start list-inside flex flex-col gap-1 md:ml-3 ml-0">
                 {texts.map((texts, index) => (
                   <motion.li
                     className="relative circle-check custom-list flex justify-start items-center gap-2 cursor-pointer"
@@ -65,7 +65,7 @@ const Feature = () => {
                       },
                     }}
                   >
-                    <IoCheckmarkCircle className="w-[20px] h-[20px] text-green-500" />
+                    <IoCheckmarkCircle className="w-[20px] h-[20px] text-primary" />
                     {texts}
                   </motion.li>
                 ))}

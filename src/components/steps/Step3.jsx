@@ -115,7 +115,7 @@ const Step3 = ({ stepChange }) => {
           onClick={continueS}
           disabled={!isDateSelected}
         >
-          Continua
+          Continuă
         </button>
       </div>
     </div>
