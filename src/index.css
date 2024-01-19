@@ -18,7 +18,7 @@
     @apply bg-primary py-3 px-4 font-semibold rounded-md text-white text-[1.1em] uppercase;
   }
   .btn-md {
-    @apply font-medium tracking-wide py-2 px-5 sm:px-8 border border-green-400 text-gray-800 outline-none rounded-l-full rounded-r-full capitalize;
+    @apply font-medium tracking-wide py-2 px-5 sm:px-8 border bg-primary text-gray-800 outline-none rounded-l-full rounded-r-full capitalize;
   }
   .p-custom {
     @apply text-[0.96rem] leading-5 w-full p-4 bg-gray-200 rounded-md font-normal text-start;

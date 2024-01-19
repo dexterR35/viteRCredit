@@ -43,7 +43,7 @@ export default function App() {
           <About />
         </div>
         <div className="bg-gray-200">
-          <Services />
+          <Services setIsModalOpen={setIsModalOpen} />
         </div>
       </Layout>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

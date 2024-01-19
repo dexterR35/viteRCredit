@@ -11,46 +11,49 @@ import cardImg3 from "/Icon/business-report.png";
 import cardImg4 from "/Icon/finance.png";
 import cardImg6 from "/Icon/car2.png";
 import cardImg7 from "/Icon/house.png";
-const Services = () => {
+
+import QuizButton from "../steps/Qbutton";
+
+const Services = ({ setIsModalOpen }) => {
   const dataCards = [
     {
       img: cardImg,
-
+      btnTitle: "Obține Credit",
       title: "Credite de nevoi personale",
       description:
         "Obțineți creditul de nevoi personale de care aveți nevoie cu ușurință și rapid. Echipa noastră de experți vă stă la dispoziție pentru a vă oferi soluții financiare personalizate, adaptate nevoilor dumneavoastră. Simplu, eficient, și fără complicații.",
     },
     {
       img: cardImg2,
-
-      title: "Refinantari",
+      btnTitle: "Aplică aici",
+      title: "Refinanțări",
       description:
         "Optați pentru refinanțare cu încredere. Echipa noastră vă asigură soluții personalizate pentru a consolida și eficientiza datoriile dvs. Există oportunități noi pentru un viitor financiar mai stabil.",
     },
     {
       img: cardImg7,
-
+      btnTitle: "Completează",
       title: "Credite Imobiliare",
       description:
         "Asigurați-vă viitorul cu un credit imobiliar adaptat nevoilor dumneavoastră. Echipa noastră vă ghidează pas cu pas în procesul de obținere a unui credit pentru casa visurilor voastre. Investiția în confortul dumneavoastră începe aici.",
     },
     {
       img: cardImg3,
-
+      btnTitle: "Află mai multe",
       title: "Stergere din biroul de credit",
       description:
         "Asigurați-vă un start proaspăt eliminând datele negative din biroul de credit. Echipa noastră vă oferă suport specializat pentru a remedia situațiile financiare nefericite și a vă restabili un profil de credit pozitiv.",
     },
     {
       img: cardImg4,
-
+      btnTitle: "Aplică aici",
       title: "Credite IMM-uri",
       description:
         "Optați pentru creditele pe firmă pentru a-ți dezvolta afacerea fără a-ți utiliza propriile resurse financiare. Echipa noastră vă oferă soluții personalizate pentru a obține finanțarea necesară și a consolida succesul în mediul de afaceri.",
     },
     {
       img: cardImg6,
-
+      btnTitle: "Completează",
       title: "Leasing Auto",
       description:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores perspiciatis ipsum repellendus aspernatur iusto numquam aliquid cumque optio illo! Temporibus",
@@ -108,9 +111,14 @@ const Services = () => {
                       {card.description}
                     </p>
                   </div>
-                  <button className="px-5 mt-2 text-md font-medium bg-green-500 rounded-md w-fit text-white p-2 place-self-end">
+                  <QuizButton
+                    onClick={() => setIsModalOpen(true)}
+                    className="btn-sm text-lg block"
+                    text={card.btnTitle}
+                  />
+                  {/* <button className="px-5 mt-2 text-md font-medium bg-green-500 rounded-md w-fit text-white p-2 place-self-end">
                     Afla mai multe
-                  </button>
+                  </button> */}
                 </motion.div>
               </ScrollAnimationWrapper>
             ))}

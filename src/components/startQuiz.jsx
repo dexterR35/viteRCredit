@@ -13,11 +13,11 @@ export default function Quiz() {
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({});
 
-  const [fName, setName] = useState(""); // State to store the name
+  const [fName, setName] = useState("");
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Start with loading screen for 1 second
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);

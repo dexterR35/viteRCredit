@@ -50,7 +50,7 @@ const Header = ({ setIsModalOpen }) => {
             </LinkScroll>
             <LinkScroll
               activeClass="active"
-              to="feature"
+              to="about"
               spy={true}
               smooth={true}
               duration={800}
@@ -107,7 +107,8 @@ const Header = ({ setIsModalOpen }) => {
             <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide  transition-all">
               <QuizButton
                 onClick={() => setIsModalOpen(true)}
-                className="btn-md"
+                bg-primary
+                className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-primary text-primary bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-primary hover:text-white transition-all hover:shadow-orange"
                 text="Cere Oferta"
               />
             </div>

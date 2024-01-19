@@ -6,13 +6,12 @@ export const Progress = ({ currentStep, totalSteps }) => {
 
     let barColorClass = "";
 
-    // Set different colors for each step based on its order
     if (isCurrentStep) {
-      barColorClass = "bg-green-600"; // Current step is blue
+      barColorClass = "bg-green-600";
     } else if (step < currentStep) {
-      barColorClass = "bg-green-600"; // Completed steps are green
+      barColorClass = "bg-green-600";
     } else {
-      barColorClass = "bg-white"; // Upcoming steps are gray
+      barColorClass = "bg-white";
     }
 
     stepBars.push(

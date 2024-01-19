@@ -1,6 +1,5 @@
-import React from "react";
 import Quiz from "./Quiz";
-import AnotherComponent from "./AnotherComponent"; // Import the component you want to include
+// import AnotherComponent from "./AnotherComponent"; // Import the component you want to include
 
 const Modal = ({ onClose, isModalVisible }) => {
   return (
@@ -13,7 +12,7 @@ const Modal = ({ onClose, isModalVisible }) => {
             </button>
             <Quiz onClose={onClose} isQuizVisible={true} />
             {/* Include AnotherComponent inside the modal */}
-            <AnotherComponent />
+            {/* <AnotherComponent /> */}
           </div>
         </div>
       )}
