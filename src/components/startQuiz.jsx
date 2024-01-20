@@ -56,7 +56,7 @@ export default function Quiz() {
             <div className="p-2 px-4">
               {step === 1 && <Form stepChange={handleStepChange} />}
               {step === 2 && (
-                <Step2 stepChange={handleStepChange} name={fName} />
+                <Step2 stepChange={handleStepChange} fName={fName} />
               )}
               {step === 3 && <Step3 stepChange={handleStepChange} />}
               {step === 4 && (

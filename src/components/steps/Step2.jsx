@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { IoCheckmarkSharp, IoHelpCircleOutline } from "react-icons/io5";
-
+import { IoCheckmarkSharp } from "react-icons/io5";
+import { FcAssistant } from "react-icons/fc";
 const optionBox = [
   {
     label: ["Dețin raport ", <br key="1" />, "negativ"],
@@ -41,11 +41,17 @@ const Step2 = ({ stepChange, fName }) => {
         <span>{getGreeting()}</span>
         <span className="capitalize">{fName}</span>
       </p>
-      <div className="p-custom text-start">
-        Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6 ani
-        in domeniu. Te voi indruma să găsim cele mai bune soluții pentru nevoile
-        tale de la obținerea unui credit nou, până la refinanțarea creditelor
-        existente sau chiar eliminarea istoricului negativ din Biroul de Credit.
+      <div className="p-custom text-start flex flex-col">
+        <div className="text-lg font-semibold mb-2 capitalize text-center">
+          <FcAssistant className="float-left h-6 w-6 text-gray-600" />
+        </div>
+        <div>
+          Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6
+          ani in domeniu. Te voi indruma să găsim cele mai bune soluții pentru
+          nevoile tale de la obținerea unui credit nou, până la refinanțarea
+          creditelor existente sau chiar eliminarea istoricului negativ din
+          Biroul de Credit.
+        </div>
       </div>
       <p className="p-custom mt-6">
         Însă, înainte de a a găsi o solutie, m-ar interesa să aflu câteva

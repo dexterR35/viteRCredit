@@ -116,7 +116,7 @@ const Step4 = ({ stepChange, formData }) => {
       },
     };
 
-    await Firestore.addData("test", dataForFirestore);
+    await Firestore.addData("oc_customers", dataForFirestore);
     stepChange(6);
   };
 
@@ -201,7 +201,9 @@ const Step4 = ({ stepChange, formData }) => {
             {name}
           </p>
         ))}
-        {inputValue && <p>{`, ${inputValue}`}</p>}
+        {inputValue && (
+          <p className="bg-gray-200 w-fill text-gray-800 p-2 rounded-md">{`, ${inputValue}`}</p>
+        )}
       </div>
       <div className="btn-parent">
         <button className="btn-sm w-full" onClick={handleFinal}>

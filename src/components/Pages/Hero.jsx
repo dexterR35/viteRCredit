@@ -5,9 +5,8 @@ import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import QuizButton from "../steps/Qbutton";
 import { IoPerson, IoBatteryFullSharp, IoLayersOutline } from "react-icons/io5";
-// import icon1 from "/Icon/heroicons_sm-user.svg";
+import illustration from "/Icon/illustration7.webp";
 
-import illustration from "/Icon/illustration4.png";
 const Hero = ({
   listUser = [
     {
@@ -41,10 +40,10 @@ const Hero = ({
           variants={scrollAnimation}
         >
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 sm:w-[80%] lg:w-[100%]">
-            <h1 className="text-2xl sm:text-4xl xl:text-5xl font-bold text-black-600 leading-2 uppercase">
+            <h1 className="text-2xl sm:text-4xl xl:text-5xl font-bold text-gray-800 leading-2 uppercase">
               Soluții de creditare personalizate
             </h1>
-            <p className="text-black-500 mt-4 mb-6">
+            <p className="text-gray-700 mt-4 mb-6">
               Servicii complete de creditare si crestea sanselor de aprobare
               oferite de o echipa profesionista in domeniul bancar financiar si
               non-bancar.
@@ -71,11 +70,7 @@ const Hero = ({
             text="Obtine Credit"
           />
         </motion.div>
-        <motion.div variants={scrollAnimation}>
-          {/* <ButtonPrimary addClass="lg:hidden block relative mx-auto mt-4">
-            Obtine Credit
-          </ButtonPrimary> */}
-        </motion.div>
+        <motion.div variants={scrollAnimation}></motion.div>
       </ScrollAnimationWrapper>
       <div className="relative w-full flex">
         <ScrollAnimationWrapper className="rounded-lg w-full flex flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-2 mb-4 md:py-9 bg-white z-10">
@@ -91,10 +86,10 @@ const Hero = ({
                   <listUsers.icon className="text-green-800 w-[22px] h-[22px]" />
                 </div>
                 <div className="flex flex-col text-center">
-                  <p className="sm:text-xl text-md text-black-600 font-bold">
+                  <p className="sm:text-xl text-md text-gray-800 font-bold">
                     {listUsers.number}
                   </p>
-                  <p className="sm:text-lg text-sm text-black-500">
+                  <p className="sm:text-lg text-sm text-gray-800">
                     {listUsers.name}
                   </p>
                 </div>
@@ -102,10 +97,6 @@ const Hero = ({
             </motion.div>
           ))}
         </ScrollAnimationWrapper>
-        <div
-          className="absolute bg-black-600 opacity-5  roudned-lg h-64 sm:h-48 top-0 mt-8 mx-auto left-0 right-0"
-          style={{ filter: "blur(114px)" }}
-        ></div>
       </div>
     </div>
   );

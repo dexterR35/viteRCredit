@@ -68,7 +68,7 @@ const Services = ({ setIsModalOpen }) => {
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="uppercase text-2xl lg:text-4xl font-semibold text-gray-800 mx-auto"
+              className="uppercase text-2xl lg:text-4xl font-semibold text-gray-700 mx-auto"
             >
               Găsim cele mai bune soluții pentru tine
             </motion.h3>
@@ -80,7 +80,7 @@ const Services = ({ setIsModalOpen }) => {
               ajută să le pui în aplicare!
             </motion.p>
           </ScrollAnimationWrapper>
-          <div className="sm:grid sm:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col">
+          <div className="sm:grid sm:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col gap-4">
             {dataCards.map((card, index) => (
               <ScrollAnimationWrapper
                 className="flex justify-center"
@@ -88,7 +88,7 @@ const Services = ({ setIsModalOpen }) => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 px-4 xl:px-5 w-[26rem] h-74 shadow-sm"
+                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 px-4 xl:px-5 min-w-96 h-74 shadow-sm"
                   whileHover={{
                     scale: 1.02,
                     transition: {
@@ -122,29 +122,29 @@ const Services = ({ setIsModalOpen }) => {
           </div>
         </div>
 
-        <div className="flex flex-col w-full my-10 mt-20" id="testimoni">
+        <div className="flex flex-col w-full my-10" id="testimoni">
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-700 leading-normal w-9/12 sm: lg:w-4/12 mx-auto "
+              className=" uppercase text-2xl sm:text-4xl font-semibold text-gray-700 leading-normal w-9/12 sm: lg:w-5/12 mx-auto"
             >
-              Testimoniale{" "}
+              Soluții Constructive{" "}
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
-              className="leading-normal mx-auto mb-12 mt-4 w-10/12 sm:w-7/12 lg:w-6/12"
+              className="leading-normal mx-auto mb-12 md:mt-2 w-10/12 sm:w-7/12 lg:w-6/12 text-lg f text-gray-700"
             >
-              Acestea sunt poveștile clienților noștri care ni s-au alăturat.
+              Eficient, Rapid, Reușită
             </motion.p>
           </ScrollAnimationWrapper>
-          <ScrollAnimationWrapper className="w-full flex flex-col pt-12">
+          <ScrollAnimationWrapper className="w-full flex flex-col pt-2">
             <motion.div variants={scrollAnimation}>
               <Testimoni />
             </motion.div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="relative w-full">
             <motion.div variants={scrollAnimation} custom={{ duration: 3 }}>
-              <div className="bg-white relative top-[100px] rounded-xl py-8 sm:py-14 px-4 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
+              <div className="bg-white relative sm:top-[100px] top-[20px] rounded-xl py-8 sm:py-14 px-4 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
                 <div className="flex flex-col text-left w-10/12 sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
                   <h5 className="text-gray-700 text-xl sm:text-2xl lg:text-4xl leading-relaxed font-medium mb-2">
                     Descoperă secretele <br />
@@ -154,17 +154,13 @@ const Services = ({ setIsModalOpen }) => {
                     {" "}
                     Abonează-te pentru sfaturi exclusive de la consultanți.
                   </p>
-                  <p className="text-[13px]">
-                    #Credite #ConsultanțăFinanciară #EducațieFinanciară
+                  <p className="text-[13px] mt-1 flex gap-1 text-gray-600">
+                    <span>#Credite</span> <span>#ConsultanțăFinanciară</span>{" "}
+                    <span> #EducațieFinanciară</span>
                   </p>
                 </div>
                 <button className="btn-sm">Intră online</button>
-                {/* <ButtonPrimary>Intra online</ButtonPrimary> */}
               </div>
-              <div
-                className="absolute bg-black-600 opacity-5 w-11/12 roudned-lg h-60 sm:h-56 top-0 mt-8 mx-auto left-0 right-0"
-                style={{ filter: "blur(114px)" }}
-              ></div>
             </motion.div>
           </ScrollAnimationWrapper>
         </div>
