@@ -1,7 +1,7 @@
 import Firestore from "../Misc/Firestore";
 import { useState } from "react";
 import { IoHelpCircleOutline, IoCheckmarkSharp } from "react-icons/io5";
-
+import { FcInfo } from "react-icons/fc";
 const optionBox = [
   { label: "Detin istoric bancar", value: true },
   { label: "Nu detin istoric bancar", value: false },
@@ -41,15 +41,15 @@ const Step5 = ({ stepChange, formData }) => {
       },
     };
 
-    await Firestore.addData("test", dataForFirestore);
+    await Firestore.addData("oc_customers", dataForFirestore);
   };
   return (
     <div className="py-8 h-screen">
       <p className="p-title mb-10">Istoric Bancar</p>
       <div className="p-custom text-start">
         <div className="text-lg font-semibold mb-2">
-          Stiati ca !?
-          <IoHelpCircleOutline className="float-right h-6 w-6 text-gray-600" />
+          Stiați că !?
+          <FcInfo className="float-right h-6 w-6 text-gray-600" />
         </div>
         Creditele bancare au apărut încă din antichitate, când bancherii
         furnizau finanțare pentru comerț și afaceri. În Evul Mediu, băncile au

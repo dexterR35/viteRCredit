@@ -24,7 +24,14 @@ const Step2 = ({ stepChange, fName }) => {
   };
   const getGreeting = () => {
     const hour = new Date().getHours();
-    return hour < 18 ? "Bună ziua" : "Bună seara";
+
+    if (hour < 12) {
+      return "Bună dimineața";
+    } else if (hour < 18) {
+      return "Bună ziua";
+    } else {
+      return "Bună seara";
+    }
   };
   const handleDecision = () => {
     if (isChecked === true) {
@@ -41,17 +48,15 @@ const Step2 = ({ stepChange, fName }) => {
         <span>{getGreeting()}</span>
         <span className="capitalize">{fName}</span>
       </p>
-      <div className="p-custom text-start flex flex-col">
-        <div className="text-lg font-semibold mb-2 capitalize text-center">
-          <FcAssistant className="float-left h-6 w-6 text-gray-600" />
+      <div className="p-custom text-start">
+        <div className="text-lg font-semibold mb-2 capitalize text-start">
+          Eu sunt Gabriela
+          <FcAssistant className="float-right h-6 w-6 text-gray-600" />
         </div>
-        <div>
-          Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6
-          ani in domeniu. Te voi indruma să găsim cele mai bune soluții pentru
-          nevoile tale de la obținerea unui credit nou, până la refinanțarea
-          creditelor existente sau chiar eliminarea istoricului negativ din
-          Biroul de Credit.
-        </div>
+        Consultantul tău online cu o experientă de peste 6 ani in domeniu. Te
+        voi indruma să găsim cele mai bune soluții pentru nevoile tale de la
+        obținerea unui credit nou, până la refinanțarea creditelor existente sau
+        chiar eliminarea istoricului negativ din Biroul de Credit.
       </div>
       <p className="p-custom mt-6">
         Însă, înainte de a a găsi o solutie, m-ar interesa să aflu câteva

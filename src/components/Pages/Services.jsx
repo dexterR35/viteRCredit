@@ -154,7 +154,7 @@ const Services = ({ setIsModalOpen }) => {
                     {" "}
                     Abonează-te pentru sfaturi exclusive de la consultanți.
                   </p>
-                  <p className="text-[13px] mt-1 flex gap-1 text-gray-600">
+                  <p className="text-[13px] mt-1 flex flex-wrap gap-1 text-gray-600">
                     <span>#Credite</span> <span>#ConsultanțăFinanciară</span>{" "}
                     <span> #EducațieFinanciară</span>
                   </p>

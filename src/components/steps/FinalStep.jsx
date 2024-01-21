@@ -1,5 +1,4 @@
-import { CiCircleInfo } from "react-icons/ci";
-import { FaRegCircleCheck } from "react-icons/fa6";
+import { FcHighPriority, FcApproval } from "react-icons/fc";
 const FinalstepCase = ({ stepCase }) => {
   let content;
   console.log(stepCase, "stepCases");
@@ -9,7 +8,7 @@ const FinalstepCase = ({ stepCase }) => {
         <div className="p-custom my-4">
           <div className="text-lg font-semibold mb-2">
             Info
-            <CiCircleInfo className="float-right h-6 w-6" />
+            <FcHighPriority className="float-right h-6 w-6" />
           </div>
           Suntem conștienți că fără un istoric bancar, accesul la unele servici
           financiare poate fi o provocare. Însă , echipa ObtineCredit.ro te va
@@ -26,7 +25,7 @@ const FinalstepCase = ({ stepCase }) => {
         <div className="p-custom my-4">
           <div className="text-lg font-semibold mb-2">
             Info
-            <CiCircleInfo className="float-right h-6 w-6" />
+            <FcHighPriority className="float-right h-6 w-6" />
           </div>
           Un consultant îți va explica întregul proces într-un mod rapid și
           simplu, astfel încât să poți obține refinanțarea potrivită pentru
@@ -41,7 +40,7 @@ const FinalstepCase = ({ stepCase }) => {
         <div className="p-custom my-4">
           <div className="text-lg font-semibold mb-2">
             Info
-            <CiCircleInfo className="float-right h-6 w-6" />
+            <FcHighPriority className="float-right h-6 w-6" />
           </div>
           <b> Un consultant </b> îți va explica întregul proces într-un mod
           rapid și simplu, astfel încât să poți obține refinanțarea potrivită
@@ -64,7 +63,7 @@ const FinalstepCase = ({ stepCase }) => {
         <div className="p-custom text-md">
           <div className="text-lg font-semibold mb-2">
             Cererea a fost depusa
-            <FaRegCircleCheck className="float-right h-6 w-6 text-primary" />
+            <FcApproval className="float-right h-6 w-6 text-primary" />
           </div>
           Situația dvs va fi examinată cu atenție și un reprezentant va reveni
           în cel mai scurt timp posibil cu o soluție rapidă si eficientă.

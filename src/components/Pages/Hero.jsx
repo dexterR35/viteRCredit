@@ -60,7 +60,7 @@ const Hero = ({
               <img
                 src={illustration}
                 alt="Illustrasi"
-                className="w-[auto] h-[400px] object-contain"
+                className="w-[auto] sm:h-[400px] h-auto object-contain"
               />
             </motion.div>
           </div>

@@ -31,7 +31,7 @@ const Feature = () => {
               <img
                 src={illustration2}
                 alt="test"
-                className="w-[100%] h-[420px] object-contain md:px-0 px-8"
+                className="w-[100%] sm:h-[420px] h-auto object-contain md:px-0 px-8"
               />
             </motion.div>
           </ScrollAnimationWrapper>
