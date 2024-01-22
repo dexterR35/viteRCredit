@@ -7,16 +7,18 @@ import {
 
 const Footer = () => {
   const phoneNumber = import.meta.env.VITE_REACT_APP_WHATSAPP_PHONE_NUMBER;
-  const message =
-    "Eu sunt Gabriela, consultantul tău online cu o experientă de peste 6 ani in domeniu. Te voi indruma să găsim cele mai bune soluții pentru nevoile tale de la obținerea unui credit nou, până la refinanțarea creditelor existente sau chiar eliminarea istoricului negativ din Biroul de Credit.";
-
+  const message = "Salut, In legătură cu Obține Credit";
   const whatsappLink = `https://api.whatsapp.com/send?phone=${encodeURIComponent(
     phoneNumber
   )}&text=${encodeURIComponent(message)}`;
 
-  const tiktokLink = `https://www.tiktok.com/@florinhodor693`;
-  const instagramLink = `https://www.instagram.com/your-instagram-username/`;
-  const facebookLink = `https://www.facebook.com/your-facebook-username`;
+  const openWhatsappChat = () => {
+    window.open(whatsappLink, "_blank");
+  };
+
+  const tiktokLink = `https://www.tiktok.com/@obtinecredit`;
+  const instagramLink = `https://www.instagram.com/obtinecredit/`;
+  const facebookLink = `https://www.facebook.com/100063560649864`;
 
   return (
     <div className="bg-gray-300 sm:pt-44 pb-24 pt-10 ">
@@ -38,9 +40,13 @@ const Footer = () => {
               </a>
             </div>
             <div className="social-icon">
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <div
+                onClick={openWhatsappChat}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaWhatsapp className="h-6 w-6 text-primary" />
-              </a>
+              </div>
             </div>
             <div className="social-icon">
               <a href={tiktokLink} target="_blank" rel="noopener noreferrer">

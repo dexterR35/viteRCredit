@@ -56,7 +56,7 @@ const Services = ({ setIsModalOpen }) => {
       btnTitle: "Descoperiți",
       title: "Leasing Auto",
       description:
-        "Descoperiți soluții accesibile de leasing auto cu ajutorul consultanților noștri financiari. Beneficiați de planuri flexibile de finanțare, concepute să vă ajute să economisiți și să alegeți cea mai bună opțiune fără complicații",
+        "Descoperiți soluții accesibile de leasing auto cu ajutorul consultanților noștri financiari. Beneficiați de planuri flexibile de finanțare, concepute să vă ajute să economisiți și să alegeți cea mai bună opțiune fără complicații.",
     },
   ];
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
