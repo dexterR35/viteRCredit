@@ -36,7 +36,7 @@ export default function App() {
   }, [isModalOpen]);
   return (
     <>
-      <SeoHead title="LaslesVPN Landing Page" />
+      <SeoHead />
       <div>
         <Layout isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
           <div className="bg-gray-200">
