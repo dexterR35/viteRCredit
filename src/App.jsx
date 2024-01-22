@@ -4,6 +4,7 @@ import About from "./components/Pages/About";
 import Services from "./components/Pages/Services";
 import Layout from "./components/Layout/Layout";
 import StartQuiz from "./components/startQuiz";
+import SeoHead from "./components/SeoHead";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -34,21 +35,24 @@ export default function App() {
     }
   }, [isModalOpen]);
   return (
-    <div>
-      <Layout isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-        <div className="bg-gray-200">
-          <Hero setIsModalOpen={setIsModalOpen} />
-        </div>
-        <div className="bg-white">
-          <About />
-        </div>
-        <div className="bg-gray-200">
-          <Services setIsModalOpen={setIsModalOpen} />
-        </div>
-      </Layout>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <StartQuiz />
-      </Modal>
-    </div>
+    <>
+      <SeoHead title="LaslesVPN Landing Page" />
+      <div>
+        <Layout isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+          <div className="bg-gray-200">
+            <Hero setIsModalOpen={setIsModalOpen} />
+          </div>
+          <div className="bg-white">
+            <About />
+          </div>
+          <div className="bg-gray-200">
+            <Services setIsModalOpen={setIsModalOpen} />
+          </div>
+        </Layout>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <StartQuiz />
+        </Modal>
+      </div>
+    </>
   );
 }

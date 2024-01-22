@@ -31,7 +31,7 @@ const Hero = ({
 
   return (
     <div
-      className="max-w-screen-xl md:h-[95vh] h-[100%] mt-20 px-4 sm:px-14 mx-auto flex flex-col justify-center sm:justify-between"
+      className="max-w-screen-xl xl:h-[95vh] h-[100%] mt-20 px-4 sm:px-14 mx-auto flex flex-col justify-center sm:justify-between"
       id="hero"
     >
       <ScrollAnimationWrapper>
@@ -40,7 +40,7 @@ const Hero = ({
           variants={scrollAnimation}
         >
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 sm:w-[80%] lg:w-[100%]">
-            <h1 className="text-2xl sm:text-4xl xl:text-5xl font-bold text-gray-800 leading-2 uppercase">
+            <h1 className="text-3xl mt-8 lg:mt-0 sm:text-4xl xl:text-5xl font-bold text-gray-800 leading-2 uppercase">
               Soluții de creditare personalizate
             </h1>
             <p className="text-gray-700 mt-4 mb-6">

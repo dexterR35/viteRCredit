@@ -14,8 +14,7 @@ const Footer = () => {
     phoneNumber
   )}&text=${encodeURIComponent(message)}`;
 
-  const tiktokLink = `https://www.tiktok.com/@your-tiktok-username`;
-
+  const tiktokLink = `https://www.tiktok.com/@florinhodor693`;
   const instagramLink = `https://www.instagram.com/your-instagram-username/`;
   const facebookLink = `https://www.facebook.com/your-facebook-username`;
 

@@ -25,7 +25,7 @@ const Services = ({ setIsModalOpen }) => {
     },
     {
       img: cardImg2,
-      btnTitle: "Aplică aici",
+      btnTitle: "Refinanțează",
       title: "Refinanțări",
       description:
         "Optați pentru refinanțare cu încredere. Echipa noastră vă asigură soluții personalizate pentru a consolida și eficientiza datoriile dvs. Există oportunități noi pentru un viitor financiar mai stabil.",
@@ -53,10 +53,10 @@ const Services = ({ setIsModalOpen }) => {
     },
     {
       img: cardImg6,
-      btnTitle: "Completează",
+      btnTitle: "Descoperiți",
       title: "Leasing Auto",
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores perspiciatis ipsum repellendus aspernatur iusto numquam aliquid cumque optio illo! Temporibus",
+        "Descoperiți soluții accesibile de leasing auto cu ajutorul consultanților noștri financiari. Beneficiați de planuri flexibile de finanțare, concepute să vă ajute să economisiți și să alegeți cea mai bună opțiune fără complicații",
     },
   ];
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
@@ -80,7 +80,7 @@ const Services = ({ setIsModalOpen }) => {
               ajută să le pui în aplicare!
             </motion.p>
           </ScrollAnimationWrapper>
-          <div className="sm:grid sm:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col gap-4">
+          <div className="sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-flow-row gap-y-14 py-4 lg:py-8 sm:px-0 lg:px-20 flex flex-col gap-4">
             {dataCards.map((card, index) => (
               <ScrollAnimationWrapper
                 className="flex justify-center"
@@ -88,7 +88,7 @@ const Services = ({ setIsModalOpen }) => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 px-4 xl:px-5 min-w-96 h-74 shadow-sm"
+                  className="bg-white cursor-pointer flex flex-col rounded-md pt-2 pb-4 px-4 xl:px-5 h-74 shadow-sm max-w-[100%] justify-evenly"
                   whileHover={{
                     scale: 1.02,
                     transition: {

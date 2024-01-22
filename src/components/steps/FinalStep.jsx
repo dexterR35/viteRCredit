@@ -42,10 +42,10 @@ const FinalstepCase = ({ stepCase }) => {
             Info
             <FcHighPriority className="float-right h-6 w-6" />
           </div>
-          <b> Un consultant </b> îți va explica întregul proces într-un mod
-          rapid și simplu, astfel încât să poți obține refinanțarea potrivită
-          pentru nevoile tale. De asemenea, trebuie să ții cont că procesul
-          poate dura între 1 și 4 zile.
+          Un consultant îți va explica întregul proces într-un mod rapid și
+          simplu, astfel încât să poți obține refinanțarea potrivită pentru
+          nevoile tale. De asemenea, trebuie să ții cont că procesul poate dura
+          între 1 și 4 zile.
         </div>
       );
       break;
@@ -62,7 +62,7 @@ const FinalstepCase = ({ stepCase }) => {
       <div className="w-full text-center py-2 mb-8 text-sm rounded-md">
         <div className="p-custom text-md">
           <div className="text-lg font-semibold mb-2">
-            Cererea a fost depusa
+            Cererea a fost depusă
             <FcApproval className="float-right h-6 w-6 text-primary" />
           </div>
           Situația dvs va fi examinată cu atenție și un reprezentant va reveni

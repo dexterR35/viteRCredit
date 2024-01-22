@@ -124,7 +124,7 @@ const Step4 = ({ stepChange, formData }) => {
     <div className="py-8">
       <p className="p-title mb-2">Banci</p>
       <p className="p-custom text-center">
-        Selecteaza Bancile la care detii raport negativ.
+        Selectează Băncile la care deții raport negativ.
       </p>
       <div className="image-grid grid-col-3 h-[50%]">
         {images.banks.map((image, index) => (
@@ -156,7 +156,7 @@ const Step4 = ({ stepChange, formData }) => {
 
       <p className="p-title mb-2">IFN-uri</p>
       <p className="p-custom text-center">
-        Selecteaza IFN-urile la care detii raport negativ.
+        Selectează IFN-urile la care deții raport negativ.
       </p>
 
       <div className="image-grid grid-col-3 h-[50%]">
@@ -207,7 +207,7 @@ const Step4 = ({ stepChange, formData }) => {
       </div>
       <div className="btn-parent">
         <button className="btn-sm w-full" onClick={handleFinal}>
-          Finalizare
+          Trimite
         </button>
       </div>
     </div>
