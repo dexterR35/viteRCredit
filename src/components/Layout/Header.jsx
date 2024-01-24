@@ -41,7 +41,7 @@ const Header = ({ setIsModalOpen }) => {
           <ul className="hidden lg:flex col-start-4 col-end-8 text-gray-800 items-center justify-center font-medium">
             <LinkScroll
               activeClass="active"
-              to="about"
+              to="hero"
               spy={true}
               smooth={true}
               duration={800}

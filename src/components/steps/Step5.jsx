@@ -1,6 +1,6 @@
 import Firestore from "../Misc/Firestore";
 import { useState } from "react";
-import { IoHelpCircleOutline, IoCheckmarkSharp } from "react-icons/io5";
+import { IoCheckmarkSharp } from "react-icons/io5";
 import { FcInfo } from "react-icons/fc";
 const optionBox = [
   { label: "Detin istoric bancar", value: true },
@@ -16,26 +16,35 @@ const Step5 = ({ stepChange, formData }) => {
   };
 
   const handleDecision = async () => {
-    let bankHistoryValue = isChecked;
-
-    if (isChecked === true) {
-      stepChange(7);
-    } else if (isChecked === false) {
-      stepChange(8);
+    if (isChecked === null) {
+      //checkbox is not selected
+      return;
     }
+
+    // if (isChecked === true) {
+    //   stepChange(7);
+    // } else if (isChecked === false) {
+    //   stepChange(8);
+    // }
     const dataForFirestore = {
       customer_status: "new",
-      customer_info: formData,
-      customer_files: "false",
-      banking_status: bankHistoryValue,
-      banking_info: {
-        bankHistory: bankHistoryValue,
-        banks: "false",
-        ifn: "false",
-        others: "false",
+      customer_info: {
+        formData,
+        customer_files: "false",
+        banking_status: isChecked, //  report negative or positive triggered by obtionBox value
+        banking_info: {
+          bankHistory: isChecked, //  report negative or history on banks
+          banks: "false",
+          ifn: "false",
+          others: "false",
+        },
       },
     };
-
+    if (isChecked) {
+      stepChange(7);
+    } else {
+      stepChange(8);
+    }
     await Firestore.addData("oc_data", dataForFirestore);
   };
   return (

@@ -14,14 +14,13 @@ const optionBox = [
 
 const Step2 = ({ stepChange, fName }) => {
   const [isChecked, setIsChecked] = useState(null);
-  const [raportNeg, setRaportNeg] = useState("");
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  // console.log("raportNeg in Step21:", raportNeg);
+
   const handleCheckboxChange = (value) => {
     setIsChecked(value);
     setIsCheckboxChecked(true);
-    setRaportNeg(value ? "false" : "true");
   };
+
   const getGreeting = () => {
     const hour = new Date().getHours();
 
@@ -33,13 +32,12 @@ const Step2 = ({ stepChange, fName }) => {
       return "Bună seara";
     }
   };
+
   const handleDecision = () => {
     if (isChecked === true) {
-      console.log("raportNeg for Step4:", raportNeg);
-      stepChange(4, { raportNeg });
+      stepChange(4);
     } else if (isChecked === false) {
-      console.log("raportNeg for Step3:", raportNeg);
-      stepChange(3, { raportNeg });
+      stepChange(3);
     }
   };
   return (

@@ -11,11 +11,14 @@ const Form = ({ stepChange }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, "gas");
-    const isValidPhone = /^\d{0,9}$/.test(value); // Allow up to 10 digits
+    const InputName = name;
+    console.log(name, "1");
+    // console.log(name, "gas");
+    const isValidPhone = /^\d{0,9}$/.test(value);
 
     setError("Adauga un numar valid");
-    if (name === "phone") {
+    if (InputName === "phone") {
+      console.log(InputName, "2");
       if (isValidPhone) {
         setError("Adaugă încă " + (10 - value.length) + " cifre");
       } else {
@@ -25,9 +28,9 @@ const Form = ({ stepChange }) => {
         }, 700);
       }
     }
-    if (name === "email") {
+    if (InputName === "email") {
       const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
+      console.log([InputName], value, "3");
       if (!isValidEmail) {
         setError("Introduceti o adresă de email validă");
       } else {
@@ -37,7 +40,7 @@ const Form = ({ stepChange }) => {
 
     setFormData({
       ...formData,
-      [name]: value,
+      [InputName]: value,
     });
   };
 
@@ -86,7 +89,7 @@ const Form = ({ stepChange }) => {
           <label className="mb-3">
             Telefon:
             <input
-              type="tel"
+              type="number"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
@@ -112,11 +115,11 @@ const Form = ({ stepChange }) => {
               onChange={handleInputChange}
             >
               <option value="">Selectează</option>
-              <option value="FaceBook">FaceBook</option>
-              <option value="Pliant">Pliant</option>
-              <option value="TikTok">Tik-Tok</option>
-              <option value="Consultant">Consultant</option>
-              <option value="Recomandare">Recomandare</option>
+              <option value="facebook">FaceBook</option>
+              <option value="pliant">Pliant</option>
+              <option value="tiktok">Tik-Tok</option>
+              <option value="consultant">Consultant</option>
+              <option value="recomandare">Recomandare</option>
             </select>
           </label>
           <br />

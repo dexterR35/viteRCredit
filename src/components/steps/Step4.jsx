@@ -127,14 +127,16 @@ const Step4 = ({ stepChange, formData }) => {
 
     const dataForFirestore = {
       customer_status: "new",
-      customer_info: formData,
-      customer_files: "false",
-      banking_status: true,
-      banking_info: {
-        bankHistory: false,
-        banks: selectedBanks.length > 0 ? selectedBanks : "false",
-        ifn: selectedIfn.length > 0 ? selectedIfn : "false",
-        others: inputValue.length > 0 ? inputValue : "false",
+      customer_info: {
+        formData,
+        customer_files: "false",
+        banking_status: true, //  report negative or history on banks
+        banking_info: {
+          bankHistory: false,
+          banks: selectedBanks.length > 0 ? selectedBanks : "false",
+          ifn: selectedIfn.length > 0 ? selectedIfn : "false",
+          others: inputValue.length > 0 ? inputValue : "false",
+        },
       },
     };
     try {

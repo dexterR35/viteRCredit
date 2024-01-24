@@ -10,7 +10,7 @@ import { IoCloseOutline } from "react-icons/io5";
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return (
-    <div className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white before">
+    <div className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white before overflow-scroll">
       <div className="relative loading w-[480px] h-screen">
         <button
           onClick={onClose}
