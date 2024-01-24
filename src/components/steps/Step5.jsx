@@ -24,24 +24,19 @@ const Step5 = ({ stepChange, formData }) => {
       stepChange(8);
     }
     const dataForFirestore = {
-      status: "new",
-      customer_data: {
-        customer_info: formData,
-        customer_files: "false",
-        dateJob: formData.selectedDate,
-      },
-      banking_status: {
-        negative: {
-          banks: "false",
-          ifn: "false",
-          others: "false",
-        },
-        status: bankHistoryValue,
+      customer_status: "new",
+      customer_info: formData,
+      customer_files: "false",
+      banking_status: bankHistoryValue,
+      banking_info: {
         bankHistory: bankHistoryValue,
+        banks: "false",
+        ifn: "false",
+        others: "false",
       },
     };
 
-    await Firestore.addData("oc_customers", dataForFirestore);
+    await Firestore.addData("oc_data", dataForFirestore);
   };
   return (
     <div className="py-8 h-screen">

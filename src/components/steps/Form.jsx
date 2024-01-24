@@ -121,6 +121,7 @@ const Form = ({ stepChange }) => {
           </label>
           <br />
           <button
+            type="button"
             className={`btn-sm w-full ${
               isContinueDisabled ? "bg-gray-300" : ""
             }`}

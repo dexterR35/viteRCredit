@@ -26,8 +26,9 @@ import Firestore from "../Misc/Firestore";
 
 const Step4 = ({ stepChange, formData }) => {
   const [selectedDivNames, setSelectedDivNames] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
+  const [inputValue, setInputValue] = useState([]);
+  const [currentInput, setCurrentInput] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // const [selectedOptions, setSelectedOption] = useState(""); // Add state for selected option
   const images = {
     banks: [
@@ -79,16 +80,42 @@ const Step4 = ({ stepChange, formData }) => {
       }
     }
   };
+  const handleInput = (e) => {
+    const { type, value } = e.target;
+    if (type === "text") {
+      setCurrentInput(value);
+    }
+  };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+  const handleBlur = () => {
+    if (currentInput.trim() !== "") {
+      setInputValue((prevValue) => [...prevValue, currentInput.trim()]);
+      setCurrentInput("");
+    }
+  };
+  const handleDelete = (index) => {
+    if (index < selectedDivNames.length) {
+      setSelectedDivNames((prevNames) =>
+        prevNames.filter((_, i) => i !== index)
+      );
+    } else {
+      const adjustedIndex = index - selectedDivNames.length;
+      setInputValue((prevValue) =>
+        prevValue.filter((_, i) => i !== adjustedIndex)
+      );
+    }
   };
 
   const handleFinal = async () => {
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
     const updatedSelectedDivNames = [...selectedDivNames];
 
-    if (inputValue.trim() !== "") {
-      updatedSelectedDivNames.push(inputValue.trim());
+    if (inputValue !== "") {
+      updatedSelectedDivNames.push(inputValue);
     }
     const selectedBanks = images.banks
       .filter((bank) => selectedDivNames.includes(bank.dataAtr))
@@ -99,27 +126,31 @@ const Step4 = ({ stepChange, formData }) => {
       .map((ifn) => ifn.dataAtr);
 
     const dataForFirestore = {
-      status: "new",
-      customer_data: {
-        customer_info: formData,
-        customer_files: "false",
-        dateJob: false,
-      },
-      banking_status: {
-        negative: {
-          banks: selectedBanks,
-          ifn: selectedIfn,
-          others: [inputValue],
-        },
-        status: true,
+      customer_status: "new",
+      customer_info: formData,
+      customer_files: "false",
+      banking_status: true,
+      banking_info: {
         bankHistory: false,
+        banks: selectedBanks.length > 0 ? selectedBanks : "false",
+        ifn: selectedIfn.length > 0 ? selectedIfn : "false",
+        others: inputValue.length > 0 ? inputValue : "false",
       },
     };
-
-    await Firestore.addData("oc_customers", dataForFirestore);
-    stepChange(6);
+    try {
+      await Firestore.addData("oc_data", dataForFirestore);
+      stepChange(6);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
+  const isButtonDisabled = () => {
+    return (
+      (selectedDivNames.length === 0 && inputValue.length === 0) || isSubmitting
+    );
+  };
   return (
     <div className="py-8">
       <p className="p-title mb-2">Banci</p>
@@ -132,7 +163,7 @@ const Step4 = ({ stepChange, formData }) => {
             key={index}
             className={`img-parrent pointer p-3 relative ${
               selectedDivNames.includes(image.dataAtr)
-                ? "selected bg-gray-200"
+                ? "selected bg-green-200"
                 : ""
             }`}
             onClick={() => handleDivClick(image.dataAtr, "banks")}
@@ -166,7 +197,7 @@ const Step4 = ({ stepChange, formData }) => {
             className={`img-parrent pointer relative p-3 ${
               !selectedDivNames.includes(image.dataAtr)
                 ? "selected"
-                : "bg-gray-200"
+                : "bg-green-200"
             }`}
             onClick={() => handleDivClick(image.dataAtr, "ifn")}
             data-name={image.dataAtr}
@@ -190,23 +221,42 @@ const Step4 = ({ stepChange, formData }) => {
 
       <label>
         Altele:
-        <input type="text" onChange={handleInputChange} />
+        <input
+          type="text"
+          value={currentInput}
+          onChange={handleInput}
+          onBlur={handleBlur}
+        />
       </label>
       <div className="my-4 flex flex-wrap gap-2 w-full">
         {selectedDivNames.map((name, index) => (
           <p
-            className="bg-gray-200 w-fill text-gray-800 p-2 rounded-md"
+            className="bg-green-200 w-fill text-gray-800 p-2 rounded-md"
             key={index}
           >
             {name}
           </p>
         ))}
         {inputValue && (
-          <p className="bg-gray-200 w-fill text-gray-800 p-2 rounded-md">{`, ${inputValue}`}</p>
+          <div className="flex flex-row flex-wrap gap-2">
+            {inputValue.map((value, index) => (
+              <p
+                key={index}
+                className="bg-green-200 w-fill text-gray-800 p-2 rounded-md cursor-pointer"
+                onClick={() => handleDelete(index + selectedDivNames.length)}
+              >{`${value.trim()}`}</p>
+            ))}
+          </div>
         )}
       </div>
       <div className="btn-parent">
-        <button className="btn-sm w-full" onClick={handleFinal}>
+        <button
+          className={`btn-sm w-full ${
+            isButtonDisabled() ? "bg-gray-300" : "bg-initial"
+          }`}
+          onClick={handleFinal}
+          disabled={isButtonDisabled()}
+        >
           Trimite
         </button>
       </div>
