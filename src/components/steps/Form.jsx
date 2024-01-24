@@ -80,7 +80,7 @@ const Form = ({ stepChange }) => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData.name.toLowerCase()}
               onChange={handleInputChange}
               required
               placeholder=""
