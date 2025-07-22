@@ -20,7 +20,7 @@ const Feature = () => {
     <div className="sm:py-8 py-0 relative">
       <div className="max-w-screen-xl mx-auto">
         <div
-          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-1 md:grid-cols-2 place-content-center md:items-center md:my-12 mt-12 mb-0 flex flex-col-reverse"
+          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-2 place-content-center md:items-center md:my-12 mt-12 mb-0 flex flex-col-reverse"
           id="about"
         >
           <ScrollAnimationWrapper className="flex w-full justify-end">

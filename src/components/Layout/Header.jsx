@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-
+import { FaPhoneAlt } from "react-icons/fa";
 // Import react scroll
 import { Link as LinkScroll } from "react-scroll";
 import LogoOBT from "/logo/logos.png";
-import QuizButton from "../steps/Qbutton";
+// import QuizButton from "../steps/Qbutton";
 
 import {
   FcComments,
@@ -113,13 +113,20 @@ const Header = ({ setIsModalOpen }) => {
             </LinkScroll>
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <div className="text-gray-800 mx-2 sm:mx-4 capitalize tracking-wide  transition-all">
-              <QuizButton
+            <div className="text-gray-800 mx-2 sm:mx-4 capitalize tracking-wide transition-all">
+              <a
+                href="tel:0786744694"
+                className="flex items-center gap-2 font-medium tracking-wide py-3 px-5 sm:px-8  text-white bg-primary outline-none rounded-lg capitalize"
+              >
+                <FaPhoneAlt className="w-5 h-5 text-black" color="white"/>
+                Sună acum
+              </a>
+              {/* <QuizButton
                 onClick={() => setIsModalOpen(true)}
                 bg-primary
                 className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-primary text-primary bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-primary hover:text-white transition-all hover:shadow-orange"
                 text="Cere Oferta"
-              />
+              /> */}
             </div>
           </div>
         </nav>

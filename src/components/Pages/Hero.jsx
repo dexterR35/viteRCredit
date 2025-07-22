@@ -44,9 +44,7 @@ const Hero = ({
               Soluții de creditare personalizate
             </h1>
             <p className="text-gray-700 mt-4 mb-6">
-              Servicii complete de creditare si crestea sanselor de aprobare
-              oferite de o echipa profesionista in domeniul bancar financiar si
-              non-bancar.
+           Servicii complete de creditare și creșterea șanselor de aprobare oferite de o echipă profesionistă în domeniul bancar, financiar și non-bancar.
             </p>
             <QuizButton
               onClick={() => setIsModalOpen(true)}

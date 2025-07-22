@@ -32,7 +32,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 export default function App() {
   const SHOW_BONUS_DELAY = 1000; // 10 seconds
-  const BONUS_COOLDOWN = 2000; // 20 seconds 
+  const BONUS_COOLDOWN = 2000; // 20 seconds
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showBonus, setShowBonus] = useState(false);
@@ -143,11 +143,7 @@ export default function App() {
           <StartQuiz />
         </Modal>
 
-        <BonusModal
-          visible={showBonus}
-          onCTAClick={openModal}
-          onClose={closeBonusManually}
-        />
+        <BonusModal visible={showBonus} onClose={closeBonusManually} />
       </div>
     </>
   );

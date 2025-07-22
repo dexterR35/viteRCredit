@@ -13,7 +13,8 @@ module.exports = {
         xl: "1440px",
       },
       colors: {
-        primary: "#03C988",
+        // primary: "#06923E",
+        primary: "#0ABAB5",
         secondary: "#BDD2B6",
         default: "#f6fffaad",
 

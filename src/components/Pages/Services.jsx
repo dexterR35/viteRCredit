@@ -113,7 +113,7 @@ const Services = ({ setIsModalOpen }) => {
                   </div>
                   <QuizButton
                     onClick={() => setIsModalOpen(true)}
-                    className="px-5 mt-2 font-medium bg-primary rounded-md text-white p-2 place-self-end w-48"
+                    className="px-5 mt-2 font-medium bg-primary rounded-md text-white py-3 place-self-end w-48"
                     text={card.btnTitle}
                   />
                 </motion.div>
