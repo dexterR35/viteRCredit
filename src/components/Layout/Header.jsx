@@ -36,6 +36,7 @@ const Header = ({ setIsModalOpen }) => {
                 src={LogoOBT}
                 alt="Obtine Credit Logo"
                 className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+                style={{ filter: 'brightness(0.7)' }}
               />
             </div>
             <div className="hidden md:block h-5 w-px bg-gray-200"></div>

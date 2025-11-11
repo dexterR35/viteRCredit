@@ -174,10 +174,7 @@ const Services = ({ setIsModalOpen }) => {
           <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-10">
             <motion.div 
               variants={scrollAnimation} 
-              custom={{ duration: 3 }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              custom={{ duration: 0.5 }}
             >
               <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/40 overflow-hidden">
                 {/* Decorative elements */}
@@ -200,7 +197,14 @@ const Services = ({ setIsModalOpen }) => {
                     <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#EducațieFinanciară</span>
                   </div>
                 </div>
-                <button className="btn-sm w-full sm:w-auto whitespace-nowrap shadow-medium relative z-10">Intră online</button>
+                <a 
+                  href="https://wa.me/40786744694?text=Salut,%20sunt%20interesat%20de%20serviciile%20Obține%20Credit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-sm w-full sm:w-auto whitespace-nowrap shadow-medium relative z-10 inline-flex items-center justify-center"
+                >
+                  Intră online
+                </a>
               </div>
             </motion.div>
           </ScrollAnimationWrapper>
