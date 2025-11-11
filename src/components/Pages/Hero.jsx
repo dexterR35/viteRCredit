@@ -50,7 +50,7 @@ const Hero = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+              <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
               Soluții financiare inteligente
             </motion.div>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-[1.05] mb-6 sm:mb-8 text-balance">
