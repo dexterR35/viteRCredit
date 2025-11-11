@@ -1,14 +1,15 @@
 export default function getScrollAnimation() {
   return {
     offscreen: {
-      y: 150,
+      y: 50,
       opacity: 0,
     },
-    onscreen: ({ duration = 2 } = {}) => ({
+    onscreen: ({ duration = 0.5 } = {}) => ({
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "tween",
+        ease: "easeOut",
         duration,
       },
     }),

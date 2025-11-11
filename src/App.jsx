@@ -126,15 +126,15 @@ export default function App() {
   return (
     <>
       <SeoHead />
-      <div>
+      <div className="min-h-screen">
         <Layout isModalOpen={isModalOpen} setIsModalOpen={openModal}>
-          <div className="bg-gray-200">
+          <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50">
             <Hero setIsModalOpen={openModal} />
           </div>
           <div className="bg-white" id="about">
             <About />
           </div>
-          <div className="bg-gray-200">
+          <div className="bg-gray-50">
             <Services setIsModalOpen={openModal} />
           </div>
         </Layout>

@@ -23,36 +23,41 @@ const Header = ({ setIsModalOpen }) => {
     <>
       <header
         className={
-          "fixed top-0 w-full z-30 bg-gray-200 transition-all " +
-          (scrollActive ? "shadow-md pt-0" : "pt-4")
+          "fixed top-0 w-full z-30 transition-all duration-300 " +
+          (scrollActive 
+            ? "glass-effect shadow-large py-0" 
+            : "bg-transparent py-4")
         }
       >
-        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
-          <div className="col-start-1 col-end-2 flex items-center">
-            <img
-              src={LogoOBT}
-              alt="Your logo Here"
-              className="w-[50px] h-[50px] object-contain"
-            />
-            <p className="text-sm hidden text-gray-700 uppercase md:block font-bold">
+        <nav className="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto grid grid-flow-col py-3 sm:py-4">
+          <div className="col-start-1 col-end-2 flex items-center gap-3">
+            <div className="relative">
+              <img
+                src={LogoOBT}
+                alt="Obtine Credit Logo"
+                className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-sm"
+              />
+            </div>
+            <p className="text-sm hidden text-gray-800 uppercase md:block font-bold tracking-tight">
               Obtine Credit
             </p>
           </div>
-          <ul className="hidden lg:flex col-start-4 col-end-8 text-gray-800 items-center justify-center font-medium">
+          <ul className="hidden lg:flex col-start-4 col-end-8 text-gray-700 items-center justify-center font-medium gap-1">
             <LinkScroll
               activeClass="active"
               to="hero"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("hero");
               }}
               className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
                 (activeLink === "hero"
-                  ? " text-primary animation-active"
-                  : " text-gray-800 hover:text-primary")
+                  ? " text-primary-600 bg-primary-50 font-semibold"
+                  : " text-gray-700")
               }
             >
               Acasă
@@ -62,15 +67,16 @@ const Header = ({ setIsModalOpen }) => {
               to="about"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("about");
               }}
               className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
                 (activeLink === "about"
-                  ? " text-primary animation-active"
-                  : " text-gray-800 hover:text-primary")
+                  ? " text-primary-600 bg-primary-50 font-semibold"
+                  : " text-gray-700")
               }
             >
               Despre noi
@@ -80,15 +86,16 @@ const Header = ({ setIsModalOpen }) => {
               to="services"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("services");
               }}
               className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
                 (activeLink === "services"
-                  ? " text-primary animation-active"
-                  : " text-gray-800 hover:text-primary")
+                  ? " text-primary-600 bg-primary-50 font-semibold"
+                  : " text-gray-700")
               }
             >
               Servicii
@@ -98,15 +105,16 @@ const Header = ({ setIsModalOpen }) => {
               to="testimoni"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("testimoni");
               }}
               className={
-                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
                 (activeLink === "testimoni"
-                  ? " text-primary animation-active"
-                  : " text-gray-800 hover:text-primary")
+                  ? " text-primary-600 bg-primary-50 font-semibold"
+                  : " text-gray-700")
               }
             >
               Testimonial
@@ -116,101 +124,99 @@ const Header = ({ setIsModalOpen }) => {
             <div className="text-gray-800 mx-2 sm:mx-4 capitalize tracking-wide transition-all">
               <a
                 href="tel:0786744694"
-                className="flex items-center gap-2 font-medium tracking-wide py-3 px-5 sm:px-8  text-white bg-primary outline-none rounded-lg capitalize"
+                className="flex items-center gap-2 font-semibold tracking-wide py-3 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 outline-none rounded-xl capitalize shadow-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
-                <FaPhoneAlt className="w-5 h-5 text-black" color="white"/>
-                Sună acum
+                <FaPhoneAlt className="w-4 h-4"/>
+                <span className="hidden sm:inline">Sună acum</span>
+                <span className="sm:hidden">Sună</span>
               </a>
-              {/* <QuizButton
-                onClick={() => setIsModalOpen(true)}
-                bg-primary
-                className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-primary text-primary bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-primary hover:text-white transition-all hover:shadow-orange"
-                text="Cere Oferta"
-              /> */}
             </div>
           </div>
         </nav>
       </header>
       {/* Mobile Navigation */}
-
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-4 sm:px-8 shadow-t bg-white">
-        <div className="bg-white-500 sm:px-3">
-          <ul className="flex w-full justify-between items-center text-gray-800">
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-2 sm:px-4 shadow-large glass-effect border-t border-gray-200">
+        <div className="sm:px-2">
+          <ul className="flex w-full justify-between items-center text-gray-700">
             <LinkScroll
               activeClass="active"
               to="hero"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("hero");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
                 (activeLink === "hero"
-                  ? "  border-primary text-primary"
-                  : " border-transparent")
+                  ? "bg-primary-50 text-primary-600 scale-105"
+                  : "text-gray-600")
               }
             >
-              <FcHome className="w-6 h-6" />
-              Acasă
+              <FcHome className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+              <span className="font-medium">Acasă</span>
             </LinkScroll>
             <LinkScroll
               activeClass="active"
               to="about"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("about");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
                 (activeLink === "about"
-                  ? "  border-primary text-primary"
-                  : " border-transparent ")
+                  ? "bg-primary-50 text-primary-600 scale-105"
+                  : "text-gray-600")
               }
             >
-              <FcComments className="w-6 h-6" />
-              Despre Noi
+              <FcComments className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+              <span className="font-medium">Despre Noi</span>
             </LinkScroll>
             <LinkScroll
               activeClass="active"
               to="services"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("services");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
                 (activeLink === "services"
-                  ? "  border-primary text-primary"
-                  : " border-transparent ")
+                  ? "bg-primary-50 text-primary-600 scale-105"
+                  : "text-gray-600")
               }
             >
-              <FcMoneyTransfer className="w-6 h-6" />
-              Servicii
+              <FcMoneyTransfer className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+              <span className="font-medium">Servicii</span>
             </LinkScroll>
             <LinkScroll
               activeClass="active"
               to="testimoni"
               spy={true}
               smooth={true}
-              duration={800}
+              duration={500}
+              offset={-80}
               onSetActive={() => {
                 setActiveLink("testimoni");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
                 (activeLink === "testimoni"
-                  ? "  border-primary text-primary"
-                  : " border-transparent ")
+                  ? "bg-primary-50 text-primary-600 scale-105"
+                  : "text-gray-600")
               }
             >
-              <FcContacts className="w-6 h-6" />
-              Contact
+              <FcContacts className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+              <span className="font-medium">Contact</span>
             </LinkScroll>
           </ul>
         </div>

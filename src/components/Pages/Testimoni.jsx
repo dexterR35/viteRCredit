@@ -85,51 +85,59 @@ const Testimoni = ({
       >
         {listTestimoni.map((listTestimonis, index) => (
           <div className="flex items-stretch px-3" key={index}>
-            <div className="border-2 border-gray-500 hover:border-primary transition-all rounded-lg p-6 flex flex-col">
-              <div className="flex flex-col xl:flex-row w-full items-stretch xl:items-center">
-                <div className="flex order-2 xl:order-1">
-                  <img
-                    src={listTestimonis.image}
-                    alt="Icon People"
-                    className="w-10 h-10"
-                  />
-                  <div className="flex flex-col ml-5 text-left">
-                    <p className="text-lg text-gray-800 capitalize">
+            <div className="card-modern rounded-2xl p-6 sm:p-8 flex flex-col h-full">
+              <div className="flex flex-col xl:flex-row w-full items-start xl:items-center justify-between mb-4">
+                <div className="flex items-center order-2 xl:order-1 gap-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-20 blur-md"></div>
+                    <img
+                      src={listTestimonis.image}
+                      alt={listTestimonis.name}
+                      className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white shadow-medium"
+                    />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <p className="text-base sm:text-lg text-gray-900 capitalize font-bold">
                       {listTestimonis.name}
                     </p>
-                    <p className="text-sm text-gray-800 capitalize">
+                    <p className="text-sm text-gray-600 capitalize">
                       {listTestimonis.jobTitle}
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-none items-center ml-auto order-1 xl:order-2">
-                  <p className="text-sm">{listTestimonis.rating}</p>
-                  <span className="flex ml-4">
-                    <FaStar className="h-4 w-4 text-yellow-400" />
-                  </span>
+                <div className="flex flex-none items-center gap-2 order-1 xl:order-2 mb-3 xl:mb-0">
+                  <div className="flex items-center gap-1 bg-primary-50 px-3 py-1.5 rounded-full">
+                    <p className="text-sm font-bold text-primary-700">{listTestimonis.rating}</p>
+                    <FaStar className="h-4 w-4 text-yellow-400 fill-current" />
+                  </div>
                 </div>
               </div>
-              <p className="mt-5 text-left text-sm text-gray-800">
-                “{listTestimonis.testimoni}”.
-              </p>
+              <div className="relative">
+                <div className="absolute top-0 left-0 text-6xl text-primary-100 font-serif leading-none">"</div>
+                <p className="relative mt-4 text-left text-sm sm:text-base text-gray-700 leading-relaxed pl-6">
+                  {listTestimonis.testimoni}
+                </p>
+              </div>
             </div>
           </div>
         ))}
       </Slider>
-      <div className="flex w-full items-center justify-center md:justify-end">
-        <div className="flex flex-none justify-between w-full md:w-auto mt-4 md:mt-14">
-          <div
-            className="mx-4 flex items-center justify-center h-14 w-14 rounded-full bg-white border-primary border hover:bg-primary hover:text-white transition-all text-primary cursor-pointer"
+      <div className="flex w-full items-center justify-center md:justify-end mt-8 md:mt-12">
+        <div className="flex flex-none justify-between w-full md:w-auto gap-4">
+          <button
+            className="flex items-center justify-center h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white border-2 border-primary-300 hover:border-primary-500 hover:bg-gradient-to-r hover:from-primary-500 hover:to-primary-600 hover:text-white transition-[border-color,background-color,color,transform,box-shadow] duration-200 text-primary cursor-pointer shadow-medium hover:shadow-glow transform hover:scale-110 active:scale-95"
             onClick={sliderRef?.slickPrev}
+            aria-label="Previous testimonial"
           >
-            <IoChevronBackSharp className="h-6 w-6 " />
-          </div>
-          <div
-            className="flex items-center justify-center h-14 w-14 rounded-full bg-white border-primary border hover:bg-primary hover:text-white transition-all text-primary cursor-pointer"
+            <IoChevronBackSharp className="h-6 w-6" />
+          </button>
+          <button
+            className="flex items-center justify-center h-12 w-12 md:h-14 md:w-14 rounded-xl bg-white border-2 border-primary-300 hover:border-primary-500 hover:bg-gradient-to-r hover:from-primary-500 hover:to-primary-600 hover:text-white transition-[border-color,background-color,color,transform,box-shadow] duration-200 text-primary cursor-pointer shadow-medium hover:shadow-glow transform hover:scale-110 active:scale-95"
             onClick={sliderRef?.slickNext}
+            aria-label="Next testimonial"
           >
             <IoChevronForwardSharp className="h-6 w-6" />
-          </div>
+          </button>
         </div>
       </div>
     </>

@@ -154,113 +154,157 @@ const Step4 = ({ stepChange, formData }) => {
     );
   };
   return (
-    <div className="py-8">
-      <p className="p-title mb-2">Banci</p>
-      <p className="p-custom text-center">
-        Selectează Băncile la care deții raport negativ.
-      </p>
-      <div className="image-grid grid-col-3 h-[50%]">
-        {images.banks.map((image, index) => (
-          <div
-            key={index}
-            className={`img-parrent pointer p-3 relative ${
-              selectedDivNames.includes(image.dataAtr)
-                ? "selected bg-green-200"
-                : ""
-            }`}
-            onClick={() => handleDivClick(image.dataAtr, "banks")}
-            data-name={image.dataAtr}
-          >
-            <img
-              src={image.src}
-              alt={image.dataAtr}
-              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}`}
-            />
-            <p
-              className={`absolute top-[5px] right-[5px] w-[10px] h-[10px] rounded-[100%] border border-gray-400 ${
-                selectedDivNames.includes(image.dataAtr)
-                  ? "selected bg-primary border-0"
-                  : ""
-              }`}
-            ></p>
+    <div className="py-8 px-4 min-h-screen">
+      <div className="max-w-2xl mx-auto space-y-8">
+        {/* Banks Section */}
+        <div className="space-y-4">
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              Bănci
+            </h2>
+            <p className="text-gray-600">
+              Selectează băncile la care deții raport negativ.
+            </p>
           </div>
-        ))}
-      </div>
-
-      <p className="p-title mb-2">IFN-uri</p>
-      <p className="p-custom text-center">
-        Selectează IFN-urile la care deții raport negativ.
-      </p>
-
-      <div className="image-grid grid-col-3 h-[50%]">
-        {images.ifn.map((image, index) => (
-          <div
-            key={index}
-            className={`img-parrent pointer relative p-3 ${
-              !selectedDivNames.includes(image.dataAtr)
-                ? "selected"
-                : "bg-green-200"
-            }`}
-            onClick={() => handleDivClick(image.dataAtr, "ifn")}
-            data-name={image.dataAtr}
-          >
-            <img
-              src={image.src}
-              alt={image.dataAtr}
-              className={`w-[90%] h-[90%] object-contain ${image.dataAtr}"
-              } `}
-            />
-            <p
-              className={`absolute top-[5px] right-[5px] w-[10px] h-[10px] rounded-[100%] border border-gray-400 ${
-                selectedDivNames.includes(image.dataAtr)
-                  ? "selected bg-primary border-0"
-                  : ""
-              }`}
-            ></p>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+            {images.banks.map((image, index) => {
+              const isSelected = selectedDivNames.includes(image.dataAtr);
+              return (
+                <div
+                  key={index}
+                  className={`relative p-3 rounded-xl border-2 cursor-pointer transition-all duration-300 bg-white ${
+                    isSelected
+                      ? "border-primary-500 bg-primary-50 shadow-medium scale-105"
+                      : "border-gray-300 hover:border-primary-300 hover:shadow-soft"
+                  }`}
+                  onClick={() => handleDivClick(image.dataAtr, "banks")}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.dataAtr}
+                    className="w-full h-16 object-contain"
+                  />
+                  {isSelected && (
+                    <div className="absolute top-1 right-1 w-5 h-5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-medium">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
+        </div>
 
-      <label>
-        Altele:
-        <input
-          type="text"
-          value={currentInput}
-          onChange={handleInput}
-          onBlur={handleBlur}
-        />
-      </label>
-      <div className="my-4 flex flex-wrap gap-2 w-full">
-        {selectedDivNames.map((name, index) => (
-          <p
-            className="bg-green-200 w-fill text-gray-800 p-2 rounded-md"
-            key={index}
-          >
-            {name}
-          </p>
-        ))}
-        {inputValue && (
-          <div className="flex flex-row flex-wrap gap-2">
-            {inputValue.map((value, index) => (
-              <p
-                key={index}
-                className="bg-green-200 w-fill text-gray-800 p-2 rounded-md cursor-pointer"
-                onClick={() => handleDelete(index + selectedDivNames.length)}
-              >{`${value.trim()}`}</p>
-            ))}
+        {/* IFN Section */}
+        <div className="space-y-4">
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              IFN-uri
+            </h2>
+            <p className="text-gray-600">
+              Selectează IFN-urile la care deții raport negativ.
+            </p>
+          </div>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+            {images.ifn.map((image, index) => {
+              const isSelected = selectedDivNames.includes(image.dataAtr);
+              return (
+                <div
+                  key={index}
+                  className={`relative p-3 rounded-xl border-2 cursor-pointer transition-all duration-300 bg-white ${
+                    isSelected
+                      ? "border-primary-500 bg-primary-50 shadow-medium scale-105"
+                      : "border-gray-300 hover:border-primary-300 hover:shadow-soft"
+                  }`}
+                  onClick={() => handleDivClick(image.dataAtr, "ifn")}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.dataAtr}
+                    className="w-full h-16 object-contain"
+                  />
+                  {isSelected && (
+                    <div className="absolute top-1 right-1 w-5 h-5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-medium">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Other Input */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+            Altele:
+          </label>
+          <input
+            type="text"
+            value={currentInput}
+            onChange={handleInput}
+            onBlur={handleBlur}
+            placeholder="Introduceți alte instituții..."
+            className="w-full h-12 px-4 rounded-xl border-2 border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all"
+          />
+        </div>
+
+        {/* Selected Items */}
+        {(selectedDivNames.length > 0 || inputValue.length > 0) && (
+          <div className="p-4 bg-primary-50 rounded-xl border border-primary-200">
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">
+              Selectate ({selectedDivNames.length + inputValue.length}):
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {selectedDivNames.map((name, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-primary-300 text-primary-700 rounded-lg text-sm font-medium"
+                >
+                  {name}
+                  <button
+                    onClick={() => handleDelete(index)}
+                    className="text-primary-600 hover:text-primary-800"
+                  >
+                    ×
+                  </button>
+                </span>
+              ))}
+              {inputValue.map((value, index) => (
+                <span
+                  key={index + selectedDivNames.length}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-primary-300 text-primary-700 rounded-lg text-sm font-medium"
+                >
+                  {value.trim()}
+                  <button
+                    onClick={() => handleDelete(index + selectedDivNames.length)}
+                    className="text-primary-600 hover:text-primary-800"
+                  >
+                    ×
+                  </button>
+                </span>
+              ))}
+            </div>
           </div>
         )}
-      </div>
-      <div className="btn-parent">
-        <button
-          className={`btn-sm w-full ${
-            isButtonDisabled() ? "bg-gray-300" : "bg-initial"
-          }`}
-          onClick={handleFinal}
-          disabled={isButtonDisabled()}
-        >
-          Trimite
-        </button>
+
+        <div className="pt-6">
+          <button
+            className={`btn-sm w-full ${
+              isButtonDisabled()
+                ? "bg-gray-300 cursor-not-allowed hover:scale-100 hover:shadow-medium"
+                : ""
+            }`}
+            onClick={handleFinal}
+            disabled={isButtonDisabled()}
+          >
+            {isSubmitting ? "Se trimite..." : "Trimite"}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 import { useState } from "react";
-const Form = ({ stepChange }) => {
-  const [error, setError] = useState("");
+import { IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
+import { HiUser, HiPhone, HiMail, HiInformationCircle } from "react-icons/hi";
 
+const Form = ({ stepChange }) => {
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -9,135 +12,287 @@ const Form = ({ stepChange }) => {
     aboutUs: "",
   });
 
+  const validateField = (name, value) => {
+    let error = "";
+    
+    if (name === "phone") {
+      if (!value) {
+        error = "Numărul de telefon este obligatoriu";
+      } else if (!/^\d{10}$/.test(value)) {
+        error = `Adaugă încă ${10 - value.length} cifre`;
+      }
+    } else if (name === "email") {
+      if (!value) {
+        error = "Email-ul este obligatoriu";
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        error = "Introduceți o adresă de email validă";
+      }
+    } else if (name === "name") {
+      if (!value.trim()) {
+        error = "Numele este obligatoriu";
+      } else if (value.trim().length < 2) {
+        error = "Numele trebuie să aibă minim 2 caractere";
+      }
+    } else if (name === "aboutUs") {
+      if (!value) {
+        error = "Selectați o opțiune";
+      }
+    }
+    
+    return error;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const InputName = name;
-    console.log(name, "1");
-    // console.log(name, "gas");
-    const isValidPhone = /^\d{0,9}$/.test(value);
-
-    setError("Adauga un numar valid");
-    if (InputName === "phone") {
-      console.log(InputName, "2");
-      if (isValidPhone) {
-        setError("Adaugă încă " + (10 - value.length) + " cifre");
-      } else {
-        setError("Număr introdus corect");
-        setTimeout(() => {
-          setError("");
-        }, 700);
-      }
-    }
-    if (InputName === "email") {
-      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      console.log([InputName], value, "3");
-      if (!isValidEmail) {
-        setError("Introduceti o adresă de email validă");
-      } else {
-        setError(""); // Clear the error when the email is correct
-      }
-    }
+    const fieldValue = name === "name" ? value.toLowerCase() : value;
 
     setFormData({
       ...formData,
-      [InputName]: value,
+      [name]: fieldValue,
     });
+
+    if (touched[name]) {
+      const error = validateField(name, fieldValue);
+      setErrors({ ...errors, [name]: error });
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched({ ...touched, [name]: true });
+    const error = validateField(name, value);
+    setErrors({ ...errors, [name]: error });
   };
 
   const handleContinue = () => {
-    if (formData.name && formData.aboutUs && formData.email && formData.phone) {
+    const newTouched = { name: true, phone: true, email: true, aboutUs: true };
+    setTouched(newTouched);
+
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      newErrors[key] = validateField(key, formData[key]);
+    });
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).every((err) => !err)) {
       stepChange(2, { name: formData.name, formData: formData });
-    } else {
-      setError("Completează toate câmpurile.");
     }
   };
+
   const isContinueDisabled =
     !formData.name ||
     !formData.aboutUs ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) || // Check email format
-    !/^\d{10}$/.test(formData.phone); // Check phone format (exactly 10 digits)
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ||
+    !/^\d{10}$/.test(formData.phone);
+
+  const getFieldStatus = (name) => {
+    if (!touched[name]) return "";
+    return errors[name] ? "error" : "success";
+  };
 
   return (
-    <div className="w-full h-screen">
-      <h2 className="pt-6 font-bold sm:mt-2 sm:text-3xl sm:w-[90%] text-3xl">
-        Soluții de creditare personalizate
-      </h2>
+    <div className="w-full min-h-screen py-6 px-4">
+      <div className="max-w-md mx-auto">
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight">
+            Soluții de{" "}
+            <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+              creditare
+            </span>{" "}
+            personalizate
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+            Află cum poți obține cele mai bune oferte de credite prin intermediul
+            experților.
+          </p>
+        </div>
 
-      <h5 className="my-3 text-[14px] leading-5 text-gray-700">
-        Află cum poți obține cele mai bune oferte de credite prin intermediul
-        experților.
-      </h5>
+        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          {/* Name Field */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <HiUser className="w-5 h-5 text-primary-500" />
+              Nume complet
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                placeholder="Introduceți numele complet"
+                className={`w-full h-12 px-4 pr-12 rounded-xl border-2 transition-all duration-200 ${
+                  getFieldStatus("name") === "error"
+                    ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    : getFieldStatus("name") === "success"
+                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                }`}
+              />
+              {getFieldStatus("name") === "success" && (
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+              )}
+              {getFieldStatus("name") === "error" && (
+                <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
+              )}
+            </div>
+            {touched.name && errors.name && (
+              <p className="text-sm text-red-600 flex items-center gap-1">
+                <IoCloseCircle className="w-4 h-4" />
+                {errors.name}
+              </p>
+            )}
+          </div>
 
-      <div className="rounded my-4">
-        {error && (
-          <h5 className="bg-primary text-white text-center text-sm py-1 rounded-sm">
-            {error}
-          </h5>
-        )}
-        <form className="flex flex-col justify-evenly px-0 py-4">
-          <label className="mb-3 ">
-            Nume:
-            <input
-              type="text"
-              name="name"
-              value={formData.name.toLowerCase()}
-              onChange={handleInputChange}
-              required
-              placeholder=""
-            />
-          </label>
-          <label className="mb-3">
-            Telefon:
-            <input
-              type="number"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              placeholder=""
-              maxLength={10}
-            />
-          </label>
-          <label className="mb-3">
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder=""
-            />
-          </label>
-          <label className="mb-3">
-            Cum ati auzit de noi?
-            <select
-              name="aboutUs"
-              value={formData.aboutUs}
-              onChange={handleInputChange}
-            >
-              <option value="">Selectează</option>
-              <option value="facebook">FaceBook</option>
-              <option value="pliant">Pliant</option>
-              <option value="tiktok">Tik-Tok</option>
-              <option value="consultant">Consultant</option>
-              <option value="recomandare">Recomandare</option>
-            </select>
-          </label>
-          <br />
+          {/* Phone Field */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <HiPhone className="w-5 h-5 text-primary-500" />
+              Număr de telefon
+            </label>
+            <div className="relative">
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                placeholder="07XXXXXXXX"
+                maxLength={10}
+                className={`w-full h-12 px-4 pr-12 rounded-xl border-2 transition-all duration-200 ${
+                  getFieldStatus("phone") === "error"
+                    ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    : getFieldStatus("phone") === "success"
+                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                }`}
+              />
+              {getFieldStatus("phone") === "success" && (
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+              )}
+              {getFieldStatus("phone") === "error" && (
+                <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
+              )}
+            </div>
+            {touched.phone && errors.phone && (
+              <p className="text-sm text-red-600 flex items-center gap-1">
+                <IoCloseCircle className="w-4 h-4" />
+                {errors.phone}
+              </p>
+            )}
+            {touched.phone && !errors.phone && formData.phone && (
+              <p className="text-sm text-green-600 flex items-center gap-1">
+                <IoCheckmarkCircle className="w-4 h-4" />
+                Număr valid
+              </p>
+            )}
+          </div>
+
+          {/* Email Field */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <HiMail className="w-5 h-5 text-primary-500" />
+              Adresă email
+            </label>
+            <div className="relative">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                placeholder="exemplu@email.com"
+                className={`w-full h-12 px-4 pr-12 rounded-xl border-2 transition-all duration-200 ${
+                  getFieldStatus("email") === "error"
+                    ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    : getFieldStatus("email") === "success"
+                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                }`}
+              />
+              {getFieldStatus("email") === "success" && (
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+              )}
+              {getFieldStatus("email") === "error" && (
+                <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
+              )}
+            </div>
+            {touched.email && errors.email && (
+              <p className="text-sm text-red-600 flex items-center gap-1">
+                <IoCloseCircle className="w-4 h-4" />
+                {errors.email}
+              </p>
+            )}
+          </div>
+
+          {/* About Us Field */}
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <HiInformationCircle className="w-5 h-5 text-primary-500" />
+              Cum ați auzit de noi?
+            </label>
+            <div className="relative">
+              <select
+                name="aboutUs"
+                value={formData.aboutUs}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
+                className={`w-full h-12 px-4 pr-12 rounded-xl border-2 transition-all duration-200 appearance-none bg-white ${
+                  getFieldStatus("aboutUs") === "error"
+                    ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                    : getFieldStatus("aboutUs") === "success"
+                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    : "border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
+                }`}
+              >
+                <option value="">Selectează o opțiune</option>
+                <option value="facebook">Facebook</option>
+                <option value="pliant">Pliant</option>
+                <option value="tiktok">TikTok</option>
+                <option value="consultant">Consultant</option>
+                <option value="recomandare">Recomandare</option>
+              </select>
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              {getFieldStatus("aboutUs") === "success" && (
+                <IoCheckmarkCircle className="absolute right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+              )}
+            </div>
+            {touched.aboutUs && errors.aboutUs && (
+              <p className="text-sm text-red-600 flex items-center gap-1">
+                <IoCloseCircle className="w-4 h-4" />
+                {errors.aboutUs}
+              </p>
+            )}
+          </div>
+
           <button
             type="button"
-            className={`btn-sm w-full ${
-              isContinueDisabled ? "bg-gray-300" : ""
+            className={`btn-sm w-full mt-8 ${
+              isContinueDisabled
+                ? "bg-gray-300 cursor-not-allowed hover:scale-100 hover:shadow-medium"
+                : ""
             }`}
             onClick={handleContinue}
             disabled={isContinueDisabled}
           >
-            Pasul Urmator
+            Pasul Următor
           </button>
-          <p className="mt-4 text-[12px] text-gray-700">
-            Acesta este un chestionar interactiv care te va ajuta să obții
-            informații despre opțiunile tale de creditare. Vom începe prin a
-            afla câteva informații de bază despre tine.
-          </p>
+
+          <div className="mt-6 p-4 bg-primary-50 rounded-xl border border-primary-200">
+            <p className="text-sm text-gray-700 leading-relaxed flex items-start gap-2">
+              <HiInformationCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+              <span>
+                Acesta este un chestionar interactiv care te va ajuta să obții
+                informații despre opțiunile tale de creditare. Vom începe prin a
+                afla câteva informații de bază despre tine.
+              </span>
+            </p>
+          </div>
         </form>
       </div>
     </div>

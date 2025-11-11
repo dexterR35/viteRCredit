@@ -6,48 +6,109 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  html {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
 @layer components {
   label {
-    @apply block leading-6 text-gray-700 text-sm mb-2 text-[1em];
+    @apply block leading-6 text-gray-700 text-sm mb-2 font-medium;
   }
+  
   input,
   select {
-    @apply bg-white appearance-none border border-gray-300 rounded w-full h-[3em] py-2 px-3 text-gray-700 leading-tight outline-0;
+    @apply bg-white appearance-none border border-gray-300 rounded-lg w-full h-[3em] py-2 px-4 text-gray-700 leading-tight outline-0 transition-all duration-200;
   }
+  
+  input:focus,
+  select:focus {
+    @apply border-primary-500 ring-2 ring-primary-200 outline-none;
+  }
+  
   .btn-sm {
-    @apply bg-primary py-3 px-4 font-semibold rounded-md text-white text-[1.1em] uppercase;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 py-3 px-6 font-semibold rounded-xl text-white text-base uppercase tracking-wide shadow-medium hover:shadow-glow transition-all duration-200 transform hover:scale-105 active:scale-95;
   }
+  
   .btn-md {
-    @apply font-medium tracking-wide py-2 px-5 sm:px-8 border bg-primary text-gray-800 outline-none rounded-l-full rounded-r-full capitalize;
+    @apply font-medium tracking-wide py-3 px-6 sm:px-8 border-2 border-primary bg-transparent hover:bg-primary text-primary hover:text-white outline-none rounded-xl capitalize transition-all duration-200 shadow-soft hover:shadow-medium;
   }
+  
   .p-custom {
-    @apply text-[0.96rem] leading-5 w-full p-4 bg-gray-200 rounded-md font-normal text-start;
+    @apply text-base leading-6 w-full p-4 bg-gradient-to-br from-white to-gray-50 rounded-xl font-normal text-start shadow-soft border border-gray-100;
   }
+  
   .p-title {
-    @apply text-black font-semibold text-center leading-6 mb-6 text-[23px];
+    @apply text-gray-900 font-bold text-center leading-tight mb-6 text-2xl md:text-3xl;
   }
+  
   .p-question {
-    @apply text-center font-semibold text-[1.1rem] leading-6 mt-6;
+    @apply text-center font-semibold text-lg md:text-xl leading-7 mt-6 text-gray-800;
   }
+  
   .btn-parent {
     @apply flex items-center w-full justify-center space-x-6 mt-6;
   }
+  
   .img-parrent {
-    @apply flex items-center justify-center rounded-md p-2 px-3 border-[1px] border-gray-300;
+    @apply flex items-center justify-center rounded-xl p-3 border border-gray-200 bg-white shadow-soft;
   }
+  
   .image-grid {
-    @apply grid grid-cols-3  place-content-center gap-2 my-4 py-2 rounded-md;
+    @apply grid grid-cols-3 place-content-center gap-3 my-4 py-3 rounded-xl;
   }
-}
-.social-icon {
-  @apply mx-2 bg-gray-200 rounded-full items-center justify-center flex p-2 shadow-md cursor-pointer;
-}
-@layer base {
-  h2 {
-    @apply text-2xl;
+  
+  .social-icon {
+    @apply mx-2 bg-white rounded-full items-center justify-center flex p-3 shadow-soft border border-gray-100;
   }
-    html {
-    font-family: 'Poppins', sans-serif;
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-large;
+  }
+  
+  .card-modern {
+    @apply bg-white rounded-2xl p-6 shadow-soft border border-gray-100;
+  }
+  
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+  
+  .container-modern {
+    @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
 
@@ -61,7 +122,41 @@
   left: 0;
   top: 0;
   z-index: -1;
-  /* filter: blur(13px); */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  @apply transition-all duration-200;
+}
+
+/* Optimize animations for mobile devices */
+@media (max-width: 767px) {
+  /* Reduce animation complexity on mobile */
+  [class*="animate-"] {
+    animation-duration: 0.3s !important;
+  }
+  
+  /* Faster scroll on mobile */
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* .BT,

@@ -17,56 +17,66 @@ const Feature = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="sm:py-8 py-0 relative">
-      <div className="max-w-screen-xl mx-auto">
+    <div className="section-padding relative bg-white overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-primary-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+
+      <div className="container-modern">
         <div
-          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-2 place-content-center md:items-center md:my-12 mt-12 mb-0 flex flex-col-reverse"
+          className="md:grid md:grid-flow-row md:grid-flow-col md:grid-cols-2 place-content-center md:items-center gap-12 lg:gap-16 flex flex-col-reverse"
           id="about"
         >
-          <ScrollAnimationWrapper className="flex w-full justify-end">
+          <ScrollAnimationWrapper className="flex w-full justify-center md:justify-end">
             <motion.div
-              className="h-full w-full p-4"
+              className="h-full w-full p-2 sm:p-4 relative"
               variants={scrollAnimation}
             >
-              <img
-                src={illustration2}
-                alt="test"
-                className="w-[100%] sm:h-[420px] h-auto object-contain md:px-0 px-8"
-              />
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-200 to-accent-200 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-30 sm:opacity-40 transform -rotate-6"></div>
+                <img
+                  src={illustration2}
+                  alt="Servicii de consultanță financiară"
+                  className="relative w-full h-auto max-h-[300px] sm:max-h-[400px] md:max-h-[450px] object-contain drop-shadow-xl sm:drop-shadow-2xl z-10 rounded-xl sm:rounded-2xl"
+                />
+              </div>
             </motion.div>
           </ScrollAnimationWrapper>
+          
           <ScrollAnimationWrapper>
             <motion.div
-              className="flex flex-col items-center md:items-end justify-center px-5 md:px-0 ml-auto w-full lg:w-9/12 leading-relaxed"
+              className="flex flex-col items-start justify-center px-4 md:px-0 w-full leading-relaxed"
               variants={scrollAnimation}
             >
-              <h3 className="text-3xl lg:text-5xl font-semibold text-gray-900">
-                Servicii de Consultantă
+              <div className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-50 text-primary-700 rounded-full text-xs sm:text-sm font-semibold">
+                Despre noi
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                Servicii de{" "}
+                <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                  Consultantă
+                </span>
               </h3>
-              <p className="my-2 text-gray-800">
-                Dacă te aflii in căutarea sprijinului necesar pentru a obține
-                creditul dorit, echipa noastră de experți este aici pentru ați
-                oferi asistență. Având o vastă experientă de peste 9 ani in
-                acest domeniu, consultanții noștrii depun eforturi deosebite
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                Dacă te aflii în căutarea sprijinului necesar pentru a obține
+                creditul dorit, echipa noastră de experți este aici pentru a-ți
+                oferi asistență. Având o vastă experiență de peste 9 ani în
+                acest domeniu, consultanții noștri depun eforturi deosebite
                 pentru a te ghida în obținerea rezultatelor dorite în cel mai
                 eficient mod posibil.
               </p>
-              <ul className="text-gray-800 self-start list-inside flex flex-col gap-1 md:ml-3 ml-0">
-                {texts.map((texts, index) => (
+              <ul className="text-gray-700 self-start list-none flex flex-col gap-3 w-full">
+                {texts.map((text, index) => (
                   <motion.li
-                    className="relative circle-check custom-list flex justify-start items-center gap-2 cursor-pointer"
+                    className="relative flex justify-start items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-white to-gray-50"
                     custom={{ duration: 2 + index }}
                     variants={scrollAnimation}
-                    key={texts}
-                    whileHover={{
-                      scale: 1.1,
-                      transition: {
-                        duration: 0.2,
-                      },
-                    }}
+                    key={text}
                   >
-                    <IoCheckmarkCircle className="w-[20px] h-[20px] text-primary" />
-                    {texts}
+                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-medium">
+                      <IoCheckmarkCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-base sm:text-lg font-medium">{text}</span>
                   </motion.li>
                 ))}
               </ul>
