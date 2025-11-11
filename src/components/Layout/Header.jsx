@@ -23,28 +23,28 @@ const Header = ({ setIsModalOpen }) => {
     <>
       <header
         className={
-          "fixed top-0 w-full z-30 transition-all duration-200 " +
+          "fixed top-0 w-full z-30 transition-all duration-300 " +
           (scrollActive 
-            ? "bg-white shadow-large py-0 border-b border-gray-200" 
-            : "bg-gradient-to-tr from-primary-50/80 via-white to-accent-50/80 py-4")
+            ? "bg-gradient-to-r from-white via-gray-50/30 to-white backdrop-blur-xl shadow-minimal py-0 border-b border-gray-100/50" 
+            : "bg-gradient-to-r from-white via-primary-50/20 to-white backdrop-blur-sm py-4")
         }
       >
-        <nav className="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto grid grid-flow-col py-3 sm:py-4">
-          <div className="col-start-1 col-end-2 flex items-center gap-2.5">
+        <nav className="max-w-screen-2xl px-4 sm:px-6 lg:px-8 xl:px-12 mx-auto grid grid-flow-col py-4 sm:py-5">
+          <div className="col-start-1 col-end-2 flex items-center gap-3">
             <div className="relative flex-shrink-0">
               <img
                 src={LogoOBT}
                 alt="Obtine Credit Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
               />
             </div>
-            <div className="hidden md:block h-6 w-px bg-gray-300"></div>
-            <p className="text-sm uppercase hidden md:block font-semibold tracking-tight !text-gray-600 transition-colors duration-200 leading-tight">
+            <div className="hidden md:block h-5 w-px bg-gray-200"></div>
+            <p className="text-sm font-display hidden md:block font-semibold tracking-tight text-gray-700 transition-colors duration-200">
               Obține Credit
             </p>
           </div>
-          <ul className={`hidden lg:flex col-start-4 col-end-8 items-center justify-center font-medium gap-1 transition-colors duration-200 ${
-            scrollActive ? "text-gray-700" : "text-gray-800"
+          <ul className={`hidden lg:flex col-start-4 col-end-8 items-center justify-center font-medium gap-2 transition-colors duration-200 ${
+            scrollActive ? "text-gray-600" : "text-gray-700"
           }`}>
             <LinkScroll
               activeClass="active"
@@ -57,10 +57,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("hero");
               }}
               className={
-                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-xl transition-all duration-300 hover:bg-primary-50/50 " +
+                "px-5 py-2.5 mx-0.5 cursor-pointer inline-block relative rounded-xl transition-all duration-300 " +
                 (activeLink === "hero"
-                  ? " text-primary-600 bg-gradient-to-r from-primary-50 to-primary-100 font-semibold shadow-soft"
-                  : scrollActive ? " text-gray-700 hover:text-primary-600" : " text-gray-800 hover:text-primary-600")
+                  ? " text-primary-600 bg-primary-50/80 font-semibold"
+                  : " text-gray-600 hover:text-primary-600 hover:bg-gray-50/50")
               }
             >
               Acasă
@@ -76,10 +76,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("about");
               }}
               className={
-                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
+                "px-5 py-2.5 mx-0.5 cursor-pointer inline-block relative rounded-xl transition-all duration-300 " +
                 (activeLink === "about"
-                  ? " text-primary-600 bg-primary-50 font-semibold"
-                  : " text-gray-700")
+                  ? " text-primary-600 bg-primary-50/80 font-semibold"
+                  : " text-gray-600 hover:text-primary-600 hover:bg-gray-50/50")
               }
             >
               Despre noi
@@ -95,10 +95,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("services");
               }}
               className={
-                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
+                "px-5 py-2.5 mx-0.5 cursor-pointer inline-block relative rounded-xl transition-all duration-300 " +
                 (activeLink === "services"
-                  ? " text-primary-600 bg-primary-50 font-semibold"
-                  : " text-gray-700")
+                  ? " text-primary-600 bg-primary-50/80 font-semibold"
+                  : " text-gray-600 hover:text-primary-600 hover:bg-gray-50/50")
               }
             >
               Servicii
@@ -114,20 +114,20 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("testimoni");
               }}
               className={
-                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
+                "px-5 py-2.5 mx-0.5 cursor-pointer inline-block relative rounded-xl transition-all duration-300 " +
                 (activeLink === "testimoni"
-                  ? " text-primary-600 bg-primary-50 font-semibold"
-                  : " text-gray-700")
+                  ? " text-primary-600 bg-primary-50/80 font-semibold"
+                  : " text-gray-600 hover:text-primary-600 hover:bg-gray-50/50")
               }
             >
               Testimonial
             </LinkScroll>
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <div className="text-gray-800 mx-2 sm:mx-4 capitalize tracking-wide transition-all">
+            <div className="text-gray-800 mx-2 sm:mx-4 transition-all">
               <a
                 href="tel:0786744694"
-                className="flex items-center gap-2 font-semibold tracking-wide py-3 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 outline-none rounded-xl capitalize shadow-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="flex items-center gap-2.5 font-semibold py-2.5 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 outline-none rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <FaPhoneAlt className="w-4 h-4"/>
                 <span className="hidden sm:inline">Sună acum</span>
@@ -138,9 +138,9 @@ const Header = ({ setIsModalOpen }) => {
         </nav>
       </header>
       {/* Mobile Navigation */}
-      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-2 sm:px-4 shadow-large glass-effect border-t border-gray-200">
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-2 sm:px-4 shadow-xl bg-gradient-to-r from-white via-gray-50/30 to-white backdrop-blur-xl border-t border-gray-100/50">
         <div className="sm:px-2">
-          <ul className="flex w-full justify-between items-center text-gray-700">
+          <ul className="flex w-full justify-between items-center text-gray-600">
             <LinkScroll
               activeClass="active"
               to="hero"
@@ -152,10 +152,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("hero");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-300 " +
                 (activeLink === "hero"
-                  ? "bg-primary-50 text-primary-600 scale-105"
-                  : "text-gray-600")
+                  ? "bg-primary-50/80 text-primary-600 scale-105"
+                  : "text-gray-600 hover:text-primary-600")
               }
             >
               <FcHome className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
@@ -172,10 +172,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("about");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-300 " +
                 (activeLink === "about"
-                  ? "bg-primary-50 text-primary-600 scale-105"
-                  : "text-gray-600")
+                  ? "bg-primary-50/80 text-primary-600 scale-105"
+                  : "text-gray-600 hover:text-primary-600")
               }
             >
               <FcComments className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
@@ -192,10 +192,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("services");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-300 " +
                 (activeLink === "services"
-                  ? "bg-primary-50 text-primary-600 scale-105"
-                  : "text-gray-600")
+                  ? "bg-primary-50/80 text-primary-600 scale-105"
+                  : "text-gray-600 hover:text-primary-600")
               }
             >
               <FcMoneyTransfer className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
@@ -212,10 +212,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("testimoni");
               }}
               className={
-                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-200 " +
+                "mx-1 sm:mx-2 px-3 sm:px-4 py-3 flex flex-col items-center text-xs rounded-xl transition-all duration-300 " +
                 (activeLink === "testimoni"
-                  ? "bg-primary-50 text-primary-600 scale-105"
-                  : "text-gray-600")
+                  ? "bg-primary-50/80 text-primary-600 scale-105"
+                  : "text-gray-600 hover:text-primary-600")
               }
             >
               <FcContacts className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />

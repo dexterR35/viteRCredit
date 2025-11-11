@@ -131,15 +131,19 @@ export default function App() {
   return (
     <>
       <SeoHead />
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative">
+        {/* Minimalist gradient overlay across entire page */}
+        <div className="fixed inset-0 bg-gradient-to-br from-primary-50/40 via-white to-accent-50/30 -z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-50/20 via-transparent to-accent-50/20 -z-10 pointer-events-none"></div>
+        
         <Layout isModalOpen={isModalOpen} setIsModalOpen={openModal}>
-          <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50">
+          <div className="relative">
             <Hero setIsModalOpen={openModal} />
           </div>
-          <div className="bg-white" id="about">
+          <div id="about" className="relative">
             <About />
           </div>
-          <div className="bg-gray-50">
+          <div className="relative">
             <Services setIsModalOpen={openModal} />
           </div>
         </Layout>
