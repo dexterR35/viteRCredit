@@ -50,7 +50,7 @@ const Testimoni = ({
         </a>
       );
     },
-    dotsClass: "slick-dots w-max absolute mt-20  ",
+    dotsClass: "slick-dots w-max absolute mt-10  ",
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -85,14 +85,17 @@ const Testimoni = ({
       >
         {listTestimoni.map((listTestimonis, index) => (
           <div className="flex items-stretch px-3" key={index}>
-            <div className="card-modern rounded-3xl p-6 sm:p-8 flex flex-col h-full group bg-white">
-                <div className="flex flex-col xl:flex-row w-full items-start xl:items-center justify-between mb-6">
+            <div className="card-modern rounded-3xl p-6 sm:p-8 flex flex-col h-full group bg-white relative overflow-hidden">
+              {/* Decorative gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-transparent to-accent-50/0 group-hover:from-primary-50/20 group-hover:to-accent-50/10 transition-all duration-500 pointer-events-none"></div>
+              
+              <div className="flex flex-col xl:flex-row w-full items-start xl:items-center justify-between mb-6 relative z-10">
                 <div className="flex items-center order-2 xl:order-1 gap-4">
-                  <div className="relative group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative">
                     <img
                       src={listTestimonis.image}
                       alt={listTestimonis.name}
-                      className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-gray-100 shadow-soft group-hover:shadow-medium group-hover:border-gray-200 transition-all duration-500"
+                      className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-gray-100 shadow-medium"
                     />
                   </div>
                   <div className="flex flex-col text-left">
@@ -105,14 +108,14 @@ const Testimoni = ({
                   </div>
                 </div>
                 <div className="flex flex-none items-center gap-2 order-1 xl:order-2 mb-3 xl:mb-0">
-                  <div className="flex items-center gap-1.5 bg-gray-50 px-4 py-2 rounded-full border border-gray-100/60 group-hover:shadow-soft transition-all duration-500">
-                    <p className="text-sm font-semibold text-primary-700">{listTestimonis.rating}</p>
+                  <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary-50 to-accent-50 px-4 py-2 rounded-full border border-primary-100/60 shadow-soft group-hover:shadow-medium group-hover:border-primary-200 transition-all duration-500">
+                    <p className="text-sm font-bold text-primary-700">{listTestimonis.rating}</p>
                     <FaStar className="h-4 w-4 text-yellow-400 fill-current" />
                   </div>
                 </div>
               </div>
-              <div className="relative">
-                <div className="absolute top-0 left-0 text-7xl text-gray-100 font-serif leading-none group-hover:text-gray-200 transition-colors duration-500">"</div>
+              <div className="relative z-10">
+                <div className="absolute top-0 left-0 text-7xl text-primary-100/40 font-serif leading-none group-hover:text-primary-200/60 transition-colors duration-500">"</div>
                 <p className="relative mt-4 text-left text-base sm:text-lg text-gray-600 leading-relaxed pl-6 group-hover:text-gray-700 transition-colors duration-500">
                   {listTestimonis.testimoni}
                 </p>
@@ -124,14 +127,14 @@ const Testimoni = ({
       <div className="flex w-full items-center justify-center md:justify-end mt-8 md:mt-12">
         <div className="flex flex-none justify-between w-full md:w-auto gap-4">
           <button
-            className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white border border-gray-200/60 hover:border-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-500 text-gray-600 cursor-pointer shadow-soft hover:shadow-medium transform hover:scale-105 active:scale-95"
+            className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white border border-gray-200/60 hover:border-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-500 text-gray-600 cursor-pointer shadow-soft transform hover:scale-105 active:scale-95"
             onClick={sliderRef?.slickPrev}
             aria-label="Previous testimonial"
           >
             <IoChevronBackSharp className="h-7 w-7" />
           </button>
           <button
-            className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white border border-gray-200/60 hover:border-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-500 text-gray-600 cursor-pointer shadow-soft hover:shadow-medium transform hover:scale-105 active:scale-95"
+            className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-white border border-gray-200/60 hover:border-primary-600 hover:bg-primary-600 hover:text-white transition-all duration-500 text-gray-600 cursor-pointer shadow-soft transform hover:scale-105 active:scale-95"
             onClick={sliderRef?.slickNext}
             aria-label="Next testimonial"
           >

@@ -71,7 +71,8 @@ const Services = ({ setIsModalOpen }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-block mb-6 px-4 py-2 bg-primary-50/80 text-primary-700 rounded-full text-sm font-medium tracking-wide mx-auto">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
+                <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Serviciile noastre
               </div>
               <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mx-auto mb-6 text-balance">
@@ -96,38 +97,46 @@ const Services = ({ setIsModalOpen }) => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="card-modern flex flex-col h-full group"
+                  className="card-modern flex flex-col h-full group relative overflow-hidden"
                 >
-                  <div className="relative mb-6 flex flex-row items-center gap-4 p-6 bg-gray-50/50 rounded-2xl border border-gray-100/60 group-hover:border-gray-200/80 group-hover:bg-gray-50 transition-all duration-500">
-                    <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-soft group-hover:shadow-medium group-hover:scale-105 transition-all duration-500">
-                      {card.icon && (() => {
-                        const Icon = card.icon;
-                        return <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />;
-                      })()}
+                  {/* Decorative gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-transparent to-accent-50/0 group-hover:from-primary-50/30 group-hover:to-accent-50/20 transition-all duration-500 pointer-events-none"></div>
+                  
+                  <div className="relative mb-6 flex flex-row items-center gap-4 p-6 bg-gradient-to-br from-gray-50/80 to-white rounded-2xl border border-gray-100/80 group-hover:border-primary-200/60 group-hover:shadow-medium transition-all duration-500">
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-medium">
+                        {card.icon && (() => {
+                          const Icon = card.icon;
+                          return <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />;
+                        })()}
+                      </div>
                     </div>
                     <h4 className="text-lg md:text-xl text-gray-900 capitalize flex-1 font-display font-semibold text-left group-hover:text-primary-600 transition-colors duration-500">
                       {card.title}
                     </h4>
                   </div>
                   
-                  <div className="flex flex-col w-full flex-1 mb-8">
+                  <div className="flex flex-col w-full flex-1 mb-8 relative z-10">
                     <p className="text-base sm:text-lg text-gray-600 text-start leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
                       {card.description}
                     </p>
                   </div>
                   
-                  <QuizButton
-                    onClick={() => setIsModalOpen(true)}
-                    className="px-6 mt-auto font-semibold bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-xl text-white py-3.5 w-full shadow-soft hover:shadow-medium transition-all duration-500 transform hover:scale-[1.02] active:scale-[0.98]"
-                    text={card.btnTitle}
-                  />
+                  <div className="relative z-10 mt-auto">
+                    <QuizButton
+                      onClick={() => setIsModalOpen(true)}
+                      className="px-6 font-semibold bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-xl text-white py-3.5 w-full shadow-medium transition-all duration-500 transform hover:scale-[1.02] active:scale-[0.98]"
+                      text={card.btnTitle}
+                    />
+                  </div>
                 </motion.div>
               </ScrollAnimationWrapper>
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col w-full mt-20 lg:mt-32" id="testimoni">
+        <div className="flex flex-col w-full mt-10 lg:mt-32" id="testimoni">
           <ScrollAnimationWrapper>
             <motion.div
               variants={scrollAnimation}
@@ -135,7 +144,8 @@ const Services = ({ setIsModalOpen }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-block mb-6 px-4 py-2 bg-primary-50/80 text-primary-700 rounded-full text-sm font-medium tracking-wide mx-auto">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
+                <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Testimoniale
               </div>
               <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight w-full mx-auto mb-6 text-balance">
@@ -161,7 +171,7 @@ const Services = ({ setIsModalOpen }) => {
             </motion.div>
           </ScrollAnimationWrapper>
           
-          <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-20">
+          <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-10">
             <motion.div 
               variants={scrollAnimation} 
               custom={{ duration: 3 }}
@@ -169,8 +179,12 @@ const Services = ({ setIsModalOpen }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white/80 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-soft border border-gray-100/60 overflow-hidden">
-                <div className="flex flex-col text-left w-full sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
+              <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/40 overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-accent-200/20 to-primary-200/20 rounded-full blur-3xl -z-10"></div>
+                
+                <div className="flex flex-col text-left w-full sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0 relative z-10">
                   <h5 className="font-display text-gray-900 text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold mb-4 text-balance">
                     Descoperă secretele{" "}
                     <span className="bg-gradient-to-r from-primary-600 via-primary-700 to-accent-600 bg-clip-text text-transparent">
@@ -181,12 +195,12 @@ const Services = ({ setIsModalOpen }) => {
                     Abonează-te pentru sfaturi exclusive de la consultanți.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-100/60">#Credite</span>
-                    <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-100/60">#ConsultanțăFinanciară</span>
-                    <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-medium text-gray-700 border border-gray-100/60">#EducațieFinanciară</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#Credite</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#ConsultanțăFinanciară</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#EducațieFinanciară</span>
                   </div>
                 </div>
-                <button className="btn-sm w-full sm:w-auto whitespace-nowrap">Intră online</button>
+                <button className="btn-sm w-full sm:w-auto whitespace-nowrap shadow-medium relative z-10">Intră online</button>
               </div>
             </motion.div>
           </ScrollAnimationWrapper>

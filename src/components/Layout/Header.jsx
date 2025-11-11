@@ -25,8 +25,8 @@ const Header = ({ setIsModalOpen }) => {
         className={
           "fixed top-0 w-full z-30 transition-all duration-300 " +
           (scrollActive 
-            ? "bg-gradient-to-r from-white via-gray-50/30 to-white backdrop-blur-xl shadow-minimal py-0 border-b border-gray-100/50" 
-            : "bg-gradient-to-r from-white via-primary-50/20 to-white backdrop-blur-sm py-4")
+            ? "bg-gradient-to-r from-white via-gray-50/30 to-white backdrop-blur-xl shadow-minimal py-0 border-b border-gray-100/50 " 
+            : "bg-gradient-to-tr from-primary-50/30 via-white to-accent-50/20 backdrop-blur-sm py-4")
         }
       >
         <nav className="max-w-screen-2xl px-4 sm:px-6 lg:px-8 xl:px-12 mx-auto grid grid-flow-col py-4 sm:py-5">
@@ -127,7 +127,7 @@ const Header = ({ setIsModalOpen }) => {
             <div className="text-gray-800 mx-2 sm:mx-4 transition-all">
               <a
                 href="tel:0786744694"
-                className="flex items-center gap-2.5 font-semibold py-2.5 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 outline-none rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center gap-2.5 font-semibold py-2.5 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 outline-none rounded-xl shadow-soft transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <FaPhoneAlt className="w-4 h-4"/>
                 <span className="hidden sm:inline">Sună acum</span>

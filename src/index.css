@@ -76,11 +76,11 @@
   }
   
   .btn-sm {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 py-3 px-6 font-semibold rounded-xl text-white text-base uppercase tracking-wide shadow-medium hover:shadow-glow transition-all duration-200 transform hover:scale-105 active:scale-95;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 py-3 px-6 font-semibold rounded-xl text-white text-base uppercase tracking-wide shadow-medium transition-all duration-200 transform hover:scale-105 active:scale-95;
   }
   
   .btn-md {
-    @apply font-medium tracking-wide py-3 px-6 sm:px-8 border-2 border-primary bg-transparent hover:bg-primary text-primary hover:text-white outline-none rounded-xl capitalize transition-all duration-200 shadow-soft hover:shadow-medium;
+    @apply font-medium tracking-wide py-3 px-6 sm:px-8 border-2 border-primary bg-transparent hover:bg-primary text-primary hover:text-white outline-none rounded-xl capitalize transition-all duration-200 shadow-soft;
   }
   
   .p-custom {
@@ -126,7 +126,7 @@
   }
   
   .section-padding {
-    @apply py-16 sm:py-20 md:py-28 lg:py-32;
+    @apply py-8 sm:py-10 md:py-12 lg:py-16;
   }
   
   .container-modern {
