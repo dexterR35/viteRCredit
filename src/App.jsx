@@ -31,13 +31,19 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default function App() {
-  const SHOW_BONUS_DELAY = 1000; // 10 seconds
-  const BONUS_COOLDOWN = 2000; // 20 seconds
+  const SHOW_BONUS_DELAY = 5000; // 1 second
+  const BONUS_COOLDOWN = 15000; // 15 seconds
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showBonus, setShowBonus] = useState(false);
   const [bonusClosedAt, setBonusClosedAt] = useState(null);
   const showBonusTimeout = useRef(null);
+  const isModalOpenRef = useRef(false);
+
+  // Update ref when modal state changes
+  useEffect(() => {
+    isModalOpenRef.current = isModalOpen;
+  }, [isModalOpen]);
 
   // Lock scroll when modal is open
   useEffect(() => {
@@ -57,7 +63,7 @@ export default function App() {
       clearTimeout(showBonusTimeout.current);
     }
 
-    // Hide bonus immediately if modal is open
+    // Hide bonus immediately if modal is open - don't schedule any timeouts
     if (isModalOpen) {
       setShowBonus(false);
       return;
@@ -71,19 +77,28 @@ export default function App() {
       if (timeSinceClose >= BONUS_COOLDOWN) {
         // Cooldown passed — show bonus after delay
         showBonusTimeout.current = setTimeout(() => {
-          setShowBonus(true);
+          // Double check modal is not open before showing bonus
+          if (!isModalOpenRef.current) {
+            setShowBonus(true);
+          }
         }, SHOW_BONUS_DELAY);
       } else {
         // Still in cooldown — schedule showing bonus after remaining cooldown + delay
         const remainingCooldown = BONUS_COOLDOWN - timeSinceClose;
         showBonusTimeout.current = setTimeout(() => {
-          setShowBonus(true);
+          // Double check modal is not open before showing bonus
+          if (!isModalOpenRef.current) {
+            setShowBonus(true);
+          }
         }, remainingCooldown + SHOW_BONUS_DELAY);
       }
     } else {
       // No cooldown — show bonus after delay
       showBonusTimeout.current = setTimeout(() => {
-        setShowBonus(true);
+        // Double check modal is not open before showing bonus
+        if (!isModalOpenRef.current) {
+          setShowBonus(true);
+        }
       }, SHOW_BONUS_DELAY);
     }
 
@@ -102,17 +117,7 @@ export default function App() {
   // Close modal handler
   const closeModal = () => {
     setIsModalOpen(false);
-
-    // Clear existing timeout and set new timeout to show bonus after delay if cooldown passed
-    if (showBonusTimeout.current) clearTimeout(showBonusTimeout.current);
-
-    const now = Date.now();
-
-    if (!bonusClosedAt || now - bonusClosedAt >= BONUS_COOLDOWN) {
-      showBonusTimeout.current = setTimeout(() => {
-        setShowBonus(true);
-      }, SHOW_BONUS_DELAY);
-    }
+    // The useEffect will handle showing the bonus after modal closes
   };
 
   // Bonus banner manual close handler

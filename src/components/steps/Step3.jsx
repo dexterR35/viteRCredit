@@ -140,7 +140,7 @@ const Step3 = ({ stepChange }) => {
           <button
             className={`btn-sm w-full ${
               !isDateSelected
-                ? "bg-gray-300 cursor-not-allowed hover:scale-100 hover:shadow-medium"
+                ? "!bg-gray-400 !text-white cursor-not-allowed hover:!scale-100 hover:!shadow-medium hover:!from-gray-400 hover:!to-gray-400"
                 : ""
             }`}
             onClick={continueS}

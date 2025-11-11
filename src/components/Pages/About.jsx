@@ -17,10 +17,11 @@ const Feature = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="section-padding relative bg-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-primary-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-50 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+    <div className="section-padding relative bg-gradient-to-br from-white via-gray-50/50 to-white overflow-hidden">
+      {/* Enhanced Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-200/40 to-primary-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-40 -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-accent-200/40 to-accent-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-40 -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-primary-100/30 to-accent-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
 
       <div className="container-modern">
         <div
@@ -29,15 +30,16 @@ const Feature = () => {
         >
           <ScrollAnimationWrapper className="flex w-full justify-center md:justify-end">
             <motion.div
-              className="h-full w-full p-2 sm:p-4 relative"
+              className="h-full w-full p-2 sm:p-4 relative group"
               variants={scrollAnimation}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-200 to-accent-200 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-30 sm:opacity-40 transform -rotate-6"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-300/50 via-primary-400/30 to-accent-300/50 rounded-3xl sm:rounded-[2rem] blur-2xl sm:blur-3xl opacity-40 sm:opacity-50 transform -rotate-6 group-hover:-rotate-12 transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent-200/40 to-primary-200/40 rounded-3xl sm:rounded-[2rem] blur-xl opacity-30 transform rotate-6 group-hover:rotate-12 transition-transform duration-700"></div>
                 <img
                   src={illustration2}
                   alt="Servicii de consultanță financiară"
-                  className="relative w-full h-auto max-h-[300px] sm:max-h-[400px] md:max-h-[450px] object-contain drop-shadow-xl sm:drop-shadow-2xl z-10 rounded-xl sm:rounded-2xl"
+                  className="relative w-full h-auto max-h-[300px] sm:max-h-[400px] md:max-h-[500px] object-contain drop-shadow-2xl sm:drop-shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] z-10 rounded-2xl sm:rounded-3xl transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </motion.div>
@@ -65,18 +67,18 @@ const Feature = () => {
                 pentru a te ghida în obținerea rezultatelor dorite în cel mai
                 eficient mod posibil.
               </p>
-              <ul className="text-gray-700 self-start list-none flex flex-col gap-3 w-full">
+              <ul className="text-gray-700 self-start list-none flex flex-col gap-4 w-full">
                 {texts.map((text, index) => (
                   <motion.li
-                    className="relative flex justify-start items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-white to-gray-50"
+                    className="relative flex justify-start items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-100 shadow-soft hover:shadow-medium hover:border-primary-200 hover:bg-gradient-to-br hover:from-white hover:to-primary-50/30 transition-all duration-300 group"
                     custom={{ duration: 2 + index }}
                     variants={scrollAnimation}
                     key={text}
                   >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-medium">
-                      <IoCheckmarkCircle className="w-5 h-5 text-white" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-medium">
+                      <IoCheckmarkCircle className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-base sm:text-lg font-medium">{text}</span>
+                    <span className="text-base sm:text-lg font-semibold text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{text}</span>
                   </motion.li>
                 ))}
               </ul>

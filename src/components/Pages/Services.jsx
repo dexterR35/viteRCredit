@@ -5,54 +5,49 @@ import Testimoni from "./Testimoni";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
-import cardImg from "/Icon/credit.png";
-import cardImg2 from "/Icon/ref.png";
-import cardImg3 from "/Icon/business-report.png";
-import cardImg4 from "/Icon/finance.png";
-import cardImg6 from "/Icon/car2.png";
-import cardImg7 from "/Icon/house.png";
+import { IoWallet, IoRefresh, IoHome, IoDocumentText, IoBusiness, IoCar } from "react-icons/io5";
 
 import QuizButton from "../steps/Qbutton";
 
 const Services = ({ setIsModalOpen }) => {
   const dataCards = [
     {
-      img: cardImg,
+      icon: IoWallet,
       btnTitle: "Obține Credit",
       title: "Credite de nevoi personale",
       description:
         "Obțineți creditul de nevoi personale de care aveți nevoie cu ușurință și rapid. Echipa noastră de experți vă stă la dispoziție pentru a vă oferi soluții financiare personalizate, adaptate nevoilor dumneavoastră. Simplu, eficient, și fără complicații.",
     },
     {
-      img: cardImg2,
+      icon: IoRefresh,
       btnTitle: "Refinanțează",
       title: "Refinanțări",
       description:
         "Optați pentru refinanțare cu încredere. Echipa noastră vă asigură soluții personalizate pentru a consolida și eficientiza datoriile dvs. Există oportunități noi pentru un viitor financiar mai stabil.",
     },
     {
-      img: cardImg7,
+      icon: IoHome,
       btnTitle: "Completează",
       title: "Credite Imobiliare",
       description:
         "Asigurați-vă viitorul cu un credit imobiliar adaptat nevoilor dumneavoastră. Echipa noastră vă ghidează pas cu pas în procesul de obținere a unui credit pentru casa visurilor voastre. Investiția în confortul dumneavoastră începe aici.",
     },
     {
-      img: cardImg3,
+      icon: IoDocumentText,
       btnTitle: "Află mai multe",
       title: "Stergere din biroul de credit",
       description:
         "Asigurați-vă un start proaspăt eliminând datele negative din biroul de credit. Echipa noastră vă oferă suport specializat pentru a remedia situațiile financiare nefericite și a vă restabili un profil de credit pozitiv.",
     },
     {
-      img: cardImg4,
+      icon: IoBusiness,
       btnTitle: "Aplică aici",
       title: "Credite IMM-uri",
       description:
         "Optați pentru creditele pe firmă pentru a-ți dezvolta afacerea fără a-ți utiliza propriile resurse financiare. Echipa noastră vă oferă soluții personalizate pentru a obține finanțarea necesară și a consolida succesul în mediul de afaceri.",
     },
     {
-      img: cardImg6,
+      icon: IoCar,
       btnTitle: "Descoperiți",
       title: "Leasing Auto",
       description:
@@ -62,10 +57,11 @@ const Services = ({ setIsModalOpen }) => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
-    <div className="w-full section-padding relative bg-gray-50 overflow-hidden" id="services">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10"></div>
+    <div className="w-full section-padding relative bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden" id="services">
+      {/* Enhanced Background decoration */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-200/40 to-primary-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent-200/40 to-accent-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-100/30 to-accent-100/30 rounded-full mix-blend-multiply filter blur-3xl opacity-25 -z-10"></div>
 
       <div className="container-modern flex flex-col w-full text-center justify-center">
         <div className="flex flex-col w-full">
@@ -101,30 +97,29 @@ const Services = ({ setIsModalOpen }) => {
               >
                 <motion.div
                   variants={scrollAnimation}
-                  className="card-modern flex flex-col h-full"
+                  className="card-modern flex flex-col h-full hover:shadow-large hover:border-primary-200 transition-all duration-300 group"
                 >
-                  <div className="relative mb-4 flex flex-row items-center gap-4 p-4 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-100">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-medium">
-                      <img
-                        src={card.img}
-                        alt={card.title}
-                        className="w-10 h-10 object-contain filter brightness-0 invert"
-                      />
+                  <div className="relative mb-5 flex flex-row items-center gap-4 p-5 bg-gradient-to-br from-white via-white to-primary-50/30 rounded-2xl border border-gray-100 group-hover:border-primary-200 group-hover:shadow-medium transition-all duration-300">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 rounded-2xl flex items-center justify-center shadow-medium">
+                      {card.icon && (() => {
+                        const Icon = card.icon;
+                        return <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />;
+                      })()}
                     </div>
-                    <h4 className="text-lg md:text-xl text-gray-900 capitalize flex-1 font-bold text-left">
+                    <h4 className="text-lg md:text-xl text-gray-900 capitalize flex-1 font-bold text-left group-hover:text-primary-700 transition-colors duration-300">
                       {card.title}
                     </h4>
                   </div>
                   
                   <div className="flex flex-col w-full flex-1 mb-6">
-                    <p className="text-sm sm:text-base text-gray-600 text-start leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 text-start leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {card.description}
                     </p>
                   </div>
                   
                   <QuizButton
                     onClick={() => setIsModalOpen(true)}
-                    className="px-5 mt-auto font-semibold bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 rounded-xl text-white py-3 w-full shadow-medium hover:shadow-glow transition-[background,transform,box-shadow] duration-200 transform hover:scale-105 active:scale-95"
+                    className="px-6 mt-auto font-semibold bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 rounded-xl text-white py-3.5 w-full shadow-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 active:scale-95"
                     text={card.btnTitle}
                   />
                 </motion.div>
@@ -175,7 +170,10 @@ const Services = ({ setIsModalOpen }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="bg-gradient-to-br from-white to-primary-50/30 relative rounded-2xl py-10 sm:py-14 px-6 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-gray-100">
+              <div className="bg-gradient-to-br from-white via-primary-50/40 to-accent-50/30 relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/50 overflow-hidden">
+                {/* Decorative gradient overlay */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-accent-200/20 to-primary-200/20 rounded-full blur-3xl -z-10"></div>
                 <div className="flex flex-col text-left w-full sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
                   <h5 className="text-gray-900 text-2xl sm:text-3xl lg:text-4xl leading-tight font-bold mb-3">
                     Descoperă secretele{" "}

@@ -22,9 +22,10 @@ const Footer = () => {
 
   return (
     <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 sm:pt-32 pb-12 pt-16 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 -z-10"></div>
+      {/* Enhanced Background decoration */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-500/20 to-primary-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent-500/20 to-accent-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-400/10 to-accent-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10"></div>
 
       <div className="container-modern relative z-10">
         <div className="grid grid-rows-2 sm:grid-rows-1 grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-12 gap-8 sm:gap-12">
@@ -46,7 +47,7 @@ const Footer = () => {
                 href={facebookLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon hover:bg-blue-50 hover:border-blue-200 hover:shadow-medium hover:scale-110 transition-all duration-300"
                 aria-label="Facebook"
               >
                 <FaFacebookF className="h-5 w-5 text-blue-500" />
@@ -55,23 +56,23 @@ const Footer = () => {
                 href={instagramLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon hover:bg-pink-50 hover:border-pink-200 hover:shadow-medium hover:scale-110 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <FaInstagram className="h-5 w-5 text-pink-500" />
               </a>
               <button
                 onClick={openWhatsappChat}
-                className="social-icon"
+                className="social-icon hover:bg-primary-50 hover:border-primary-200 hover:shadow-medium hover:scale-110 transition-all duration-300"
                 aria-label="WhatsApp"
               >
-                <FaWhatsapp className="h-5 w-5 text-primary" />
+                <FaWhatsapp className="h-5 w-5 text-primary-500" />
               </button>
               <a 
                 href={tiktokLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon hover:bg-gray-100 hover:border-gray-300 hover:shadow-medium hover:scale-110 transition-all duration-300"
                 aria-label="TikTok"
               >
                 <FaTiktok className="h-5 w-5 text-gray-300" />
@@ -89,22 +90,22 @@ const Footer = () => {
             <p className="text-white mb-6 font-bold text-lg">Servicii</p>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-gray-300 cursor-pointer text-base">
+                <a href="#services" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Credite de nevoi personale
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 cursor-pointer text-base">
+                <a href="#services" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Refinanțări
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 cursor-pointer text-base">
+                <a href="#services" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Credite Imobiliare
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 cursor-pointer text-base">
+                <a href="#services" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Leasing Auto
                 </a>
               </li>
@@ -115,18 +116,18 @@ const Footer = () => {
             <p className="text-white mb-6 font-bold text-lg">Contact</p>
             <ul className="space-y-3">
               <li>
-                <a href="tel:0786744694" className="text-gray-300 cursor-pointer text-base flex items-center gap-2">
-                  <span className="text-primary-400">📞</span>
-                  0786 744 694
+                <a href="tel:0786744694" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base flex items-center gap-2 transition-colors duration-300 group">
+                  <span className="text-primary-400 group-hover:scale-110 transition-transform duration-300">📞</span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">0786 744 694</span>
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 cursor-pointer text-base">
+                <a href="#about" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Despre noi
                 </a>
               </li>
               <li>
-                <a href="#testimoni" className="text-gray-300 cursor-pointer text-base">
+                <a href="#testimoni" className="text-gray-300 hover:text-primary-400 cursor-pointer text-base transition-colors duration-300 hover:translate-x-1 inline-block">
                   Testimoniale
                 </a>
               </li>

@@ -23,10 +23,10 @@ const Header = ({ setIsModalOpen }) => {
     <>
       <header
         className={
-          "fixed top-0 w-full z-30 transition-all duration-300 " +
+          "fixed top-0 w-full z-30 transition-all duration-200 " +
           (scrollActive 
-            ? "glass-effect shadow-large py-0" 
-            : "bg-transparent py-4")
+            ? "bg-white shadow-large py-0 border-b border-gray-200" 
+            : "bg-gradient-to-tr from-primary-50/80 via-white to-accent-50/80 py-4")
         }
       >
         <nav className="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto grid grid-flow-col py-3 sm:py-4">
@@ -38,11 +38,15 @@ const Header = ({ setIsModalOpen }) => {
                 className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-sm"
               />
             </div>
-            <p className="text-sm hidden text-gray-800 uppercase md:block font-bold tracking-tight">
+            <p className={`text-sm hidden uppercase md:block font-bold tracking-tight transition-colors duration-200 ${
+              scrollActive ? "text-gray-800" : "text-gray-900"
+            }`}>
               Obtine Credit
             </p>
           </div>
-          <ul className="hidden lg:flex col-start-4 col-end-8 text-gray-700 items-center justify-center font-medium gap-1">
+          <ul className={`hidden lg:flex col-start-4 col-end-8 items-center justify-center font-medium gap-1 transition-colors duration-200 ${
+            scrollActive ? "text-gray-700" : "text-gray-800"
+          }`}>
             <LinkScroll
               activeClass="active"
               to="hero"
@@ -54,10 +58,10 @@ const Header = ({ setIsModalOpen }) => {
                 setActiveLink("hero");
               }}
               className={
-                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-lg transition-all duration-200 " +
+                "px-4 py-2 mx-1 cursor-pointer inline-block relative rounded-xl transition-all duration-300 hover:bg-primary-50/50 " +
                 (activeLink === "hero"
-                  ? " text-primary-600 bg-primary-50 font-semibold"
-                  : " text-gray-700")
+                  ? " text-primary-600 bg-gradient-to-r from-primary-50 to-primary-100 font-semibold shadow-soft"
+                  : scrollActive ? " text-gray-700 hover:text-primary-600" : " text-gray-800 hover:text-primary-600")
               }
             >
               Acasă
@@ -124,7 +128,7 @@ const Header = ({ setIsModalOpen }) => {
             <div className="text-gray-800 mx-2 sm:mx-4 capitalize tracking-wide transition-all">
               <a
                 href="tel:0786744694"
-                className="flex items-center gap-2 font-semibold tracking-wide py-3 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 outline-none rounded-xl capitalize shadow-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="flex items-center gap-2 font-semibold tracking-wide py-3 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 outline-none rounded-xl capitalize shadow-medium hover:shadow-glow transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
                 <FaPhoneAlt className="w-4 h-4"/>
                 <span className="hidden sm:inline">Sună acum</span>

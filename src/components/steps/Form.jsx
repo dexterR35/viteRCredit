@@ -274,7 +274,7 @@ const Form = ({ stepChange }) => {
             type="button"
             className={`btn-sm w-full mt-8 ${
               isContinueDisabled
-                ? "bg-gray-300 cursor-not-allowed hover:scale-100 hover:shadow-medium"
+                ? "!bg-gray-400 !text-white cursor-not-allowed hover:!scale-100 hover:!shadow-medium hover:!from-gray-400 hover:!to-gray-400"
                 : ""
             }`}
             onClick={handleContinue}
