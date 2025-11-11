@@ -71,7 +71,7 @@ const FinalstepCase = ({ stepCase }) => {
       </div>
       {content}
       <div className="btn-parent mt-10">
-        <a href="https://obtinecredit.ro" className="btn-sm w-full text-center">
+        <a href="https://obtinecredit.ro" className="btn-sm w-full text-center mx-4">
           <button className="">Află mai multe</button>
         </a>
       </div>

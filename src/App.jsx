@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
+import { createPortal } from "react-dom";
 import Hero from "./components/Pages/Hero";
 import About from "./components/Pages/About";
 import Services from "./components/Pages/Services";
@@ -12,7 +13,8 @@ const BonusModal = lazy(() => import("./components/BonusModal"));
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
-  return (
+  
+  return createPortal(
     <div
       className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white before overflow-scroll"
       role="dialog"
@@ -28,7 +30,8 @@ const Modal = ({ isOpen, onClose, children }) => {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -150,18 +153,21 @@ export default function App() {
           </div>
         </Layout>
 
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
-            <StartQuiz />
-          </Suspense>
-        </Modal>
-
         {showBonus && (
           <Suspense fallback={null}>
             <BonusModal visible={showBonus} onClose={closeBonusManually} />
           </Suspense>
         )}
       </div>
+
+      {/* Modal rendered outside Layout using Portal */}
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+            <StartQuiz />
+          </Suspense>
+        </Modal>
+      )}
     </>
   );
 }

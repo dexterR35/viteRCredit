@@ -119,7 +119,7 @@ const Step5 = ({ stepChange, formData }) => {
           </div>
         </div>
 
-        <div className="pt-6">
+        <div className="pt-2">
           <button
             className={`btn-sm w-full ${
               !isCheckboxChecked

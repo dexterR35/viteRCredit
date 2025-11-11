@@ -91,7 +91,7 @@ const Form = ({ stepChange }) => {
   };
 
   return (
-    <div className="w-full min-h-screen py-6 px-4">
+    <div className="w-full min-h-full py-6 px-4">
       <div className="max-w-md mx-auto">
         <div className="mb-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight">

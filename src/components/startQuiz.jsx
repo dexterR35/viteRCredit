@@ -51,9 +51,10 @@ export default function Quiz() {
         <LoadingScreen bgColor={changeBg()} />
       ) : (
         <>
+         
+          <div className="wrapper  w-full h-[100%] border-gray-200 border bg-white">
           <Progress currentStep={step} totalSteps={6} />
-          <div className="wrapper sm:w-[480px] w-full h-full overflow-scroll border-gray-200 border bg-white">
-            <div className="p-2 px-4">
+            <div className="p-0">
               {step === 1 && <Form stepChange={handleStepChange} />}
               {step === 2 && (
                 <Step2 stepChange={handleStepChange} fName={fName} />

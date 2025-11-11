@@ -345,7 +345,7 @@ const Step4 = ({ stepChange, formData }) => {
           </div>
         )}
 
-        <div className="pt-6">
+        <div className="pt-2">
           <button
             className={`btn-sm w-full ${
               isButtonDisabled()
