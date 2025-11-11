@@ -126,12 +126,12 @@ const Form = ({ stepChange }) => {
                   getFieldStatus("name") === "error"
                     ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     : getFieldStatus("name") === "success"
-                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    ? "border-primary-300 bg-primary-50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                     : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                 }`}
               />
               {getFieldStatus("name") === "success" && (
-                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-primary-500" />
               )}
               {getFieldStatus("name") === "error" && (
                 <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
@@ -164,12 +164,12 @@ const Form = ({ stepChange }) => {
                   getFieldStatus("phone") === "error"
                     ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     : getFieldStatus("phone") === "success"
-                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    ? "border-primary-300 bg-primary-50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                     : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                 }`}
               />
               {getFieldStatus("phone") === "success" && (
-                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-primary-500" />
               )}
               {getFieldStatus("phone") === "error" && (
                 <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
@@ -182,7 +182,7 @@ const Form = ({ stepChange }) => {
               </p>
             )}
             {touched.phone && !errors.phone && formData.phone && (
-              <p className="text-sm text-green-600 flex items-center gap-1">
+              <p className="text-sm text-primary-600 flex items-center gap-1">
                 <IoCheckmarkCircle className="w-4 h-4" />
                 Număr valid
               </p>
@@ -207,12 +207,12 @@ const Form = ({ stepChange }) => {
                   getFieldStatus("email") === "error"
                     ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     : getFieldStatus("email") === "success"
-                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    ? "border-primary-300 bg-primary-50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                     : "border-gray-300 bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                 }`}
               />
               {getFieldStatus("email") === "success" && (
-                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+                <IoCheckmarkCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-primary-500" />
               )}
               {getFieldStatus("email") === "error" && (
                 <IoCloseCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-red-500" />
@@ -242,7 +242,7 @@ const Form = ({ stepChange }) => {
                   getFieldStatus("aboutUs") === "error"
                     ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                     : getFieldStatus("aboutUs") === "success"
-                    ? "border-green-300 bg-green-50 focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                    ? "border-primary-300 bg-primary-50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                     : "border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
                 }`}
               >
@@ -259,7 +259,7 @@ const Form = ({ stepChange }) => {
                 </svg>
               </div>
               {getFieldStatus("aboutUs") === "success" && (
-                <IoCheckmarkCircle className="absolute right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-green-500" />
+                <IoCheckmarkCircle className="absolute right-12 top-1/2 transform -translate-y-1/2 w-6 h-6 text-primary-500" />
               )}
             </div>
             {touched.aboutUs && errors.aboutUs && (

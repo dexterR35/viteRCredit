@@ -128,8 +128,8 @@ const Step3 = ({ stepChange }) => {
           </div>
 
           {isDateSelected && (
-            <div className="p-4 bg-green-50 border-2 border-green-300 rounded-xl">
-              <p className="text-center text-base font-semibold text-green-800">
+            <div className="p-4 bg-primary-50 border-2 border-primary-300 rounded-xl">
+              <p className="text-center text-base font-semibold text-primary-800">
                 ✓ Ai ales: <span className="text-primary-700">{day} / {month} / {year}</span>
               </p>
             </div>

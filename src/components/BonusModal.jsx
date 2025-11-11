@@ -7,7 +7,7 @@ const BonusModalBanner = ({ visible, onClose }) => {
     <div className="fixed bottom-20 right-8 z-50 bg-primary text-white rounded-lg shadow-lg p-6 max-w-xs w-full flex flex-col items-center space-y-4">
       <button
         onClick={onClose}
-        className="absolute top-2 right-3 text-white hover:text-green-200 text-2xl font-bold focus:outline-none"
+        className="absolute top-2 right-3 text-white hover:text-primary-200 text-2xl font-bold focus:outline-none"
         aria-label="Închide"
       >
         &times;

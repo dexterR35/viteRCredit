@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Multumim() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-white text-center">
-      <IoCheckmarkCircleOutline className="text-green-500 text-7xl mb-5" />
+      <IoCheckmarkCircleOutline className="text-primary-500 text-7xl mb-5" />
 
       <h1 className="text-3xl font-bold mb-3 text-gray-800">Mulțumim pentru solicitare!</h1>
 
