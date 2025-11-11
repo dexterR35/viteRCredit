@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 // Import react scroll
 import { Link as LinkScroll } from "react-scroll";
-import LogoOBT from "/logo/logos.png";
+import LogoOBT from "/Icon/logo_minimalist.png";
 // import QuizButton from "../steps/Qbutton";
 
 import {
@@ -30,18 +30,17 @@ const Header = ({ setIsModalOpen }) => {
         }
       >
         <nav className="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto grid grid-flow-col py-3 sm:py-4">
-          <div className="col-start-1 col-end-2 flex items-center gap-3">
-            <div className="relative">
+          <div className="col-start-1 col-end-2 flex items-center gap-2.5">
+            <div className="relative flex-shrink-0">
               <img
                 src={LogoOBT}
                 alt="Obtine Credit Logo"
-                className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-sm"
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
               />
             </div>
-            <p className={`text-sm hidden uppercase md:block font-bold tracking-tight transition-colors duration-200 ${
-              scrollActive ? "text-gray-800" : "text-gray-900"
-            }`}>
-              Obtine Credit
+            <div className="hidden md:block h-6 w-px bg-gray-300"></div>
+            <p className="text-sm uppercase hidden md:block font-semibold tracking-tight !text-gray-600 transition-colors duration-200 leading-tight">
+              Obține Credit
             </p>
           </div>
           <ul className={`hidden lg:flex col-start-4 col-end-8 items-center justify-center font-medium gap-1 transition-colors duration-200 ${
