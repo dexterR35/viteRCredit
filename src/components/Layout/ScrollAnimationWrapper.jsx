@@ -17,16 +17,17 @@ export default function ScrollAnimationWrapper({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Disable animations on mobile for better performance
-  if (isMobile) {
-    return <div className={className} {...props}>{children}</div>;
-  }
-
+  // Optimize viewport settings for mobile (keep animations but optimized)
   return (
     <motion.div
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.1, margin: "-100px" }}
+      viewport={{ 
+        once: true, 
+        amount: isMobile ? 0.2 : 0.1, // Trigger earlier on mobile
+        margin: isMobile ? "-50px" : "-100px" // Less margin on mobile
+      }}
+      style={{ willChange: "transform, opacity" }} // GPU acceleration
       className={className}
       {...props}
     >

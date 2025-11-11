@@ -68,9 +68,10 @@ const Services = ({ setIsModalOpen }) => {
           <ScrollAnimationWrapper>
             <motion.div
               variants={scrollAnimation}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -141,9 +142,10 @@ const Services = ({ setIsModalOpen }) => {
           <ScrollAnimationWrapper>
             <motion.div
               variants={scrollAnimation}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
@@ -177,7 +179,8 @@ const Services = ({ setIsModalOpen }) => {
           <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-10">
             <motion.div 
               variants={scrollAnimation} 
-              custom={{ duration: 0.5 }}
+              custom={{ duration: 0.4 }}
+              style={{ willChange: "transform, opacity" }}
             >
               <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/40 overflow-hidden">
                 {/* Decorative elements */}

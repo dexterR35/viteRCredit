@@ -183,6 +183,19 @@ a, button {
   html {
     scroll-behavior: auto;
   }
+  
+  /* GPU acceleration for motion components */
+  [data-framer-motion] {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Optimize transitions */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 /* .BT,

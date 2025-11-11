@@ -46,9 +46,14 @@ const Hero = ({
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 w-full lg:w-full z-10">
             <motion.div 
               className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-xs sm:text-sm font-semibold tracking-wide shadow-soft border border-primary-100/50"
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ 
+                duration: 0.3,
+                ease: "easeOut",
+                willChange: "transform, opacity"
+              }}
+              style={{ willChange: "transform, opacity" }}
             >
               <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
               Soluții financiare inteligente

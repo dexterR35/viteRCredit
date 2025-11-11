@@ -33,8 +33,8 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default function App() {
-  const SHOW_BONUS_DELAY = 5000; // 1 second
-  const BONUS_COOLDOWN = 15000; // 15 seconds
+  const SHOW_BONUS_DELAY = 20000; // 20 seconds
+  const BONUS_COOLDOWN = 40000; // 40 seconds
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showBonus, setShowBonus] = useState(false);
