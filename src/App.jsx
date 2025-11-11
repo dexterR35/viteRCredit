@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import Hero from "./components/Pages/Hero";
 import About from "./components/Pages/About";
 import Services from "./components/Pages/Services";
 import Layout from "./components/Layout/Layout";
-import StartQuiz from "./components/startQuiz";
 import SeoHead from "./components/SeoHead";
-import BonusModal from "./components/BonusModal";
 import { IoCloseOutline } from "react-icons/io5";
+
+// Lazy load heavy components
+const StartQuiz = lazy(() => import("./components/startQuiz"));
+const BonusModal = lazy(() => import("./components/BonusModal"));
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -149,10 +151,16 @@ export default function App() {
         </Layout>
 
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <StartQuiz />
+          <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+            <StartQuiz />
+          </Suspense>
         </Modal>
 
-        <BonusModal visible={showBonus} onClose={closeBonusManually} />
+        {showBonus && (
+          <Suspense fallback={null}>
+            <BonusModal visible={showBonus} onClose={closeBonusManually} />
+          </Suspense>
+        )}
       </div>
     </>
   );

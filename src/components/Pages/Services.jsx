@@ -1,6 +1,4 @@
-import { useMemo } from "react";
-
-import Testimoni from "./Testimoni";
+import { useMemo, lazy, Suspense } from "react";
 
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../utils/getScrollAnimation";
@@ -8,6 +6,9 @@ import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import { IoWallet, IoRefresh, IoHome, IoDocumentText, IoBusiness, IoCar } from "react-icons/io5";
 
 import QuizButton from "../steps/Qbutton";
+
+// Lazy load Testimoni (uses react-slick which is heavy)
+const Testimoni = lazy(() => import("./Testimoni"));
 
 const Services = ({ setIsModalOpen }) => {
   const dataCards = [
@@ -167,7 +168,9 @@ const Services = ({ setIsModalOpen }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              <Testimoni />
+              <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading testimonials...</div>}>
+                <Testimoni />
+              </Suspense>
             </motion.div>
           </ScrollAnimationWrapper>
           
