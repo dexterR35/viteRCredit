@@ -128,7 +128,7 @@ const Header = ({ setIsModalOpen }) => {
             <div className="text-gray-800 mx-2 sm:mx-4 transition-all">
               <a
                 href="tel:0786744694"
-                className="flex items-center gap-2.5 font-semibold py-2.5 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 outline-none rounded-xl shadow-soft transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center gap-2.5 font-semibold py-2.5 px-5 sm:px-6 text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 outline-none rounded-xl shadow-soft transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <FaPhoneAlt className="w-4 h-4"/>
                 <span className="hidden sm:inline">Sună acum</span>

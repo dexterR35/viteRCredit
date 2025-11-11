@@ -128,7 +128,7 @@ const Services = ({ setIsModalOpen }) => {
                   <div className="relative z-10 mt-auto">
                     <QuizButton
                       onClick={() => setIsModalOpen(true)}
-                      className="px-6 font-semibold bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 rounded-xl text-white py-3.5 w-full shadow-medium transition-all duration-500 transform hover:scale-[1.02] active:scale-[0.98]"
+                      className="btn-sm w-full"
                       text={card.btnTitle}
                     />
                   </div>
