@@ -1,10 +1,7 @@
 export default function getScrollAnimation() {
-  // Detect mobile for lighter animations
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  
   return {
     offscreen: {
-      y: isMobile ? 20 : 50, // Less movement on mobile
+      y: 50,
       opacity: 0,
     },
     onscreen: ({ duration = 0.5 } = {}) => ({
@@ -13,7 +10,7 @@ export default function getScrollAnimation() {
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration: isMobile ? Math.min(duration, 0.4) : duration, // Faster on mobile
+        duration: duration,
       },
     }),
   };

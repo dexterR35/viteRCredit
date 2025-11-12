@@ -16,11 +16,11 @@ const Modal = ({ isOpen, onClose, children }) => {
   
   return createPortal(
     <div
-      className="fixed w-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white before overflow-scroll"
+      className="fixed w-full h-full top-0 z-50 flex justify-center items-start sm:justify-start bg-white before "
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative loading w-[480px] h-screen">
+      <div className="relative loading sm:w-[480px] h-full w-full">
         <button
           onClick={onClose}
           className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-2 top-3 z-20"
@@ -52,7 +52,23 @@ export default function App() {
 
   // Lock scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+    if (isModalOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.documentElement.style.overflow = "hidden";
+      
+      return () => {
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.documentElement.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
   }, [isModalOpen]);
 
   // Clear any pending timeout on unmount
@@ -136,7 +152,7 @@ export default function App() {
   return (
     <>
       <SeoHead />
-      <div className="min-h-screen bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative">
+      <div className=" bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative">
         {/* Minimalist gradient overlay across entire page */}
         <div className="fixed inset-0 bg-gradient-to-br from-primary-50/40 via-white to-accent-50/30 -z-10 pointer-events-none"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-50/20 via-transparent to-accent-50/20 -z-10 pointer-events-none"></div>

@@ -21,7 +21,7 @@ const Footer = () => {
   const facebookLink = `https://www.facebook.com/100063560649864`;
 
   return (
-    <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 sm:pt-32 pb-12 pt-16 overflow-hidden">
+    <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 sm:pt-32 pb-12 pt-16 ">
       {/* Minimalist Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-500/20 to-primary-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent-500/20 to-accent-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10"></div>

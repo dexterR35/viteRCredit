@@ -91,9 +91,9 @@ const Form = ({ stepChange }) => {
   };
 
   return (
-    <div className="w-full min-h-full py-6 px-4">
-      <div className="max-w-md mx-auto">
-        <div className="mb-8">
+    
+    <>
+        <div className="mb-8 b">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight">
             Soluții de{" "}
             <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
@@ -294,8 +294,8 @@ const Form = ({ stepChange }) => {
             </p>
           </div>
         </form>
-      </div>
-    </div>
+     
+ </>
   );
 };
 

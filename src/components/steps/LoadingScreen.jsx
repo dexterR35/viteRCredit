@@ -1,7 +1,7 @@
 export const LoadingScreen = ({ bgColor }) => {
   return (
     <div
-      className={`text-center flex flex-col items-center justify-center relative top-0 left-0 w-full h-full ${bgColor}`}
+      className={`text-center flex flex-col items-center justify-center relative top-0 left-0 w-full h-screen ${bgColor}`}
     >
       <div role="status">
         <svg
