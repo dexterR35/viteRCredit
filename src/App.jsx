@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative loading sm:w-[480px] h-full w-full">
+      <div className="relative loading sm:w-[480px] h-full w-full bg-white">
         <button
           onClick={onClose}
           className="p-3 px-5 text-md text-gray-400 absolute rounded-md right-2 top-3 z-20"

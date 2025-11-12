@@ -109,7 +109,7 @@ const Hero = ({
               key={index}
               variants={scrollAnimation}
             >
-              <div className="flex flex-row items-center justify-between gap-4 sm:gap-5 md:gap-6 w-full ">
+              <div className="flex flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 w-full ">
                 <div className="relative flex items-center justify-center">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-2xl blur-lg opacity-0  "></div>
                   <div className="relative flex items-center justify-center bg-gradient-to-br from-primary-600 to-primary-700 w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 rounded-2xl shadow-medium">
