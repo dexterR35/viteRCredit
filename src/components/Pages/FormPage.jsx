@@ -14,7 +14,7 @@ const FormPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20">
       {/* Header with back button */}
-      <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shadow-minimal">
+      <div className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b-2 border-gray-200/60 shadow-soft">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between py-4">
             <button

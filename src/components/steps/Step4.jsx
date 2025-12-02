@@ -154,8 +154,8 @@ const Step4 = ({ stepChange, formData }) => {
     );
   };
   return (
-    <div className="py-8 px-4 min-h-screen">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="py-6 sm:py-8 px-4 sm:px-6">
+      <div className="w-full max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto space-y-6 sm:space-y-8">
         {/* Banks Section */}
         <div className="space-y-5">
           <div className="text-center pb-4 border-b border-gray-200">
@@ -178,8 +178,8 @@ const Step4 = ({ stepChange, formData }) => {
                   key={index}
                   className={`relative group p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl border-2 cursor-pointer transition-all duration-300 bg-white hover:shadow-medium ${
                     isSelected
-                      ? "border-primary-500 bg-gradient-to-br from-primary-50 to-primary-100 shadow-lg scale-105 ring-2 ring-primary-200"
-                      : "border-gray-200 hover:border-primary-300 hover:bg-gray-50"
+                      ? "border-primary-500 bg-gradient-to-br from-primary-50 to-primary-100 shadow-medium scale-[1.02] ring-2 ring-primary-200"
+                      : "border-gray-200/60 hover:border-primary-300 hover:bg-gray-50"
                   }`}
                   onClick={() => handleDivClick(image.dataAtr, "banks")}
                 >
@@ -228,8 +228,8 @@ const Step4 = ({ stepChange, formData }) => {
                   key={index}
                   className={`relative group p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl border-2 cursor-pointer transition-all duration-300 bg-white hover:shadow-medium ${
                     isSelected
-                      ? "border-accent-500 bg-gradient-to-br from-accent-50 to-accent-100 shadow-lg scale-105 ring-2 ring-accent-200"
-                      : "border-gray-200 hover:border-accent-300 hover:bg-gray-50"
+                      ? "border-accent-500 bg-gradient-to-br from-accent-50 to-accent-100 shadow-medium scale-[1.02] ring-2 ring-accent-200"
+                      : "border-gray-200/60 hover:border-accent-300 hover:bg-gray-50"
                   }`}
                   onClick={() => handleDivClick(image.dataAtr, "ifn")}
                 >

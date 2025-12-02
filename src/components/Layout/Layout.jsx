@@ -3,13 +3,13 @@ import Header from "./Header";
 
 const Layout = ({ children, setIsModalOpen }) => {
   return (
-    <div className="w-full max-w-full overflow-x-hidden">
+    <>
       <Header setIsModalOpen={setIsModalOpen} />
-      <div className="w-full max-w-full overflow-x-hidden">
+      <main>
         {children}
-      </div>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

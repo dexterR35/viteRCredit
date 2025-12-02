@@ -98,7 +98,7 @@ const Services = ({ setIsModalOpen }) => {
                   {/* Decorative gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-transparent to-accent-50/0 group-hover:from-primary-50/30 group-hover:to-accent-50/20 transition-all duration-500 pointer-events-none"></div>
                   
-                  <div className="relative mb-6 flex flex-row items-center gap-4 p-6 bg-gradient-to-br from-gray-50/80 to-white rounded-2xl border border-gray-100/80 group-hover:border-primary-200/60 group-hover:shadow-medium transition-all duration-500">
+                  <div className="relative mb-6 flex flex-row items-center gap-4 p-6 bg-gradient-to-br from-gray-50/80 to-white rounded-2xl border-2 border-gray-200/60 group-hover:border-primary-200/80 group-hover:shadow-medium transition-all duration-300">
                     <div className="relative flex-shrink-0">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-accent-400/30 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-medium">
@@ -135,7 +135,7 @@ const Services = ({ setIsModalOpen }) => {
         <div className="flex flex-col w-full mt-10 lg:mt-32" id="testimoni">
           <ScrollAnimationWrapper>
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border-2 border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Testimoniale
               </div>
@@ -161,7 +161,7 @@ const Services = ({ setIsModalOpen }) => {
           
           <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-10">
             <div>
-              <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/40 overflow-hidden">
+              <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-2xl sm:rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-medium border-2 border-primary-200/60 overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-full blur-3xl -z-10"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-accent-200/20 to-primary-200/20 rounded-full blur-3xl -z-10"></div>
@@ -177,9 +177,9 @@ const Services = ({ setIsModalOpen }) => {
                     Abonează-te pentru sfaturi exclusive de la consultanți.
                   </p>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#Credite</span>
-                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#ConsultanțăFinanciară</span>
-                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200 transition-all duration-300">#EducațieFinanciară</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border-2 border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200/80 transition-all duration-300">#Credite</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border-2 border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200/80 transition-all duration-300">#ConsultanțăFinanciară</span>
+                    <span className="px-4 py-2 bg-white/80 rounded-full text-sm font-semibold text-gray-700 border-2 border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200/80 transition-all duration-300">#EducațieFinanciară</span>
                   </div>
                 </div>
                 <a 

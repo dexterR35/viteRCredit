@@ -18,21 +18,13 @@ function HomePage() {
   return (
     <>
       <SeoHead />
-      <div className="bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative overflow-x-hidden w-full max-w-full">
-        {/* Minimalist gradient overlay across entire page */}
-        <div className="fixed inset-0 bg-gradient-to-br from-primary-50/40 via-white to-accent-50/30 -z-10 pointer-events-none"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-50/20 via-transparent to-accent-50/20 -z-10 pointer-events-none"></div>
-        
+      <div className="bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative">
         <Layout setIsModalOpen={navigateToForm}>
-          <div className="relative">
-            <Hero setIsModalOpen={navigateToForm} />
-          </div>
-          <div id="about" className="relative">
+          <Hero setIsModalOpen={navigateToForm} />
+          <div id="about">
             <About />
           </div>
-          <div className="relative">
-            <Services setIsModalOpen={navigateToForm} />
-          </div>
+          <Services setIsModalOpen={navigateToForm} />
         </Layout>
       </div>
     </>
@@ -41,11 +33,9 @@ function HomePage() {
 
 export default function App() {
   return (
-    <div className="w-full max-w-full overflow-x-hidden">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/formular" element={<FormPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/formular" element={<FormPage />} />
+    </Routes>
   );
 }

@@ -33,7 +33,7 @@ const Hero = ({
 
   return (
     <div
-      className="relative max-w-screen-2xl xl:min-h-[95vh] min-h-[85vh] pt-20 sm:pt-24 lg:pt-28 px-4 sm:px-6 lg:px-8 xl:px-12 mx-auto flex flex-col justify-center sm:justify-between section-padding overflow-hidden"
+      className="relative max-w-screen-2xl xl:min-h-[95vh] min-h-[85vh] pt-20 sm:pt-24 lg:pt-28 px-4 sm:px-6 lg:px-8 xl:px-12 mx-auto flex flex-col justify-center sm:justify-between section-padding"
       id="hero"
     >
       {/* Minimalist Background decoration */}
@@ -43,7 +43,7 @@ const Hero = ({
       <ScrollAnimationWrapper>
         <div className="lg:grid grid-flow-row lg:grid-rows-1 lg:grid-cols-2 gap-8 sm:gap-12 py-6 sm:py-8 lg:py-12 flex flex-col items-center">
           <div className="flex flex-col justify-center items-start row-start-2 sm:row-start-1 w-full lg:w-full z-10">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-xs sm:text-sm font-semibold tracking-wide shadow-soft border border-primary-100/50">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-xs sm:text-sm font-semibold tracking-wide shadow-soft border-2 border-primary-100/50">
               <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
               Soluții financiare inteligente
             </div>
@@ -89,12 +89,12 @@ const Hero = ({
 
       {/* Modern Stats Section */}
       <div className="relative w-full flex mt-8 sm:mt-12 lg:mt-10">
-        <ScrollAnimationWrapper className="rounded-2xl sm:rounded-3xl w-full flex flex-col sm:flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-6 sm:py-8 md:py-10 lg:py-12 bg-white/80 backdrop-blur-xl z-10 shadow-large border border-gray-100/80 gap-0 overflow-hidden relative">
+        <ScrollAnimationWrapper className="rounded-2xl sm:rounded-3xl w-full flex flex-col sm:flex-row md:grid sm:grid-flow-row md:grid-cols-3 py-6 sm:py-8 md:py-10 lg:py-12 bg-white/80 backdrop-blur-xl z-10 shadow-medium border-2 border-gray-200/60 gap-0 overflow-hidden relative">
           {/* Decorative gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary-100/20 via-transparent to-accent-100/20 pointer-events-none"></div>
           {listUser.map((listUsers, index) => (
             <div
-              className="relative flex items-center justify-center py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-8 border-b sm:border-b-0 sm:border-r border-gray-300/50 last:border-b-0 last:border-r-0 hover:bg-gradient-to-br group"
+              className="relative flex items-center justify-center py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-8 border-b-2 sm:border-b-0 sm:border-r-2 border-gray-200/60 last:border-b-0 last:border-r-0 hover:bg-gradient-to-br group"
               key={index}
             >
               <div className="flex flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 w-full ">

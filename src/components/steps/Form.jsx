@@ -91,9 +91,8 @@ const Form = ({ stepChange }) => {
   };
 
   return (
-    
-    <>
-        <div className="mb-8 b">
+    <div className="w-full max-w-md mx-auto">
+        <div className="mb-6 sm:mb-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight">
             Soluții de{" "}
             <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
@@ -283,7 +282,7 @@ const Form = ({ stepChange }) => {
             Pasul Următor
           </button>
 
-          <div className="mt-6 p-4 bg-primary-50 rounded-xl border border-primary-200">
+          <div className="mt-6 p-4 bg-primary-50 rounded-xl border-2 border-primary-200 shadow-soft">
             <p className="text-sm text-gray-700 leading-relaxed flex items-start gap-2">
               <HiInformationCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
               <span>
@@ -294,8 +293,7 @@ const Form = ({ stepChange }) => {
             </p>
           </div>
         </form>
-     
- </>
+    </div>
   );
 };
 

@@ -54,15 +54,15 @@ const Step3 = ({ stepChange }) => {
   };
 
   return (
-    <div className="py-8 px-4 min-h-screen">
-      <div className="max-w-md mx-auto space-y-6">
+    <div className="py-6 sm:py-8 px-4 sm:px-6">
+      <div className="w-full max-w-md mx-auto space-y-6">
         <div className="text-center mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Angajare
           </h2>
         </div>
 
-        <div className="card-modern p-6">
+        <div className="card-modern">
           <div className="flex items-start gap-3 mb-4">
             <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-medium">
               <IoHelpCircleOutline className="w-6 h-6 text-white" />
@@ -128,7 +128,7 @@ const Step3 = ({ stepChange }) => {
           </div>
 
           {isDateSelected && (
-            <div className="p-4 bg-primary-50 border-2 border-primary-300 rounded-xl">
+            <div className="p-4 bg-primary-50 border-2 border-primary-300 rounded-xl shadow-soft">
               <p className="text-center text-base font-semibold text-primary-800">
                 ✓ Ai ales: <span className="text-primary-700">{day} / {month} / {year}</span>
               </p>

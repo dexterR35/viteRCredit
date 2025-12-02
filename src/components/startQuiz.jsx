@@ -28,9 +28,9 @@ export default function Quiz() {
   };
 
   return (
-    <div className="wrapper w-full border-gray-200 border bg-white">
+    <div className="wrapper w-full bg-white">
       <Progress currentStep={step} totalSteps={6} />
-      <div className="w-full h-full py-6 px-4">
+      <div className="w-full h-full">
         {step === 1 && <Form stepChange={handleStepChange} />}
         {step === 2 && (
           <Step2 stepChange={handleStepChange} fName={fName} />

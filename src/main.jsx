@@ -7,7 +7,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
     <BrowserRouter>
-      <App className="overflow-hidden"/>
+      <App />
     </BrowserRouter>
   </HelmetProvider>
 );

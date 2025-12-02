@@ -41,8 +41,8 @@ const Step2 = ({ stepChange, fName }) => {
     }
   };
   return (
-    <div className="py-8 px-4">
-      <div className="max-w-md mx-auto space-y-6">
+    <div className="py-6 sm:py-8 px-4 sm:px-6">
+      <div className="w-full max-w-md mx-auto space-y-6">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
             {getGreeting()},{" "}
@@ -52,7 +52,7 @@ const Step2 = ({ stepChange, fName }) => {
           </h2>
         </div>
 
-        <div className="card-modern p-6 space-y-4">
+        <div className="card-modern space-y-4">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-medium">
               <FcAssistant className="w-7 h-7" />
@@ -71,7 +71,7 @@ const Step2 = ({ stepChange, fName }) => {
           </div>
         </div>
 
-        <div className="p-4 bg-primary-50 rounded-xl border border-primary-200">
+        <div className="p-4 bg-primary-50 rounded-xl border-2 border-primary-200 shadow-soft">
           <p className="text-sm text-gray-700 leading-relaxed">
             Însă, înainte de a găsi o soluție, m-ar interesa să aflu câteva
             detalii esențiale de la dumneavoastră.
@@ -89,8 +89,8 @@ const Step2 = ({ stepChange, fName }) => {
                 key={index}
                 className={`relative flex items-center p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                   isChecked === option.value
-                    ? "bg-gradient-to-br from-primary-50 to-primary-100 border-primary-500 shadow-medium scale-105"
-                    : "bg-white border-gray-300 hover:border-primary-300 hover:shadow-soft"
+                    ? "bg-gradient-to-br from-primary-50 to-primary-100 border-primary-500 shadow-medium scale-[1.02]"
+                    : "bg-white border-gray-200/60 hover:border-primary-300 hover:shadow-soft"
                 }`}
               >
                 <div className="flex-1">

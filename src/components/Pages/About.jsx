@@ -36,7 +36,7 @@ const Feature = () => {
           {/* Right Side - Text Content */}
           <ScrollAnimationWrapper className="flex flex-col items-start justify-center w-full order-1 lg:order-2">
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide shadow-soft border border-primary-100/50">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide shadow-soft border-2 border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Despre noi
               </div>
@@ -62,7 +62,7 @@ const Feature = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           {texts.map((text) => (
             <li
-              className="relative flex justify-start items-center gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-100/80 shadow-soft hover:shadow-large hover:border-primary-200/60 hover:bg-gradient-to-br hover:from-white hover:to-primary-50/30 transition-all duration-500 group list-none"
+              className="relative flex justify-start items-center gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-gray-200/60 shadow-soft hover:shadow-medium hover:border-primary-200/80 hover:bg-gradient-to-br hover:from-white hover:to-primary-50/30 transition-all duration-300 group list-none"
               key={text}
             >
               <div className="relative flex-shrink-0">
