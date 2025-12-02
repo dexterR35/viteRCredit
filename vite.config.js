@@ -11,8 +11,6 @@ export default defineConfig({
         manualChunks: {
           // Split React and React DOM
           'react-vendor': ['react', 'react-dom'],
-          // Split Material-UI (large library)
-          'mui-vendor': ['@mui/material', '@emotion/react', '@emotion/styled'],
           // Split animation libraries
           'animation-vendor': ['framer-motion'],
           // Split carousel libraries

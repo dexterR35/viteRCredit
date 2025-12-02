@@ -23,7 +23,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gray-800 py-6">
-
       <div className="container-modern relative z-10">
         <div className="grid grid-rows-2 sm:grid-rows-1 grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-12 gap-8 sm:gap-12">
           <div className="row-span-2 sm:col-span-5 col-span-1 flex flex-col items-start">
@@ -75,25 +74,6 @@ const Footer = () => {
                 <FaTiktok className="h-5 w-5 text-gray-300" />
               </a>
             </div>
-            
-            <div className="pt-6 border-t border-gray-700 w-full">
-              <p className="text-gray-400 text-sm mb-4">
-                © {new Date().getFullYear()} <span className="text-primary-400 font-semibold">ObtineCredit.ro</span>. Toate drepturile rezervate.
-              </p>
-              <div className="flex flex-wrap gap-4 text-xs text-gray-400">
-                <Link to="/politica-confidentialitate" className="hover:text-primary-400 transition-colors duration-300">
-                  Politica de confidențialitate
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/politica-cookies" className="hover:text-primary-400 transition-colors duration-300">
-                  Politica Cookies
-                </Link>
-                <span className="text-gray-600">|</span>
-                <Link to="/gdpr" className="hover:text-primary-400 transition-colors duration-300">
-                  GDPR
-                </Link>
-              </div>
-            </div>
           </div>
           
           <div className="row-span-1 sm:col-span-3 sm:col-start-7 sm:col-end-10 flex flex-col">
@@ -142,6 +122,26 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+        
+        {/* Copyright and Legal Links - Always at bottom, especially on mobile */}
+        <div className="pt-6 mt-8 border-t border-gray-700 w-full">
+          <p className="text-gray-400 text-sm mb-4 text-center sm:text-left">
+            © {new Date().getFullYear()} <span className="text-primary-400 font-semibold">ObtineCredit.ro</span>. Toate drepturile rezervate.
+          </p>
+          <div className="flex flex-wrap gap-4 text-xs text-gray-400 justify-center sm:justify-start">
+            <Link to="/politica-confidentialitate" className="hover:text-primary-400 transition-colors duration-300">
+              Politica de confidențialitate
+            </Link>
+            <span className="text-gray-600 hidden sm:inline">|</span>
+            <Link to="/politica-cookies" className="hover:text-primary-400 transition-colors duration-300">
+              Politica Cookies
+            </Link>
+            <span className="text-gray-600 hidden sm:inline">|</span>
+            <Link to="/gdpr" className="hover:text-primary-400 transition-colors duration-300">
+              GDPR
+            </Link>
           </div>
         </div>
       </div>
