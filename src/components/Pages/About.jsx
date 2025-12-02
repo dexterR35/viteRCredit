@@ -1,6 +1,3 @@
-import { useMemo } from "react";
-import { motion } from "framer-motion";
-import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import illustration2 from "/Icon/hero2.png";
 import { IoCheckmarkCircle } from "react-icons/io5";
@@ -13,7 +10,6 @@ const texts = [
 ];
 
 const Feature = () => {
-  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
     <div className="section-padding relative overflow-hidden" id="about">
@@ -26,10 +22,7 @@ const Feature = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-10 lg:mb-4">
           {/* Left Side - Image */}
           <ScrollAnimationWrapper className="flex w-full justify-center lg:justify-start relative order-2 lg:order-1">
-            <motion.div
-              className="relative w-full max-w-lg"
-              variants={scrollAnimation}
-            >
+            <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-100/30 to-primary-200/20 rounded-3xl blur-3xl opacity-40"></div>
               <img
                 src={illustration2}
@@ -37,15 +30,12 @@ const Feature = () => {
                 className="relative w-full h-auto max-h-[400px] sm:max-h-[500px] md:max-h-[600px] object-contain z-10 rounded-3xl"
                 style={{ filter: 'hue-rotate(11deg)' }}
               />
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
 
           {/* Right Side - Text Content */}
           <ScrollAnimationWrapper className="flex flex-col items-start justify-center w-full order-1 lg:order-2">
-            <motion.div
-              variants={scrollAnimation}
-              custom={{ duration: 0.5 }}
-            >
+            <div>
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide shadow-soft border border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Despre noi
@@ -64,7 +54,7 @@ const Feature = () => {
                 pentru a te ghida în obținerea rezultatelor dorite în cel mai
                 eficient mod posibil.
               </p>
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
         </div>
 

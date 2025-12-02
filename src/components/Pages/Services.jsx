@@ -1,7 +1,6 @@
-import { useMemo, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { motion } from "framer-motion";
-import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../Layout/ScrollAnimationWrapper";
 import { IoWallet, IoRefresh, IoHome, IoDocumentText, IoBusiness, IoCar } from "react-icons/io5";
 
@@ -11,6 +10,11 @@ import QuizButton from "../steps/Qbutton";
 const Testimoni = lazy(() => import("./Testimoni"));
 
 const Services = ({ setIsModalOpen }) => {
+  const navigate = useNavigate();
+  
+  const handleFormClick = () => {
+    navigate("/formular");
+  };
   const dataCards = [
     {
       icon: IoWallet,
@@ -55,7 +59,6 @@ const Services = ({ setIsModalOpen }) => {
         "Descoperiți soluții accesibile de leasing auto cu ajutorul consultanților noștri financiari. Beneficiați de planuri flexibile de finanțare, concepute să vă ajute să economisiți și să alegeți cea mai bună opțiune fără complicații.",
     },
   ];
-  const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
     <div className="w-full section-padding relative overflow-hidden" id="services">
@@ -66,13 +69,7 @@ const Services = ({ setIsModalOpen }) => {
       <div className="container-modern flex flex-col w-full text-center justify-center">
         <div className="flex flex-col w-full">
           <ScrollAnimationWrapper>
-            <motion.div
-              variants={scrollAnimation}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              style={{ willChange: "transform, opacity" }}
-            >
+            <div>
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Serviciile noastre
@@ -88,7 +85,7 @@ const Services = ({ setIsModalOpen }) => {
                 Când planurile tale nu suportă amânare, echipa Obține Credit te
                 ajută să le pui în aplicare!
               </p>
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 py-6 sm:py-8">
@@ -97,10 +94,7 @@ const Services = ({ setIsModalOpen }) => {
                 className="flex justify-center"
                 key={index}
               >
-                <motion.div
-                  variants={scrollAnimation}
-                  className="card-modern flex flex-col h-full group relative overflow-hidden"
-                >
+                <div className="card-modern flex flex-col h-full group relative overflow-hidden">
                   {/* Decorative gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-50/0 via-transparent to-accent-50/0 group-hover:from-primary-50/30 group-hover:to-accent-50/20 transition-all duration-500 pointer-events-none"></div>
                   
@@ -127,12 +121,12 @@ const Services = ({ setIsModalOpen }) => {
                   
                   <div className="relative z-10 mt-auto">
                     <QuizButton
-                      onClick={() => setIsModalOpen(true)}
+                      onClick={handleFormClick}
                       className="btn-sm w-full"
                       text={card.btnTitle}
                     />
                   </div>
-                </motion.div>
+                </div>
               </ScrollAnimationWrapper>
             ))}
           </div>
@@ -140,13 +134,7 @@ const Services = ({ setIsModalOpen }) => {
 
         <div className="flex flex-col w-full mt-10 lg:mt-32" id="testimoni">
           <ScrollAnimationWrapper>
-            <motion.div
-              variants={scrollAnimation}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              style={{ willChange: "transform, opacity" }}
-            >
+            <div>
               <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-primary-50/90 to-accent-50/70 text-primary-700 rounded-full text-sm font-semibold tracking-wide mx-auto shadow-soft border border-primary-100/50">
                 <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
                 Testimoniale
@@ -160,28 +148,19 @@ const Services = ({ setIsModalOpen }) => {
               <p className="leading-relaxed mx-auto mb-16 mt-4 w-full sm:w-2/3 lg:w-1/2 text-lg sm:text-xl text-gray-600 text-balance">
                 Eficient, Rapid, Reușită
               </p>
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
           
           <ScrollAnimationWrapper className="w-full flex flex-col pt-2">
-            <motion.div 
-              variants={scrollAnimation}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
+            <div>
               <Suspense fallback={<div className="py-12 text-center text-gray-500">Loading testimonials...</div>}>
                 <Testimoni />
               </Suspense>
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
           
           <ScrollAnimationWrapper className="relative w-full mt-12 lg:mt-10">
-            <motion.div 
-              variants={scrollAnimation} 
-              custom={{ duration: 0.4 }}
-              style={{ willChange: "transform, opacity" }}
-            >
+            <div>
               <div className="bg-gradient-to-br from-white via-primary-50/20 to-accent-50/10 backdrop-blur-xl relative rounded-3xl py-12 sm:py-16 px-6 sm:px-12 lg:px-20 w-full flex flex-col sm:flex-row justify-between items-center z-10 shadow-large border border-primary-100/40 overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-200/20 to-accent-200/20 rounded-full blur-3xl -z-10"></div>
@@ -212,7 +191,7 @@ const Services = ({ setIsModalOpen }) => {
                   Intră online
                 </a>
               </div>
-            </motion.div>
+            </div>
           </ScrollAnimationWrapper>
         </div>
       </div>
