@@ -11,23 +11,16 @@ import GDPR from "./components/Pages/GDPR";
 
 // HomePage component that contains the main landing page
 function HomePage() {
-  const navigate = useNavigate();
-
-  // Navigate to form handler
-  const navigateToForm = () => {
-    navigate("/formular");
-  };
-
   return (
     <>
       <SeoHead />
       <div className="bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 relative">
-        <Layout setIsModalOpen={navigateToForm}>
-          <Hero setIsModalOpen={navigateToForm} />
+        <Layout>
+          <Hero />
           <div id="about">
             <About />
           </div>
-          <Services setIsModalOpen={navigateToForm} />
+          <Services />
         </Layout>
       </div>
     </>

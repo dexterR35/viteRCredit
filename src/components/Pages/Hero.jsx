@@ -23,7 +23,6 @@ const Hero = ({
       icon: IoLayersOutline,
     },
   ],
-  setIsModalOpen,
 }) => {
   const navigate = useNavigate();
   

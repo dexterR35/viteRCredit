@@ -9,7 +9,7 @@ import QuizButton from "../steps/Qbutton";
 // Lazy load Testimoni (uses react-slick which is heavy)
 const Testimoni = lazy(() => import("./Testimoni"));
 
-const Services = ({ setIsModalOpen }) => {
+const Services = () => {
   const navigate = useNavigate();
   
   const handleFormClick = () => {

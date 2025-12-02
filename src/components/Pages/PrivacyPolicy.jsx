@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
   const navigate = useNavigate();
 
   return (
-    <Layout setIsModalOpen={() => navigate("/formular")}>
+    <Layout>
       <div className="min-h-screen bg-gradient-to-br from-primary-50/30 via-white to-accent-50/20 pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16">
         <div className="container-modern max-w-4xl">
           <button

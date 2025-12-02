@@ -1,10 +1,10 @@
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout = ({ children, setIsModalOpen }) => {
+const Layout = ({ children }) => {
   return (
     <>
-      <Header setIsModalOpen={setIsModalOpen} />
+      <Header />
       <main>
         {children}
       </main>
