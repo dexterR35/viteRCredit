@@ -5,6 +5,9 @@ import Services from "./components/Pages/Services";
 import Layout from "./components/Layout/Layout";
 import SeoHead from "./components/SeoHead";
 import FormPage from "./components/Pages/FormPage";
+import PrivacyPolicy from "./components/Pages/PrivacyPolicy";
+import CookiePolicy from "./components/Pages/CookiePolicy";
+import GDPR from "./components/Pages/GDPR";
 
 // HomePage component that contains the main landing page
 function HomePage() {
@@ -36,6 +39,9 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/formular" element={<FormPage />} />
+      <Route path="/politica-confidentialitate" element={<PrivacyPolicy />} />
+      <Route path="/politica-cookies" element={<CookiePolicy />} />
+      <Route path="/gdpr" element={<GDPR />} />
     </Routes>
   );
 }
