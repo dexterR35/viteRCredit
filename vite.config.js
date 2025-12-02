@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative paths for assets
+  base: '/', // Use absolute paths for Vercel
   preview: {
     // Configure preview server for SPA routing
     port: 4173,
