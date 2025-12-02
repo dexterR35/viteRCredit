@@ -5,6 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: './', // Use relative paths for assets
+  preview: {
+    // Configure preview server for SPA routing
+    port: 4173,
+    strictPort: true,
+  },
   build: {
     rollupOptions: {
       output: {
