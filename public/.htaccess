@@ -2,6 +2,9 @@
   RewriteEngine On
   RewriteBase /
   
+  # Block access to admin paths
+  RewriteRule ^admin(/.*)?$ - [F,L]
+  
   # Don't rewrite files or directories
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
