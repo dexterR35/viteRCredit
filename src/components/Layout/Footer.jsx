@@ -126,11 +126,11 @@ const Footer = () => {
         </div>
         
         {/* Copyright and Legal Links - Always at bottom, especially on mobile */}
-        <div className="pt-6 mt-8 border-t border-gray-700 w-full">
-          <p className="text-gray-400 text-sm mb-4 text-center sm:text-left">
+        <div className="pt-6 mt-8 border-t border-gray-700 w-full flex flex-col justify-center items-center">
+          <p className="text-gray-400 text-sm mb-4 text-center">
             © {new Date().getFullYear()} <span className="text-primary-400 font-semibold">ObtineCredit.ro</span>. Toate drepturile rezervate.
           </p>
-          <div className="flex flex-wrap gap-4 text-xs text-gray-400 justify-center sm:justify-start">
+          <div className="flex flex-wrap gap-4 text-xs text-gray-400 justify-center">
             <Link to="/politica-confidentialitate" className="hover:text-primary-400 transition-colors duration-300">
               Politica de confidențialitate
             </Link>

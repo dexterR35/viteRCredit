@@ -1,17 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { FaPhoneAlt } from "react-icons/fa";
 // Import react scroll
 import { Link as LinkScroll } from "react-scroll";
 import LogoOBT from "/Icon/logo_minimalist.png";
-import QuizButton from "../steps/Qbutton";
 
 const Header = () => {
-  const navigate = useNavigate();
-  
-  const handleFormClick = () => {
-    navigate("/formular");
-  };
   const [activeLink, setActiveLink] = useState(null);
   const [scrollActive, setScrollActive] = useState(false);
   useEffect(() => {
@@ -125,11 +118,6 @@ const Header = () => {
             </LinkScroll>
           </ul>
           <div className="font-medium flex justify-end items-center flex-shrink-0 gap-2 sm:gap-3">
-            <QuizButton
-              onClick={handleFormClick}
-              className="btn-sm text-xs sm:text-sm hidden sm:inline-flex shadow-medium"
-              text="Obține Credit"
-            />
             <a
               href="tel:0786744694"
               className="flex items-center gap-1.5 sm:gap-2.5 font-semibold py-2 px-3 sm:py-2.5 sm:px-5 lg:px-6 text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 outline-none rounded-lg sm:rounded-xl shadow-soft transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm"
