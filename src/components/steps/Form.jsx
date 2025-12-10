@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
 import { HiUser, HiPhone, HiMail, HiInformationCircle } from "react-icons/hi";
 
@@ -286,11 +287,32 @@ const Form = ({ stepChange }) => {
             <p className="text-sm text-gray-700 leading-relaxed flex items-start gap-2">
               <HiInformationCircle className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
               <span>
-                Acesta este un chestionar interactiv care te va ajuta să obții
-                informații despre opțiunile tale de creditare. Vom începe prin a
-                afla câteva informații de bază despre tine.
+              Produs financiar supus eligibilității. Termeni și condiții aplicabile. Aprobarea și condițiile creditului se fac pe bază de analiză financiară. Pot exista costuri și comisioane conform legislației în vigoare.
               </span>
             </p>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-600">
+            <Link 
+              to="/politica-confidentialitate" 
+              className="hover:text-primary-600 transition-colors duration-200 underline underline-offset-2"
+            >
+              Politica de confidențialitate
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link 
+              to="/politica-cookies" 
+              className="hover:text-primary-600 transition-colors duration-200 underline underline-offset-2"
+            >
+              Politica Cookies
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link 
+              to="/gdpr" 
+              className="hover:text-primary-600 transition-colors duration-200 underline underline-offset-2"
+            >
+              GDPR
+            </Link>
           </div>
         </form>
     </div>
